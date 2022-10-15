@@ -1,0 +1,25 @@
+inventory[x][y]
+
+0: name of item, last non-blank 1 should be "empty" for script accelleration and to prevent over-referencing
+1: amount of item
+{should always be applicable}
+IF A WEAPON (RANGED):
+2: base accuracy {1-100}
+3: accuracy threshold before dropoff{meters}
+4: accuracy dropoff/meter{1-100}
+5: accuracy minimum{1-100}
+6: base damage{1-100}
+7: damage threshold before dropoff{meters}
+8: damage dropoff/meter{1-100}
+9: damage minimum{1-100}
+{if not applicable should be "empty" not ""}
+IF A WEAPON (MELEE):
+10: base damage
+{if not applicable should be "empty" not ""}
+IF A WEAPON:
+11: element (bio/tech/cancer/soul/omni)
+12: weight
+{if not applicable should be "empty" not ""}
+IF HAS DURABILITY:
+13: durability ("empty" for infinite)
+{if not applicable should be "empty" not ""}
