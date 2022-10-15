@@ -366,15 +366,15 @@ public class FightHandler {
 
             while ((fightMapRouter.amountinrange(ai_highest_arr_distance, (fightMapRouter.player_y() + fightMapRouter.optimal_distance) - ai_range, (fightMapRouter.player_y() + fightMapRouter.optimal_distance) + ai_range) < 3 && ai_range < fightMapRouter.max_range && fightMapRouter.canmove) || (fightMapRouter.canmove && (ai_range < fightMapRouter.max_range == false) && fightMapRouter.amountinrange(ai_highest_arr_distance, (fightMapRouter.player_y() - fightMapRouter.optimal_distance) - ai_range, (fightMapRouter.player_y() - fightMapRouter.optimal_distance) + ai_range) < 1)) {
                 ai_range++;
-                System.out.println(((fightMapRouter.player_y() + fightMapRouter.optimal_distance) - ai_range) + "min");
-                System.out.println(((fightMapRouter.player_y() + fightMapRouter.optimal_distance) + ai_range) + "max");
-                System.out.println(fightMapRouter.player_y());
+//                System.out.println(((fightMapRouter.player_y() + fightMapRouter.optimal_distance) - ai_range) + "min");
+//                System.out.println(((fightMapRouter.player_y() + fightMapRouter.optimal_distance) + ai_range) + "max");
+//                System.out.println(fightMapRouter.player_y());
             }
             ai_options_amount = fightMapRouter.amountinrange(ai_highest_arr_distance, (fightMapRouter.player_y() + fightMapRouter.optimal_distance) - ai_range, (fightMapRouter.player_y() + fightMapRouter.optimal_distance) + ai_range);
             ai_temp = fightMapRouter.extractcover(fightMapRouter.covers, fightMapRouter.enemy_currentcover);
             ai_options = fightMapRouter.grabinrange(ai_highest_arr_distance, (fightMapRouter.player_y() + fightMapRouter.optimal_distance) - ai_range, (fightMapRouter.player_y() + fightMapRouter.optimal_distance) + ai_range);
-            System.out.println("min" + ((fightMapRouter.player_y() + fightMapRouter.optimal_distance) - ai_range));
-            System.out.println("max" + ((fightMapRouter.player_y() + fightMapRouter.optimal_distance) + ai_range));
+//            System.out.println("min" + ((fightMapRouter.player_y() + fightMapRouter.optimal_distance) - ai_range));
+//            System.out.println("max" + ((fightMapRouter.player_y() + fightMapRouter.optimal_distance) + ai_range));
             i = 0;
             while (i < ai_options.length) {
                 ai_options[i] = ai_options[i] + fightMapRouter.player_y();
@@ -397,15 +397,15 @@ public class FightHandler {
 //            while (fightMapRouter.amountinrange(ai_highest_arr_distance, (fightMapRouter.player_y() - fightMapRouter.optimal_distance) - ai_range, (fightMapRouter.player_y() - fightMapRouter.optimal_distance) + ai_range) < 3 && ai_range < fightMapRouter.max_range && fightMapRouter.canmove) {
             while ((fightMapRouter.amountinrange(ai_highest_arr_distance, (fightMapRouter.player_y() - fightMapRouter.optimal_distance) - ai_range, (fightMapRouter.player_y() - fightMapRouter.optimal_distance) + ai_range) < 3 && ai_range < fightMapRouter.max_range && fightMapRouter.canmove) || (fightMapRouter.canmove && (ai_range < fightMapRouter.max_range == false) && fightMapRouter.amountinrange(ai_highest_arr_distance, (fightMapRouter.player_y() - fightMapRouter.optimal_distance) - ai_range, (fightMapRouter.player_y() - fightMapRouter.optimal_distance) + ai_range) < 1)) {
                 ai_range++;
-                System.out.println(((fightMapRouter.player_y() - fightMapRouter.optimal_distance) - ai_range) + "min");
-                System.out.println(((fightMapRouter.player_y() - fightMapRouter.optimal_distance) + ai_range) + "max");
-                System.out.println(fightMapRouter.player_y());
+//                System.out.println(((fightMapRouter.player_y() - fightMapRouter.optimal_distance) - ai_range) + "min");
+//                System.out.println(((fightMapRouter.player_y() - fightMapRouter.optimal_distance) + ai_range) + "max");
+//                System.out.println(fightMapRouter.player_y());
             }
             ai_options_amount = fightMapRouter.amountinrange(ai_highest_arr_distance, (fightMapRouter.player_y() - fightMapRouter.optimal_distance) - ai_range, (fightMapRouter.player_y() - fightMapRouter.optimal_distance) + ai_range);
             ai_temp = fightMapRouter.extractcover(fightMapRouter.covers, fightMapRouter.enemy_currentcover);
             ai_options = fightMapRouter.grabinrange(ai_highest_arr_distance, (fightMapRouter.player_y() - fightMapRouter.optimal_distance) - ai_range, (fightMapRouter.player_y() - fightMapRouter.optimal_distance) + ai_range);
-            System.out.println("min" + ((fightMapRouter.player_y() - fightMapRouter.optimal_distance) - ai_range));
-            System.out.println("max" + ((fightMapRouter.player_y() - fightMapRouter.optimal_distance) + ai_range));
+//            System.out.println("min" + ((fightMapRouter.player_y() - fightMapRouter.optimal_distance) - ai_range));
+//            System.out.println("max" + ((fightMapRouter.player_y() - fightMapRouter.optimal_distance) + ai_range));
             i = 0;
             while (i < ai_options.length) {
                 ai_options[i] = ai_options[i] + fightMapRouter.player_y();
@@ -417,68 +417,68 @@ public class FightHandler {
         ai_current_y = ai_current_y_temp[1];
         testi = 0;
         while ((testi == ai_options.length) == false) {
-            System.out.println("ai_options [" + testi + "] = " + ai_options[testi]);
+//            System.out.println("ai_options [" + testi + "] = " + ai_options[testi]);
             testi++;
         }
         testi = 0;
         while ((testi == ai_current_y_temp.length) == false) {
-            System.out.println("ai_current_y_temp[" + testi + "] = " + ai_current_y_temp[testi]);
+//            System.out.println("ai_current_y_temp[" + testi + "] = " + ai_current_y_temp[testi]);
             testi++;
         }
-        System.out.println("ai_current_y = " + ai_options_amount);
-        System.out.println("ai_options_amount = " + ai_options_amount);
-        System.out.println("fightMapRouter.canmove = " + fightMapRouter.canmove);
-        System.out.println("ai_temp[2] = " + ai_temp[2]);
-        System.out.println("Integer.parseInt(ai_temp[2]) = " + Integer.parseInt(ai_temp[2]));
-        System.out.println("parseint(ai_current_y) = ");
-        System.out.println(Integer.parseInt(ai_current_y));
+//        System.out.println("ai_current_y = " + ai_options_amount);
+//        System.out.println("ai_options_amount = " + ai_options_amount);
+//        System.out.println("fightMapRouter.canmove = " + fightMapRouter.canmove);
+//        System.out.println("ai_temp[2] = " + ai_temp[2]);
+//        System.out.println("Integer.parseInt(ai_temp[2]) = " + Integer.parseInt(ai_temp[2]));
+//        System.out.println("parseint(ai_current_y) = ");
+//        System.out.println(Integer.parseInt(ai_current_y));
         ai_current_y_int = Integer.parseInt(ai_current_y);
         
         if (((Integer.parseInt(ai_temp[2]) == 0 && rng.nextInt(101) < 99) || rng.nextInt(101) < 80) && fightMapRouter.canmove && ai_options_amount > 0) {
             ai_rng_temp = rng.nextInt(ai_options_amount);
-            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
+//            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
             ai_rng_temp = rng.nextInt(ai_options_amount);
-            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
+//            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
             ai_rng_temp = rng.nextInt(ai_options_amount);
-            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
+//            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
             ai_rng_temp = rng.nextInt(ai_options_amount);
-            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
+//            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
             ai_rng_temp = rng.nextInt(ai_options_amount);
-            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
+//            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
             ai_rng_temp = rng.nextInt(ai_options_amount);
-            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
+//            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
             ai_rng_temp = rng.nextInt(ai_options_amount);
-            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
+//            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
             ai_rng_temp = rng.nextInt(ai_options_amount);
-            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
+//            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
             ai_rng_temp = rng.nextInt(ai_options_amount);
-            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
+//            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
             ai_rng_temp = rng.nextInt(ai_options_amount);
-            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
+//            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
             ai_rng_temp = rng.nextInt(ai_options_amount);
-            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
+//            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
             ai_rng_temp = rng.nextInt(ai_options_amount);
-            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
+//            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
             ai_rng_temp = rng.nextInt(ai_options_amount);
-            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
+//            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
             ai_rng_temp = rng.nextInt(ai_options_amount);
-            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
+//            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
             ai_rng_temp = rng.nextInt(ai_options_amount);
-            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
+//            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
             ai_rng_temp = rng.nextInt(ai_options_amount);
-            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
+//            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
             ai_rng_temp = rng.nextInt(ai_options_amount);
-            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
+//            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
             testi = 0;
             while (testi < ai_options.length) {
-                System.out.println("ai_options[" + testi + "] = " + ai_options[testi]);
+//                System.out.println("ai_options[" + testi + "] = " + ai_options[testi]);
                 testi++;
             }
-            System.out.println("ai_options.length = " + ai_options.length);
-            System.out.println("ai_rng_temp = " + ai_rng_temp);
-            System.out.println("ai_options[ai_rng_temp] == ai_current_y_int = " + (ai_options[ai_rng_temp] == ai_current_y_int));
-            System.out.println("ai_options.length > 1 = " + (ai_options.length > 1));
-            System.out.println("ai_rng_temp == 2 = " + (ai_rng_temp == 2));
+//            System.out.println("ai_options.length = " + ai_options.length);
+//            System.out.println("ai_rng_temp = " + ai_rng_temp);
+//            System.out.println("ai_options[ai_rng_temp] == ai_current_y_int = " + (ai_options[ai_rng_temp] == ai_current_y_int));
+//            System.out.println("ai_options.length > 1 = " + (ai_options.length > 1));
+//            System.out.println("ai_rng_temp == 2 = " + (ai_rng_temp == 2));
 //            ai_rng_temp
             while (ai_options[ai_rng_temp] == ai_current_y_int && ai_options.length > 1 || (false && ai_rng_temp == 2)) {
                 //                System.out.println("ai_options_amount = " + ai_options_amount);
@@ -490,16 +490,16 @@ public class FightHandler {
                 //                System.out.println("ai_rng_temp = " + ai_rng_temp);
                 testi = 0;
                 while (testi < ai_options.length) {
-                    System.out.println("ai_options[" + testi + "] = " + ai_options[testi]);
+//                    System.out.println("ai_options[" + testi + "] = " + ai_options[testi]);
                     testi++;
                 }
-                System.out.println("ai_rng_temp = " + ai_rng_temp);
-                System.out.println("ai_options[ai_rng_temp] = " + ai_options[ai_rng_temp]);
+//                System.out.println("ai_rng_temp = " + ai_rng_temp);
+//                System.out.println("ai_options[ai_rng_temp] = " + ai_options[ai_rng_temp]);
             }
 
             //            System.out.println("I have reached line 228");
             chosen = fightMapRouter.convertytoname(ai_options[ai_rng_temp]);
-            System.out.println("chosen = " + chosen);
+//            System.out.println("chosen = " + chosen);
             //            fightMapRouter.enemy_currentcover = chosen;
             enemy_move(chosen);
         } else {

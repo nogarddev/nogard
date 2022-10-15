@@ -108,8 +108,8 @@ public class FightMapRouter {
         Integer out = 0;
         Integer loop = 0;
         while ((loop == lengthofarr) == false) {
-            System.out.println("amount: arr[loop] (" + arr[loop] + ") > min (" + min + ") = " + (arr[loop] > min));
-            System.out.println("amount: arr[loop] (" + arr[loop] + ") < max (" + max + ") = " + (arr[loop] < max));
+//            System.out.println("amount: arr[loop] (" + arr[loop] + ") > min (" + min + ") = " + (arr[loop] > min));
+//            System.out.println("amount: arr[loop] (" + arr[loop] + ") < max (" + max + ") = " + (arr[loop] < max));
             if (arr[loop] > min && arr[loop] < max) {
                 out++;
             }
@@ -124,14 +124,14 @@ public class FightMapRouter {
         Integer[] out = new Integer[arr.length];
         Integer loop = 0;
         while ((loop == lengthofarr) == false) {
-            System.out.println("arr[loop] (" + arr[loop] + ") > min (" + min + ") = " + (arr[loop] > min));
-            System.out.println("arr[loop] (" + arr[loop] + ") < max (" + max + ") = " + (arr[loop] < max));
+//            System.out.println("arr[loop] (" + arr[loop] + ") > min (" + min + ") = " + (arr[loop] > min));
+//            System.out.println("arr[loop] (" + arr[loop] + ") < max (" + max + ") = " + (arr[loop] < max));
             if (arr[loop] > min && arr[loop] < max) {
                 out[posofarr] = arr[loop];
                 posofarr++;
-                System.out.println("entered: \"" + arr[loop] + "\"");
+//                System.out.println("entered: \"" + arr[loop] + "\"");
             }
-            System.out.println("passed: \"" + arr[loop] + "\"");
+//            System.out.println("passed: \"" + arr[loop] + "\"");
             loop++;
         }
         loop = 0;
@@ -145,17 +145,17 @@ public class FightMapRouter {
         Integer[] out1 = new Integer[amountinrange(arr, min, max)];
         loop = 0;
         while ((loop == amount) == false){
-            System.out.println("out[" + loop + "] = " + out[loop]);
+//            System.out.println("out[" + loop + "] = " + out[loop]);
             out1[loop] = out[loop];
             loop++;
         }
-        System.out.println("out1.length = " + out1.length );
+//        System.out.println("out1.length = " + out1.length );
         return out1;
     }
     public static String convertytoname(Integer y) {
         Integer pos = 0;
         Integer lengthofarr = 0;
-        System.out.println("the wanted y for a conversion is :" + y);
+//        System.out.println("the wanted y for a conversion is :" + y);
         while (covers[lengthofarr][0].equals("empty") == false) {
             lengthofarr++;
         }
