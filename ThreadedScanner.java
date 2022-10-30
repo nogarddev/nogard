@@ -68,7 +68,7 @@ public class ThreadedScanner extends Thread {
         if (man.ssh) {
             System.out.println("\"" + input + "\"");
         }
-        System.out.println(man.ssh);
+//        System.out.println(man.ssh);
         return input;
     }
     public static void at(String string, String ms, boolean skip_spaces) {
@@ -82,14 +82,14 @@ public class ThreadedScanner extends Thread {
             timeout(ms);
         }
         text = colour(text);
-        System.out.print(text);
+//        System.out.print(text);
         if (Integer.parseInt(ms) > 0) {
             timeout(ms);
         }
     }
     public static void cls() {
-        System.out.print("[H");
-        System.out.print("[2J");
+//        System.out.print("[H");
+//        System.out.print("[2J");
     }
     public static String colour(String string) {
         string = string.replace("...sr...", ESC + "[0m");//Style reset

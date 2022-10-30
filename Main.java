@@ -47,13 +47,9 @@ public class Main {
         mainlib.nlers = "...sbw......nfba...";
         nl();
         at("Watch intro?", "30", true);
-        System.out.println("Main:50 passed");
         nl();
-        System.out.println("Main:52 passed");
         mainlib.choice = mainlib.choices(true, "30", true, new String[]{"yes", "no"});
-        System.out.println("Main:54 passed");
-        System.out.println((xy++).toString());
-        System.out.println("Main:56 passed");
+//        System.out.println((xy++).toString());
         if (mainlib.choice.equals("yes")) {
             playsong("title.wav");
             intro_screen_wall();
@@ -65,11 +61,9 @@ public class Main {
                 nl();
             }
         }
-        System.out.println("Main:68 passed");
         mainlib.nlers = "...sbba......sfw...";
         nl();
         cls();
-        System.out.println("Main:72 passed");
         stop();
         at("Hello! Before we begin, should we do a little tutorial?", "30", true);
         nl();
