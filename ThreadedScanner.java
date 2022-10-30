@@ -63,8 +63,8 @@ public class ThreadedScanner extends Thread {
         System.out.println("man.startyouscan = " + man.startyouscan);
         skipstr = man.startyouscan;
         while (man.startyouscan.equals("0")) {
-            timeout("1000");
-            System.out.println("im alive!");
+//            timeout("1000");
+//            System.out.println("im alive!");
             skip = 0;
 //            skipstr = "skipping";
 //            if (skip == 0) {
