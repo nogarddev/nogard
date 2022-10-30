@@ -61,15 +61,16 @@ public class ThreadedScanner extends Thread {
     public static void waitx() {
         MainLib man = new MainLib();
 //        System.out.println("man.startyouscan = " + man.startyouscan);
-        while (man.startyouscan.equals("0")) {
+            skipstr = man.startyouscan;
+            while (man.startyouscan.equals("0")) {
 //            timeout("1000");
 //            System.out.println("im alive!");
             skip = 0;
-            skipstr = "skipping";
-            if (skip == 0) {
-                skip = 1;
-                skipstr = "skipping1";
-            }
+//            skipstr = "skipping";
+//            if (skip == 0) {
+//                skip = 1;
+//                skipstr = "skipping1";
+//            }
         }
         Scan(ms, skip_spaces, args);
     }
