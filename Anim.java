@@ -62,6 +62,7 @@ public class Anim extends Thread {
     }
     public static void anim(Integer frame) {
         MainLib man = new MainLib();
+        Main main = new Main();
         historic_map = man.currentmap;
         historic_map_height = man.map_height;
         man.pause_typing = true;
@@ -78,7 +79,9 @@ public class Anim extends Thread {
         man.nlers = "...nbba......sfw...";
         System.out.print("[2K");
         System.out.print("[1G");
-        System.out.print("####################################################################################################################################################################################################################################################################################################");
+        if (main.mini == false) {
+            System.out.print("####################################################################################################################################################################################################################################################################################################");
+        }
         System.out.print("[1");
         System.out.print("[u");
         man.pause_typing = false;

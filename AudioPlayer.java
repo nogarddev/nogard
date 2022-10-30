@@ -48,24 +48,25 @@ public class AudioPlayer extends Thread {
             ex.printStackTrace();
         }
     }
+    final static Main main = new Main();
     public void Setup() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-        kill = "0";
-        audioInputStream =
-                AudioSystem.getAudioInputStream(new File("fx/" + name).getAbsoluteFile());
-
-
-        clip = AudioSystem.getClip();
-        clip.open(audioInputStream);
-        clip.start();
-        clip.loop(Clip.LOOP_CONTINUOUSLY);
-        MainLib man = new MainLib();
-        while (man.killyou == "0") {
-            skip = "1";
+        if (main.mute == false) {
+            kill = "0";
+            audioInputStream =
+                    AudioSystem.getAudioInputStream(new File("fx/" + name).getAbsoluteFile());
+            clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.start();
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
+            MainLib man = new MainLib();
+            while (man.killyou == "0") {
+                skip = "1";
+            }
+            clip.stop();
+            clip.close();
+            man.start = "0";
+            setupstarter();
         }
-        clip.stop();
-        clip.close();
-        man.start = "0";
-        setupstarter();
     }
     public void Setupfx() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
         audioInputStream =
