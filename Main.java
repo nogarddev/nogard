@@ -27,13 +27,13 @@ public class Main {
             }
             while ((args.length == loop1) == false) {
                 if (args[loop1].equals("help")) {
-                    ssh = true;
+                    help = true;
                 }
                 loop1++;
             }
             while ((args.length == loop1) == false) {
                 if (args[loop1].equals("mini")) {
-                    ssh = true;
+                    mini = true;
                     System.out.println("mini enabled");
                 }
                 loop1++;
