@@ -240,15 +240,15 @@ public class MainLib  {
 //        }
 //    }
     public static Integer skipa = 0;
+    static ThreadedScanner threadedScanner = new ThreadedScanner();
     public static String choices(Boolean threaded, String ms, Boolean skip_spaces, String args[]) {
         //         String[] array = array.fill(myArray, null);
         System.out.println("Mainlib:245 passed");
         if (threaded == true) {
-            ThreadedScanner threadedScanner = new ThreadedScanner();
             System.out.println("Mainlib:248 passed");
+            startyouscan = "0";
             if (startedscan.equals("0")) {
                 System.out.println("Mainlib:250 passed");
-                startyouscan = "0";
                 threadedScanner.start();
             }
             System.out.println("Mainlib:253 passed");
