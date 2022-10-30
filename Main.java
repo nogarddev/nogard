@@ -7,6 +7,7 @@ public class Main {
     public static Boolean ssh = false;
     public static Boolean help = false;
     public static Boolean mini = false;
+    public static Boolean mute = false;
     public static Integer xy = 0;
     public static void main(String[] args) {
         if ((args.length == 0) == false) {
@@ -38,6 +39,14 @@ public class Main {
                 if (args[loop1].equals("mini")) {
                     mini = true;
                     System.out.println("mini enabled");
+                }
+                loop1++;
+            }            
+            loop1 = 0;
+            while ((args.length == loop1) == false) {
+                if (args[loop1].equals("mute")) {
+                    mute = true;
+                    System.out.println("mute enabled");
                 }
                 loop1++;
             }            
@@ -74,6 +83,8 @@ public class Main {
             at("mini: used to not interrupt displays that cannot be resized by removing certain elements", "30", true);
             nl();
             at("ssh: used to allow compatability with ssh clients and similar, this should be tried as a potential fix when typing into inputs doesn't work", "30", true);
+            nl();
+            at("mute: stops audio from playing so that no error messages pop up", "30", true);
             nl();
             at("press enter to close", "30", true);
             nl();
