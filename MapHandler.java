@@ -372,6 +372,7 @@ public class MapHandler {
         return mainlib.colour(string);
     }
     public static Integer i;
+    static Main main = new Main();
     public static void fakeanim() {
 //        mainlib.pause_typing = true;
 //        mainlib.timeout("20");//makes typing risky
@@ -390,7 +391,9 @@ public class MapHandler {
         System.out.println(mainlib.colour(mainlib.nlers));
         System.out.print("[2K");
 //        System.out.print("[2K" + mainlib.colour("...nbba......sfw..."));
-        System.out.println("####################################################################################################################################################################################################################################################################################################");
+        if (main.mini == false) {
+            System.out.println("####################################################################################################################################################################################################################################################################################################");
+        }
 //        System.out.print("[1B");
         System.out.print("[u");
 //        mainlib.pause_typing = false;

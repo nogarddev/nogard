@@ -14,6 +14,7 @@ public class Main {
             while ((args.length == loop1) == false) {
                 if (args[loop1].equals("test")) {
                     test = true;
+                    System.out.println("test enabled");
                 }
                 loop1++;
             }
@@ -66,11 +67,13 @@ public class Main {
             nl();
             nl();
             nl();
+            at("test: enables a debug option when playing the game", "30", true);
+            nl();
             at("help: displays this message", "30", true);
             nl();
             at("mini: used to not interrupt displays that cannot be resized by removing certain elements", "30", true);
             nl();
-            at("ssh: used to allow compatability with ssh clients and similar, this should be tried as a potential fix when you cannon type into inputs", "30", true);
+            at("ssh: used to allow compatability with ssh clients and similar, this should be tried as a potential fix when typing into inputs doesn't work", "30", true);
             nl();
             at("press enter to close", "30", true);
             nl();
