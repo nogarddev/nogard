@@ -60,7 +60,7 @@ public class ThreadedScanner extends Thread {
     public static void waitx() {
         MainLib man = new MainLib();
         while (man.startyouscan.equals("0")) {
-            timeout("1000");
+            timeout("1");
 //            System.out.println("im alive!");
             skip = 0;
         }
