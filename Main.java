@@ -73,8 +73,10 @@ public class Main {
             at("ssh: used to allow compatability with ssh clients and similar, this should be tried as a potential fix when you cannon type into inputs", "30", true);
             nl();
             at("press enter to close", "30", true);
+            nl();
             enter_break();
             nl();
+            System.exit(0);
         }
         mainlib.nlers = "...sbw......nfba...";
         nl();
@@ -130,7 +132,6 @@ public class Main {
             at("...sr...One other note, you will be represented with a red ...nfr...@...sr... symbol, use this to tell where you are.", "30", true);
             nl();
             mainlib.enter_break();
-            System.exit(0);
         }
         if (mainlib.choice.equals("no")) {
             showmap();
