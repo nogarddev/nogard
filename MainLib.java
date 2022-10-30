@@ -254,12 +254,17 @@ public class MainLib  {
             System.out.println("Mainlib:253 passed");
             threadedScanner.outputed = "0";
             threadedScanner.ms = ms;
+            System.out.println("Mainlib:257 passed");
             threadedScanner.skip_spaces = skip_spaces;
+            System.out.println("Mainlib:259 passed");
             threadedScanner.args = args;
+            System.out.println("Mainlib:261 passed");
             startyouscan = "1";
             startedscan = "1";
 //            frame = 1;
+            System.out.println("Mainlib:265 passed");
             while (threadedScanner.outputed.equals("0")) {
+                System.out.println("Mainlib:267 passed");
                 skipa = 1;
 //                skip = "0";
 //                //api for animation
@@ -308,13 +313,16 @@ public class MainLib  {
 ////                }
 //                timeout("1000");
             }
+            System.out.println("Mainlib:316 passed");
             MapHandler mapHandler = new MapHandler();
             if (mapHandler.dofakeanim) {
+                System.out.println("Mainlib:319 passed");
                 mapHandler.fakeanim();
             }
+            System.out.println("Mainlib:322 passed");
             return threadedScanner.output.toString();
         } else {
-
+            System.out.println("Mainlib:325 passed");
             String prompt = "";
             at("(" +  String.join(",", args)  + ")", ms, skip_spaces);
             //            nl();
@@ -344,6 +352,7 @@ public class MainLib  {
             if (mapHandler.dofakeanim) {
                 mapHandler.fakeanim();
             }
+            System.out.println("Mainlib:357 passed");
             return prompt.toString();        
         }
     }
