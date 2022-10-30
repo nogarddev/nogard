@@ -49,11 +49,11 @@ public class ThreadedScanner extends Thread {
         }
         System.out.println("ThreadedScanner:50 passed");
         output = prompt.toString();
+        outputed = "1";
         System.out.println("ThreadedScanner:53 passed");
         man.startyouscan = "0";
         args = new String[] {};
         System.out.println("ThreadedScanner:56 passed");
-        outputed = "1";
         waitx();
     }
     public static String start;
