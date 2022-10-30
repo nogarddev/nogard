@@ -58,10 +58,14 @@ public class ThreadedScanner extends Thread {
     public static Boolean skip_spaces;
     public static String args[];
     public static String getinput() {
+        MainLib man = new MainLib();
         Scanner sc = new Scanner(System.in);
 
         input = sc.nextLine();
 //        sc.close();
+        if (man.ssh) {
+            System.out.println("\"" + input + "\"");
+        }
         return input;
     }
     public static void at(String string, String ms, boolean skip_spaces) {
