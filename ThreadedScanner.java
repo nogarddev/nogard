@@ -58,7 +58,7 @@ public class ThreadedScanner extends Thread {
     public static Boolean skip_spaces;
     public static String args[];
     public static String getinput() {
-        MainLib man = new MainLib();
+        Main man = new Main();
         Scanner sc = new Scanner(System.in);
 
         input = sc.nextLine();
