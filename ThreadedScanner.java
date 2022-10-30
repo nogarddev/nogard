@@ -65,9 +65,9 @@ public class ThreadedScanner extends Thread {
 
         input = sc.nextLine();
 //        sc.close();
-        if (man.ssh) {
-            System.out.println("\"" + input + "\"");
-        }
+//        if (man.ssh) {
+//            System.out.println("\"" + input + "\"");
+//        }
 //        System.out.println(man.ssh);
         return input;
     }
