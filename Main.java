@@ -19,6 +19,7 @@ public class Main {
             while ((args.length == loop1) == false) {
                 if (args[loop1].equals("ssh")) {
                     ssh = true;
+                    System.out.println("ssh enabled");
                 }
                 loop1++;
             }
