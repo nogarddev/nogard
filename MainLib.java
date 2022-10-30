@@ -257,7 +257,7 @@ public class MainLib  {
 //            frame = 1;
             while (threadedScanner.outputed.equals("0")) {
                 skipa = 1;
-//                timeout("1000");
+                timeout("1");
 //                System.out.println(threadedScanner.outputed);
 //                skip = "0";
 //                //api for animation
