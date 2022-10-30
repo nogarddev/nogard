@@ -25,12 +25,14 @@ public class Main {
                 }
                 loop1++;
             }
+            loop1 = 0;
             while ((args.length == loop1) == false) {
                 if (args[loop1].equals("help")) {
                     help = true;
                 }
                 loop1++;
             }
+            loop1 = 0;
             while ((args.length == loop1) == false) {
                 if (args[loop1].equals("mini")) {
                     mini = true;
