@@ -72,7 +72,6 @@ public class ThreadedScanner extends Thread {
 //                skipstr = "skipping1";
 //            }
         }
-        System.out.println("ThreadedScanner:75 passed");
         Scan(ms, skip_spaces, args);
     }
     public static String outputed;
