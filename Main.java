@@ -5,6 +5,8 @@ import java.lang.*;
 public class Main {
     public static Boolean test = false;
     public static Boolean ssh = false;
+    public static Boolean help = false;
+    public static Boolean mini = false;
     public static Integer xy = 0;
     public static void main(String[] args) {
         if ((args.length == 0) == false) {
@@ -23,6 +25,19 @@ public class Main {
                 }
                 loop1++;
             }
+            while ((args.length == loop1) == false) {
+                if (args[loop1].equals("help")) {
+                    ssh = true;
+                }
+                loop1++;
+            }
+            while ((args.length == loop1) == false) {
+                if (args[loop1].equals("mini")) {
+                    ssh = true;
+                    System.out.println("mini enabled");
+                }
+                loop1++;
+            }            
         }
         FightMapRouter fightMapRouter = new FightMapRouter();
         fightMapRouter.init();
@@ -44,12 +59,27 @@ public class Main {
         downstairs_workhouse.init();
         AudioPlayer player = new AudioPlayer();
         AudioPlayerFx playerFx = new AudioPlayerFx();
+        if (help) {
+            at("Current options:", "30", true);
+            nl();
+            nl();
+            nl();
+            at("help: displays this message", "30", true);
+            nl();
+            at("mini: used to not interrupt displays that cannot be resized by removing certain elements", "30", true);
+            nl();
+            at("ssh: used to allow compatability with ssh clients and similar, this should be tried as a potential fix when you cannon type into inputs", "30", true);
+            nl();
+            at("press enter to close", "30", true);
+            enter_break();
+            nl();
+        }
         mainlib.nlers = "...sbw......nfba...";
         nl();
         at("Watch intro?", "30", true);
         nl();
         mainlib.choice = mainlib.choices(true, "30", true, new String[]{"yes", "no"});
-//        System.out.println((xy++).toString());
+        //        System.out.println((xy++).toString());
         if (mainlib.choice.equals("yes")) {
             playsong("title.wav");
             intro_screen_wall();
@@ -98,6 +128,7 @@ public class Main {
             at("...sr...One other note, you will be represented with a red ...nfr...@...sr... symbol, use this to tell where you are.", "30", true);
             nl();
             mainlib.enter_break();
+            System.exit(0);
         }
         if (mainlib.choice.equals("no")) {
             showmap();
