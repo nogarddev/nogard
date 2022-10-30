@@ -264,7 +264,6 @@ public class MainLib  {
 //            frame = 1;
             System.out.println("Mainlib:265 passed");
             while (threadedScanner.outputed.equals("0")) {
-                System.out.println("Mainlib:267 passed");
                 skipa = 1;
 //                skip = "0";
 //                //api for animation
