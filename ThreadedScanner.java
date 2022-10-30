@@ -66,6 +66,7 @@ public class ThreadedScanner extends Thread {
         if (man.ssh) {
             System.out.println("\"" + input + "\"");
         }
+        System.out.println(man.ssh);
         System.out.println("Threadedscanner:69 passed");
         return input;
     }
