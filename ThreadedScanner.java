@@ -47,7 +47,12 @@ public class ThreadedScanner extends Thread {
     public static String start;
     public static void waitx() {
         MainLib man = new MainLib();
+        Main main = new Main();
         while (man.startyouscan.equals("0")) {
+            if (main.ssh) {
+                timeout("1");
+            }
+            //            System.out.println("im alive!");
             skip = 0;
         }
         Scan(ms, skip_spaces, args);
@@ -58,10 +63,15 @@ public class ThreadedScanner extends Thread {
     public static Boolean skip_spaces;
     public static String args[];
     public static String getinput() {
+        Main man = new Main();
         Scanner sc = new Scanner(System.in);
 
         input = sc.nextLine();
 //        sc.close();
+//        if (man.ssh) {
+//            System.out.println("\"" + input + "\"");
+//        }
+//        System.out.println(man.ssh);
         return input;
     }
     public static void at(String string, String ms, boolean skip_spaces) {

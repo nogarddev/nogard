@@ -4,11 +4,24 @@ import java.util.*;
 import java.lang.*;
 public class Main {
     public static Boolean test = false;
+    public static Boolean ssh = false;
     public static Integer xy = 0;
     public static void main(String[] args) {
         if ((args.length == 0) == false) {
-            if (args[0].equals("test")) {
-                test = true;
+            Integer loop1 = 0;
+            while ((args.length == loop1) == false) {
+                if (args[loop1].equals("test")) {
+                    test = true;
+                }
+                loop1++;
+            }
+            loop1 = 0;
+            while ((args.length == loop1) == false) {
+                if (args[loop1].equals("ssh")) {
+                    ssh = true;
+                    System.out.println("ssh enabled");
+                }
+                loop1++;
             }
         }
         FightMapRouter fightMapRouter = new FightMapRouter();
@@ -36,7 +49,7 @@ public class Main {
         at("Watch intro?", "30", true);
         nl();
         mainlib.choice = mainlib.choices(true, "30", true, new String[]{"yes", "no"});
-        System.out.println((xy++).toString());
+//        System.out.println((xy++).toString());
         if (mainlib.choice.equals("yes")) {
             playsong("title.wav");
             intro_screen_wall();

@@ -240,6 +240,7 @@ public class MainLib  {
 //        }
 //    }
     public static Integer skipa = 0;
+    static Main main = new Main(); 
     public static String choices(Boolean threaded, String ms, Boolean skip_spaces, String args[]) {
         //         String[] array = array.fill(myArray, null);
         if (threaded == true) {
@@ -257,6 +258,10 @@ public class MainLib  {
 //            frame = 1;
             while (threadedScanner.outputed.equals("0")) {
                 skipa = 1;
+                if (main.ssh) {
+                    timeout("1");
+                }
+//                System.out.println(threadedScanner.outputed);
 //                skip = "0";
 //                //api for animation
 //                animupdate();
@@ -310,7 +315,6 @@ public class MainLib  {
             }
             return threadedScanner.output.toString();
         } else {
-
             String prompt = "";
             at("(" +  String.join(",", args)  + ")", ms, skip_spaces);
             //            nl();
