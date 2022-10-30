@@ -59,9 +59,13 @@ public class ThreadedScanner extends Thread {
     public static String args[];
     public static String getinput() {
         Main man = new Main();
+        System.out.println("Threadedscanner:62 passed");
         Scanner sc = new Scanner(System.in);
+        System.out.println("Threadedscanner:64 passed");
 
+        System.out.println("Threadedscanner:66 passed");
         input = sc.nextLine();
+        System.out.println("Threadedscanner:68 passed");
 //        sc.close();
         if (man.ssh) {
             System.out.println("\"" + input + "\"");
