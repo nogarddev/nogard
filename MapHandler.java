@@ -372,7 +372,6 @@ public class MapHandler {
         return mainlib.colour(string);
     }
     public static Integer i;
-    static Main main = new Main();
     public static void fakeanim() {
 //        mainlib.pause_typing = true;
 //        mainlib.timeout("20");//makes typing risky
