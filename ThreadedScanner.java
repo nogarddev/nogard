@@ -47,9 +47,12 @@ public class ThreadedScanner extends Thread {
     public static String start;
     public static void waitx() {
         MainLib man = new MainLib();
+        Main main = new Main();
         while (man.startyouscan.equals("0")) {
-            timeout("1");
-//            System.out.println("im alive!");
+            if (main.ssh) {
+                timeout("1");
+            }
+            //            System.out.println("im alive!");
             skip = 0;
         }
         Scan(ms, skip_spaces, args);

@@ -48,7 +48,7 @@ public class Main {
         nl();
         at("Watch intro?", "30", true);
         nl();
-        mainlib.choice = mainlib.choices(true, "30", true, new String[]{"yes", "no"});
+        mainlib.choice = mainlib.choices(false, "30", true, new String[]{"yes", "no"});
 //        System.out.println((xy++).toString());
         if (mainlib.choice.equals("yes")) {
             playsong("title.wav");
