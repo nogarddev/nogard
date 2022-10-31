@@ -4,6 +4,7 @@ import java.util.*;
 import java.lang.*;
 public class Main {
     public static Boolean test = false;
+    public static final GunLib gunLib = new GunLib();
     public static Boolean ssh = false;
     public static Boolean help = false;
     public static Boolean mini = false;
@@ -249,6 +250,7 @@ public class Main {
         mapHandler.game_prompt();
         mainlib.stopanim();
         fightMapRouter.currentmap = "TestFightMap";
+        fightMapRouter.enemy_ranged = gunLib.gun;
         fightMapRouter.init();
         FightHandler fightHandler = new FightHandler();
         fightHandler.FightStarter();
