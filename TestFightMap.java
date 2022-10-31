@@ -42,22 +42,22 @@ public class TestFightMap {
         covers[6][0] = "empty";
     }
     public static void showmap() {
-    MainLib man = new MainLib();
-    String tempnlers = man.nlers;
-    man.nlers = "...nbba......sfga...";
-    System.out.print(man.colour(man.nlers));
-    man.lw("._____.  ", "0");
-    man.nl();
-    man.lw("|=|   |  ", "0");
-    man.nl();
-    man.lw("|#|   |__", "0");
-    man.nl();
-    man.lw("|  ...nfr...@" + man.nlers + "  |__", "0");
-    man.nl();
-    man.lw("|_____|  ", "0");
-    man.nl();
-    man.nlers = tempnlers;//for some reason has strong white background unless commented
-    man.lw(man.nlers, "0");
-    man.nl();
+//    MainLib man = new MainLib();
+//    String tempnlers = man.nlers;
+//    man.nlers = "...nbba......sfga...";
+//    System.out.print(man.colour(man.nlers));
+//    man.lw("._____.  ", "0");
+//    man.nl();
+//    man.lw("|=|   |  ", "0");
+//    man.nl();
+//    man.lw("|#|   |__", "0");
+//    man.nl();
+//    man.lw("|  ...nfr...@" + man.nlers + "  |__", "0");
+//    man.nl();
+//    man.lw("|_____|  ", "0");
+//    man.nl();
+//    man.nlers = tempnlers;//for some reason has strong white background unless commented
+//    man.lw(man.nlers, "0");
+//    man.nl();
    }//changed
 }
