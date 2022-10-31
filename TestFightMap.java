@@ -9,20 +9,6 @@ public class TestFightMap {
     public static String[][] covers = new String[100][100];
     public static String[] enemy_ranged = new String[14];
     public static void init() {
-        enemy_ranged[0] = "gun";
-        enemy_ranged[1] = "1";
-        enemy_ranged[2] = "100";
-        enemy_ranged[3] = "1";
-        enemy_ranged[4] = "2";
-        enemy_ranged[5] = "70";
-        enemy_ranged[6] = "100";
-        enemy_ranged[7] = "3";
-        enemy_ranged[8] = "5";
-        enemy_ranged[9] = "30";
-        enemy_ranged[10] = "empty";
-        enemy_ranged[11] = "bio";
-        enemy_ranged[12] = "10";
-        enemy_ranged[13] = "empty";
         covers[0][0] = "barrel3";
         covers[0][1] = "3";
         covers[0][2] = "200";
