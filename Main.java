@@ -251,6 +251,7 @@ public class Main {
         mainlib.stopanim();
         fightMapRouter.currentmap = "TestFightMap";
         fightMapRouter.enemy_ranged = gunLib.gun;
+<<<<<<< HEAD
         fightMapRouter.enemy_melee = gunLib.knife;
 =======
 >>>>>>> 3e6358535d2d412dd15f1c68c9cd3f2dc26ffd0b
