@@ -9,7 +9,7 @@ public class Room1 {
     public static Boolean animation = false;
     public static String[] usableslist = {"chisel","hammer"};
     public static Integer animation_frames = 1;
-    public static String[][] grabables = new String[3][14];
+    public static String[][] grabables = new String[4][14];
     public static Integer map_height = 5;
     public static String[][] usables = new String[2][2];
     public static void init() {
@@ -59,19 +59,47 @@ public class Room1 {
         grabables[1][11] = "empty";
         grabables[1][12] = "empty";
         grabables[1][13] = "empty";
+        grabables[3][0] = "pocket knife";
+        grabables[3][1] = "1";
+        grabables[3][2] = "empty";
+        grabables[3][3] = "empty";
+        grabables[3][4] = "empty";
+        grabables[3][5] = "empty";
+        grabables[3][6] = "empty";
+        grabables[3][7] = "empty";
+        grabables[3][8] = "empty";
+        grabables[3][9] = "empty";
+        grabables[3][10] = "30";
+        grabables[3][11] = "omni";
+        grabables[3][12] = "0.1";
+        grabables[3][13] = "empty";
     }
     public static void use(String item) {
         MainLib man = new MainLib();
         MapHandler mapHandler = new MapHandler();
         if (usables[0][1].equals("empty") && item.equals("hammer") && mapHandler.exists(true, "hammer")) {
-            usables[1][1] = "empty";
-            mapHandler.reduceinv("chisel", -1);
-            System.out.println(man.inventory[0][0] + "," + man.inventory[0][1]);
-            System.out.println(man.inventory[1][0] + "," + man.inventory[1][1]);
-            man.at("...sfr...Narrator: " + man.nlers + "your chisel broke.", "30", true);
-            east = "Hallway1";
+            if (grabables[3][1].equals("1") || grabables[2][1].equals("1")) {
+                if (grabables[3][1].equals("1")) {
+                    if (grabables[2][1].equals("1")) {
+                        man.at("I should pick up my gun and pocket knife first", "30", true);
+                    } else {
+                        man.at("I should pick up my pocket knife first", "30", true);
+                    }
+                } else {
+                    man.at("I should pick up my gun first", "30", true);
+                }
+                man.nl();
+            } else {
+                usables[1][1] = "empty";
+                mapHandler.reduceinv("chisel", -1);
+                System.out.println(man.inventory[0][0] + "," + man.inventory[0][1]);
+                System.out.println(man.inventory[1][0] + "," + man.inventory[1][1]);
+                man.at("...sfr...Narrator: " + man.nlers + "your chisel broke.", "30", true);
+                east = "Hallway1";
+            }
         } else if (usables[0][1].equals("1") && item.equals("hammer") && mapHandler.exists(true, "hammer")) {
             man.lw("I need to put the chisel there first", "0");
+            man.nl();
         }
         if (item.equals("chisel") && mapHandler.exists(true, "chisel")) {
             usables[0][1] = "empty";
@@ -82,7 +110,7 @@ public class Room1 {
         MainLib man = new MainLib();
 //        if (usables[0][1].equals("empty") && usables[1][1].equals("empty")) {
         if (grabables[2][1].equals("empty")) {
-            return true;
+            return false;//enable to begin fight as soon as gun is picked up
         } else {
             return false;
         }

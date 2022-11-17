@@ -373,28 +373,30 @@ public class MapHandler {
     }
     public static Integer i;
     public static void fakeanim() {
-//        mainlib.pause_typing = true;
-//        mainlib.timeout("20");//makes typing risky
-        System.out.print("[s");
-        System.out.print("[H");
-        i = 0;
-        while (i < mainlib.map_height) {
+        if ((main.mini && main.test) == false) {
+    //        mainlib.pause_typing = true;
+    //        mainlib.timeout("20");//makes typing risky
+            System.out.print("[s");
+            System.out.print("[H");
+            i = 0;
+            while (i < mainlib.map_height) {
+                System.out.print("[2K");
+                System.out.print(mainlib.colour("...nbba......sfw..."));
+                System.out.print("[1B");
+                i++;
+            }
             System.out.print("[2K");
-            System.out.print(mainlib.colour("...nbba......sfw..."));
-            System.out.print("[1B");
-            i++;
+            System.out.print("[H");
+            showmap();
+            System.out.println(mainlib.colour(mainlib.nlers));
+            System.out.print("[2K");
+    //        System.out.print("[2K" + mainlib.colour("...nbba......sfw..."));
+            if (main.mini == false) {
+                System.out.println("####################################################################################################################################################################################################################################################################################################");
+            }
+    //        System.out.print("[1B");
+            System.out.print("[u");
+    //        mainlib.pause_typing = false;
         }
-        System.out.print("[2K");
-        System.out.print("[H");
-        showmap();
-        System.out.println(mainlib.colour(mainlib.nlers));
-        System.out.print("[2K");
-//        System.out.print("[2K" + mainlib.colour("...nbba......sfw..."));
-        if (main.mini == false) {
-            System.out.println("####################################################################################################################################################################################################################################################################################################");
-        }
-//        System.out.print("[1B");
-        System.out.print("[u");
-//        mainlib.pause_typing = false;
     }
 }

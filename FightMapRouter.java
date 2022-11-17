@@ -10,8 +10,6 @@ public class FightMapRouter {
         if (currentmap.equals("TestFightMap")) {
             covers = testFightMap.covers;
             enemy_currentcover = testFightMap.enemy_starter;
-            enemy_ranged = testFightMap.enemy_ranged;
-            enemy_ranged = testFightMap.enemy_ranged;
             optimal_distance = testFightMap.optimal_distance;
             max_range = testFightMap.max_range;
             canmove = testFightMap.canmove;
@@ -21,6 +19,7 @@ public class FightMapRouter {
     public static Integer max_range;
     public static Boolean canmove;
     public static String[] enemy_ranged = new String[]{};
+    public static String[] enemy_melee = new String[]{};
     public static String[] covers_list = new String[]{};
     public static void update_distance() {
         String[] update_distance_temp1 = extractcover(covers, player_currentcover);

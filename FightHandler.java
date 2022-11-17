@@ -51,7 +51,11 @@ public class FightHandler {
         return outranged;
     }
     public static String[] player_ranged = {""};
+    public static String[] player_melee = {""};
     public static String[] options = {""};
+    public static Float player_melee_base_damage;
+    public static Float player_melee_weight;
+    public static String player_melee_durability;
     public static Float player_ranged_base_accuracy;
     public static Float player_ranged_accuracy_threshold;
     public static Float player_ranged_accuracy_dropoff;
@@ -75,6 +79,10 @@ public class FightHandler {
     public static String enemy_ranged_element;
     public static Float enemy_ranged_weight;
     public static String enemy_ranged_durability;
+    public static String[] enemy_melee = new String[3];
+    public static Float enemy_melee_base_damage;
+    public static Float enemy_melee_weight;
+    public static String enemy_melee_durability;
 
     public static void view(String[] weapon) {
         nl();
@@ -114,6 +122,31 @@ public class FightHandler {
         nl();
         nl();
     }
+    public static void viewmelee(String[] weapon) {
+        nl();
+        nl();
+        lw("--------------------------------", "0");
+        nl();
+        lw("Statistics of " + weapon[0], "0");
+        nl();
+        nl();
+        lw("Base damage: " + weapon[10] + " health per hit", "0");
+        nl();
+        lw("Element: " + weapon[11], "0");
+        nl();
+        lw("Weight: " + weapon[12] + " kg", "0");
+        nl();
+        if (weapon[13].equals("empty")) {
+            lw("Durability: infinite", "0");
+        } else{
+            lw("Durability: " + weapon[13], "0");
+        }
+        nl();
+        lw("--------------------------------", "0");
+        nl();
+        nl();
+    }
+    
     public static void viewcover(String[] cover) {
         nl();
         nl();
@@ -140,6 +173,45 @@ public class FightHandler {
             view(grabranged(mainlib.choice, mainlib.inventory));
         }
     }
+    public static void view_at_start_melee(String[] options) {
+        mainlib.choice = mainlib.choices(true, "30", false, mainlib.concat(options, new String[]{"cancel"}));
+        if (mainlib.choice.equals("cancel") == false) {
+            viewmelee(grabmelee(mainlib.choice, mainlib.inventory));
+        }
+    }
+    public static String[] getmelee(Boolean non_empty, String[][] arr) {
+        Integer ia = 0;
+        Integer meleefound = 0;
+        while (arr[ia][0].equals("empty") == false) {
+            if (arr[ia][10].equals("empty") == false) {
+                if (non_empty && (arr[ia][1].equals("0") || arr[ia][1].equals("empty")) == false) {
+                    meleefound++;
+                } else {
+                    if (non_empty == false) {
+                        meleefound++;
+                    }
+                }
+            }
+            ia++;
+        }
+        String[] outmelee = new String[meleefound];
+        ia = 0;
+        Integer meleepos = 0;
+        while (arr[ia][0].equals("empty") == false) {
+            if (arr[ia][10].equals("empty") == false) {
+                outmelee[meleepos++] = arr[ia][0];
+            }
+            ia++;
+        }
+        return outmelee;
+    }
+    public static String[] grabmelee(String name, String[][] arr) {
+        Integer ia = 0;
+        while (name.equals(arr[ia][0]) == false && ia.equals(arr.length - 1) == false) {
+            ia++;
+        }
+        return arr[ia];
+    }
     public static void FightStarter() {
         mainlib.choice = "no";
         cls();
@@ -160,7 +232,26 @@ public class FightHandler {
                 mainlib.choice = mainlib.choices(true, "30", true, new String[]{"yes", "no"});
             }
         }
+        mainlib.choice = "no";
+        while (mainlib.choice.equals("no")) {
+            options = getmelee(true, mainlib.inventory);
+            mainlib.choice = mainlib.choices(true, "30", true, mainlib.concat(options, new String[]{"view"}));
+            if (mainlib.choice.equals("view")) {
+                view_at_start_melee(options);
+                mainlib.choice = "no";
+            } else {
+                player_melee = grabmelee(mainlib.choice, mainlib.inventory);
+                at("You have selected: " + mainlib.choice, "30", true);
+                nl();
+                at("Is this correct?", "30", true);
+                nl();
+                mainlib.choice = mainlib.choices(true, "30", true, new String[]{"yes", "no"});
+            }
+        }
         enemy_ranged = fightMapRouter.enemy_ranged;
+        player_melee_base_damage = Float.parseFloat(player_melee[10]);
+        player_melee_weight = Float.parseFloat(player_melee[12]);
+        player_melee_durability = player_melee[13];
         player_ranged_base_accuracy = Float.parseFloat(player_ranged[2]);
         player_ranged_accuracy_threshold = Float.parseFloat(player_ranged[3]);
         player_ranged_accuracy_dropoff = Float.parseFloat(player_ranged[4]);
@@ -183,6 +274,10 @@ public class FightHandler {
         enemy_ranged_element = enemy_ranged[11];
         enemy_ranged_weight = Float.parseFloat(enemy_ranged[12]);
         enemy_ranged_durability = enemy_ranged[13];
+        enemy_melee = fightMapRouter.enemy_melee;
+        enemy_melee_base_damage = Float.parseFloat(enemy_melee[10]);
+        enemy_melee_durability = enemy_melee[13];
+        enemy_melee_weight = Float.parseFloat(enemy_melee[12]);
         FightHandler();
     }
     public static void FightHandler() {
@@ -201,7 +296,15 @@ public class FightHandler {
                 at("Player health: " + player_health, "30", true);
                 nl();
             }
-            mainlib.choice = mainlib.choices(true, "30", true, new String[]{"move", "shoot", "view"});
+            fightMapRouter.update_variables();
+            if (fightMapRouter.distance < 7) {
+                mainlib.choice = mainlib.choices(true, "30", true, new String[]{"move", "shoot", "melee", "view"});
+            } else {
+                mainlib.choice = mainlib.choices(true, "30", true, new String[]{"move", "shoot", "view"});
+            }
+            if (mainlib.choice.equals("melee")) {
+                stab();
+            }
             if (mainlib.choice.equals("move")) {
                 move();
 //                at("Move to where?", "30", true);
@@ -216,7 +319,7 @@ public class FightHandler {
             if (mainlib.choice.equals("view")) {
                 at("View what?", "30", true);
                 nl();
-                choice1 = mainlib.choices(true, "30", true, new String[]{"covers","gun","positions","cancel"});
+                choice1 = mainlib.choices(true, "30", true, new String[]{"covers","gun","melee","positions","cancel"});
                 if (choice1.equals("positions")) {
                     nl();
                     nl();
@@ -246,6 +349,9 @@ public class FightHandler {
                 }
                 if (choice1.equals("gun")) {
                     view(player_ranged);
+                }
+                if (choice1.equals("melee")) {
+                    viewmelee(player_melee);
                 }
                 cancelled = true;
             }
@@ -512,6 +618,16 @@ public class FightHandler {
     static Integer i = 0;
     static Integer attack_chance;
     static Integer potential_damage;
+    public static void stab() {
+        at("You stabbed your enemy and caused: " + Math.round(player_melee_base_damage) + " damage", "30", true);
+        nl();
+        enemy_health = enemy_health - Math.round(player_melee_base_damage);
+    }
+    public static void enemystab() {
+        at("Your enemy stabbed you and caused: " + Math.round(enemy_melee_base_damage) + " damage", "30", true);
+        nl();
+        player_health = player_health - Math.round(enemy_melee_base_damage);
+    }    
     public static void shoot() {
         fightMapRouter.update_variables();
         fightMapRouter.update_distance();
@@ -537,7 +653,11 @@ public class FightHandler {
                 attack_chance = Math.round(player_ranged_accuracy_minimum);
             }
         }
-        attack_chance = Math.round(((attack_chance) * (Float.valueOf(enemy_cover[3]) / 100) / (float) 1));
+        if (moving) {
+            attack_chance = Math.round(attack_chance);
+        } else {
+            attack_chance = Math.round(((attack_chance) * (((float) 1 - (Float.valueOf(enemy_cover[3]) / 100))) / (float) 1));
+        }
         at("You aim down your sights with a " + attack_chance + "% chance to hit your target", "30", true);
         nl();
         at("At this angle, if this bullet hits them it would deal " + potential_damage + " damage", "30", true);
@@ -577,7 +697,7 @@ public class FightHandler {
             player_distance2 = Integer.valueOf(player_distance2arr[1]);
             player_movement_distance = Math.abs(player_distance1 - player_distance2);
             player_movement_distance_loop = 0;
-            while (player_movement_distance_loop < player_movement_distance) {
+            while (player_movement_distance_loop < player_movement_distance && player_health > 0) {
                 at("You have moved " + player_movement_distance_loop.toString() + " metres out of " + player_movement_distance.toString() + " metres.", "30", true);
                 nl();
                 mainlib.playsongFx("footsteps.wav");
@@ -625,7 +745,7 @@ public class FightHandler {
         enemy_distance2 = Integer.valueOf(enemy_distance2arr[1]);
         enemy_movement_distance = Math.abs(enemy_distance1 - enemy_distance2);
         enemy_movement_distance_loop = 0;
-        while (enemy_movement_distance_loop < enemy_movement_distance) {
+        while (enemy_movement_distance_loop < enemy_movement_distance && enemy_health > 0) {
             at("Enemy has moved " + enemy_movement_distance_loop.toString() + " metres out of " + enemy_movement_distance.toString() + " metres.", "30", true);
             nl();
             mainlib.playsongFx("footsteps.wav");
@@ -658,6 +778,10 @@ public class FightHandler {
     public static void enemyshoot() {
         fightMapRouter.update_variables();
         fightMapRouter.update_distance();
+        if (Math.round(fightMapRouter.distance) < 7 && moving == false) {
+            enemystab();
+            return;
+        }
         if (moving) {
             Integer temp_distance = Math.round(fightMapRouter.distance);
             fightMapRouter.distance = tempdistance * (float) 1;
@@ -680,7 +804,11 @@ public class FightHandler {
                 attack_chance = Math.round(enemy_ranged_accuracy_minimum);
             }
         }
-        attack_chance = Math.round(((attack_chance) * (Float.valueOf(player_cover[3]) / 100) / (float) 1));
+        if (moving) {
+            attack_chance = Math.round(attack_chance);
+        } else {
+            attack_chance = Math.round(((attack_chance) * (((float) 1 - (Float.valueOf(player_cover[3]) / 100))) / (float) 1));
+        }
         at("Your enemy aims down their sights with a " + attack_chance + "% chance to hit you.", "30", true);
         nl();
         at("At this angle, if this bullet hits you it would deal " + potential_damage + " damage", "30", true);

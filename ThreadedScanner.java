@@ -42,20 +42,23 @@ public class ThreadedScanner extends Thread {
         outputed = "1";
         man.startyouscan = "0";
         args = new String[] {};
-        waitx();
+//        waitx();
     }
     public static String start;
+    public static boolean affirmative = true;
     public static void waitx() {
-        MainLib man = new MainLib();
-        Main main = new Main();
-        while (man.startyouscan.equals("0")) {
-            if (main.ssh) {
-                timeout("1");
+        while (affirmative) {
+            MainLib man = new MainLib();
+            Main main = new Main();
+            while (man.startyouscan.equals("0")) {
+                if (main.ssh) {
+                    timeout("1");
+                }
+                //            System.out.println("im alive!");
+                skip = 0;
             }
-            //            System.out.println("im alive!");
-            skip = 0;
+            Scan(ms, skip_spaces, args);
         }
-        Scan(ms, skip_spaces, args);
     }
     public static String outputed;
     public static String output;
