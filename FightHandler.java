@@ -577,7 +577,7 @@ public class FightHandler {
             player_distance2 = Integer.valueOf(player_distance2arr[1]);
             player_movement_distance = Math.abs(player_distance1 - player_distance2);
             player_movement_distance_loop = 0;
-            while (player_movement_distance_loop < player_movement_distance) {
+            while (player_movement_distance_loop < player_movement_distance && player_health > 0) {
                 at("You have moved " + player_movement_distance_loop.toString() + " metres out of " + player_movement_distance.toString() + " metres.", "30", true);
                 nl();
                 mainlib.playsongFx("footsteps.wav");
@@ -625,7 +625,7 @@ public class FightHandler {
         enemy_distance2 = Integer.valueOf(enemy_distance2arr[1]);
         enemy_movement_distance = Math.abs(enemy_distance1 - enemy_distance2);
         enemy_movement_distance_loop = 0;
-        while (enemy_movement_distance_loop < enemy_movement_distance) {
+        while (enemy_movement_distance_loop < enemy_movement_distance && enemy_health > 0) {
             at("Enemy has moved " + enemy_movement_distance_loop.toString() + " metres out of " + enemy_movement_distance.toString() + " metres.", "30", true);
             nl();
             mainlib.playsongFx("footsteps.wav");
