@@ -8,7 +8,7 @@ public class Downstairs_workhouse {
     public static String south() {
         return "Downstairs_workhouse";
     }
-    public static final String west = "Room1";
+    public static String west = "empty";
     public static String[] usableslist = {"hammer"};
     public static Integer animation_frames = 1;
     public static Integer first = 1;
@@ -18,12 +18,7 @@ public class Downstairs_workhouse {
     public static String[][] usables = new String[1][1];
     public static void init() {
         usables[0][0] = "empty";
-        //        usables[1][0] = "hammer";
-        //        usables[1][1] = "1";
         grabables[0][0] = "empty";
-        //        grabables[0][1] = "1";
-        //        grabables[1][0] = "chisel";
-        //        grabables[1][1] = "1";
     }
     public static void use(String item) {
         //blank

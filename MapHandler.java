@@ -167,6 +167,9 @@ public class MapHandler {
         } else if (mainlib.currentmap.equals("Downstairs_workhouse")) {
             Downstairs_workhouse downstairs_workhouse = new Downstairs_workhouse();
             downstairs_workhouse.grabables = downstairs_workhouse.grabables;
+        } else if (mainlib.currentmap.equals("Start_forest_1")) {
+            Start_forest_1 start_forest_1 = new Start_forest_1();
+            start_forest_1.grabables = start_forest_1.grabables;
         } else if (mainlib.currentmap.equals("Room1")) {
             Room1 room1 = new Room1();
             room1.grabables = mainlib.grabables;
@@ -236,6 +239,22 @@ public class MapHandler {
         if (mainlib.currentmap.equals("Hallway1_2")) {
             Hallway1_2 hallway1_2 = new Hallway1_2();
             hallway1_2.use(item);
+        }
+        if (mainlib.currentmap.equals("Start_forest_1")) {
+            Start_forest_1 start_forest_1 = new Start_forest_1();
+            start_forest_1.use(item);
+        }
+        if (mainlib.currentmap.equals("Start_forest_2")) {
+            Start_forest_2 start_forest_2 = new Start_forest_2();
+            start_forest_2.use(item);
+        }
+        if (mainlib.currentmap.equals("Start_forest_3")) {
+            Start_forest_3 start_forest_3 = new Start_forest_3();
+            start_forest_3.use(item);
+        }
+        if (mainlib.currentmap.equals("Start_forest_4")) {
+            Start_forest_4 start_forest_4 = new Start_forest_4();
+            start_forest_4.use(item);
         }
         if (mainlib.currentmap.equals("Downstairs_workhouse")) {
             Downstairs_workhouse downstairs_workhouse = new Downstairs_workhouse();
@@ -349,12 +368,6 @@ public class MapHandler {
     }
     public static String[] concat(String one[], String two[]) {
         return mainlib.concat(one, two);
-    }
-    public static void startmin(String name) {
-        mainlib.startmin(name);
-    }
-    public static void startmin1(String name) throws IOException {
-        mainlib.startmin1(name);
     }
     public static void nl() {
         mainlib.nl();
