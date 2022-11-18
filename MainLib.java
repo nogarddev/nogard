@@ -57,8 +57,20 @@ public class MainLib  {
             Hallway1 hallway1 = new Hallway1();
             return hallway1.breakconditions();
         } else if (currentmap.equals("Room1")) {
-                Room1 room1 = new Room1();
-                return room1.breakconditions();
+            Room1 room1 = new Room1();
+            return room1.breakconditions();
+        } else if (currentmap.equals("Start_forest_1")) {
+            Start_forest_1 start_forest_1 = new Start_forest_1();
+            return start_forest_1.breakconditions();
+        } else if (currentmap.equals("Start_forest_2")) {
+            Start_forest_2 start_forest_2 = new Start_forest_2();
+            return start_forest_2.breakconditions();
+        } else if (currentmap.equals("Start_forest_3")) {
+            Start_forest_3 start_forest_3 = new Start_forest_3();
+            return start_forest_3.breakconditions();
+        } else if (currentmap.equals("Start_forest_4")) {
+            Start_forest_4 start_forest_4 = new Start_forest_4();
+            return start_forest_4.breakconditions();
         } else if (currentmap.equals("Hallway1_2")) {
             Hallway1_2 hallway1_2 = new Hallway1_2();
             return hallway1_2.breakconditions();
@@ -161,6 +173,54 @@ public class MainLib  {
             south = hallway1.south;
             west = hallway1.west;
         }
+        if (currentmap.equals("Start_forest_1")) {
+            Start_forest_1 start_forest_1 = new Start_forest_1();
+            movement_commands = start_forest_1.movement_commands;
+            usables = start_forest_1.usables;
+            grabables = start_forest_1.grabables;
+            up = start_forest_1.up;
+            down = start_forest_1.down;
+            north = start_forest_1.north;
+            east = start_forest_1.east;
+            south = start_forest_1.south;
+            west = start_forest_1.west;
+        }
+        if (currentmap.equals("Start_forest_2")) {
+            Start_forest_2 start_forest_2 = new Start_forest_2();
+            movement_commands = start_forest_2.movement_commands;
+            usables = start_forest_2.usables;
+            grabables = start_forest_2.grabables;
+            up = start_forest_2.up;
+            down = start_forest_2.down;
+            north = start_forest_2.north;
+            east = start_forest_2.east;
+            south = start_forest_2.south;
+            west = start_forest_2.west;
+        }
+        if (currentmap.equals("Start_forest_3")) {
+            Start_forest_3 start_forest_3 = new Start_forest_3();
+            movement_commands = start_forest_3.movement_commands;
+            usables = start_forest_3.usables;
+            grabables = start_forest_3.grabables;
+            up = start_forest_3.up;
+            down = start_forest_3.down;
+            north = start_forest_3.north;
+            east = start_forest_3.east;
+            south = start_forest_3.south;
+            west = start_forest_3.west;
+        }
+        if (currentmap.equals("Start_forest_4")) {
+            Start_forest_4 start_forest_4 = new Start_forest_4();
+            movement_commands = start_forest_4.movement_commands;
+            usables = start_forest_4.usables;
+            grabables = start_forest_4.grabables;
+            up = start_forest_4.up;
+            down = start_forest_4.down;
+            north = start_forest_4.north;
+            east = start_forest_4.east;
+            south = start_forest_4.south;
+            west = start_forest_4.west;
+        }
         if (currentmap.equals("Hallway1_2")) {
             Hallway1_2 hallway1_2 = new Hallway1_2();
             movement_commands = hallway1_2.movement_commands;
@@ -212,6 +272,22 @@ public class MainLib  {
             animation_frames = room1.animation_frames;
             map_height = room1.map_height;
 //            animation = room1.animation;
+        } else if (currentmap.equals("Start_forest_1")) {
+            Start_forest_1 start_forest_1 = new Start_forest_1();
+            animation_frames = start_forest_1.animation_frames;
+            map_height = start_forest_1.map_height;
+        } else if (currentmap.equals("Start_forest_2")) {
+            Start_forest_2 start_forest_2 = new Start_forest_2();
+            animation_frames = start_forest_2.animation_frames;
+            map_height = start_forest_2.map_height;
+        } else if (currentmap.equals("Start_forest_3")) {
+            Start_forest_3 start_forest_3 = new Start_forest_3();
+            animation_frames = start_forest_3.animation_frames;
+            map_height = start_forest_3.map_height;
+        } else if (currentmap.equals("Start_forest_4")) {
+            Start_forest_4 start_forest_4 = new Start_forest_4();
+            animation_frames = start_forest_4.animation_frames;
+            map_height = start_forest_4.map_height;
         } else if (currentmap.equals("Hallway1_2")) {
             Hallway1_2 hallway1_2 = new Hallway1_2();
             animation_frames = hallway1_2.animation_frames;
@@ -639,20 +715,6 @@ public class MainLib  {
         long ms_long = Long.parseLong(ms);
         Thread.sleep(ms_long);
     }
-    //https://stackoverflow.com/questions/683427/launch-application-in-a-minimized-state-from-java
-    public static void startmin(String name) {
-        try
-        {
-            startmin1(name);
-        }
-        catch (Exception x) {
-            //blank
-        }
-    }
-    public static void startmin1(String name) throws IOException {
-        String cmd = "cmd /c start /min C:/Users/aaron/Desktop/java/dofe/nogard/fx/" + name;
-        Runtime.getRuntime().exec(cmd);
-    }
     static String nlers = "";
     public static void nl() {
         MapHandler mapHandler = new MapHandler();
@@ -692,6 +754,22 @@ public class MainLib  {
         if (currentmap.equals("Room1")) {
             Room1 room1 = new Room1();
             room1.showmap();
+        }
+        if (currentmap.equals("Start_forest_1")) {
+            Start_forest_1 start_forest_1 = new Start_forest_1();
+            start_forest_1.showmap();
+        }
+        if (currentmap.equals("Start_forest_2")) {
+            Start_forest_2 start_forest_2 = new Start_forest_2();
+            start_forest_2.showmap();
+        }
+        if (currentmap.equals("Start_forest_3")) {
+            Start_forest_3 start_forest_3 = new Start_forest_3();
+            start_forest_3.showmap();
+        }
+        if (currentmap.equals("Start_forest_4")) {
+            Start_forest_4 start_forest_4 = new Start_forest_4();
+            start_forest_4.showmap();
         }
         if (currentmap.equals("Hallway1")) {
             Hallway1 hallway1 = new Hallway1();

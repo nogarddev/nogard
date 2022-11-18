@@ -218,12 +218,6 @@ public class FightMapRouter {
     public static String[] concat(String one[], String two[]) {
         return mainlib.concat(one, two);
     }
-    public static void startmin(String name) {
-        mainlib.startmin(name);
-    }
-    public static void startmin1(String name) throws IOException {
-        mainlib.startmin1(name);
-    }
     public static void nl() {
         mainlib.nl();
     }

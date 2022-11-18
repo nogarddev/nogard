@@ -54,6 +54,14 @@ public class Main {
         }
         FightMapRouter fightMapRouter = new FightMapRouter();
         fightMapRouter.init();
+        Start_forest_1 start_forest_1 = new Start_forest_1();
+        start_forest_1.init();
+        Start_forest_2 start_forest_2 = new Start_forest_2();
+        start_forest_2.init();
+        Start_forest_3 start_forest_3 = new Start_forest_3();
+        start_forest_3.init();
+        Start_forest_4 start_forest_4 = new Start_forest_4();
+        start_forest_4.init();
         TestFightMap testFightMap = new TestFightMap();
         testFightMap.init();
         Ship_Up ship_Up = new Ship_Up();
@@ -85,7 +93,7 @@ public class Main {
             nl();
             at("ssh: used to allow compatability with ssh clients and similar, this should be tried as a potential fix when typing into inputs doesn't work", "30", true);
             nl();
-            at("mute: stops audio from playing so that no error messages pop up", "30", true);
+            at("mute: stops audio from@playing so that no error messages pop up", "30", true);
             nl();
             at("press enter to close", "30", true);
             nl();
@@ -168,16 +176,16 @@ public class Main {
 //            at("        ...sfr...:" + mainlib.nlers + " As a child you had been told of stories of great pirates and their spectacular downfalls, adventurers and their quests.", "30", true);
 //            nl();
 //            enter_break();
-//            at("        ...sfr...:" + mainlib.nlers + " But that was a long world off from where you were. You were hoping through all these years that you would live with security and comfort.", "30", true);
+//            at("        ...sfr...:" + mainlib.nlers + " But that was a long world off from@where you were. You were hoping through all these years that you would live with security and comfort.", "30", true);
 //            timeout("1000");
 //            nl();
 //            at("        ...sfr...:" + mainlib.nlers + " To see the faces of the horrible men at the workhouse who worked you day and night, and fed you but scraps of food.", "30", true);
 //            timeout("1000");
 //            nl();
-//            at("        ...sfr...:" + mainlib.nlers + " They made you feel trapped, saying that you would never survive outside and that you would surely perish from starvation.", "30", true);
+//            at("        ...sfr...:" + mainlib.nlers + " They made you feel trapped, saying that you would never survive outside and that you would surely perish from@starvation.", "30", true);
 //            nl();
 //            enter_break();
-//            at("        ...sfr...:" + mainlib.nlers + " They were very close to the truth, you were a withered husk. They locked you in your quarters as you slept, to stop you from escaping", "30", true);
+//            at("        ...sfr...:" + mainlib.nlers + " They were very close to the truth, you were a withered husk. They locked you in your quarters as you slept, to stop you from@escaping", "30", true);
 //            timeout("1000");
 //            nl();
 //            at("        ...sfr...:" + mainlib.nlers + " You escaped through a broken window", "30", true);
@@ -203,7 +211,7 @@ public class Main {
 //            at("...nfbu...Crewmate Cory: ", "30", true);
 //            at(mainlib.nlers + "READY WHEN YOU ARE CAPT'N!", "150", true);
 //            nl();
-//            at("Objective: get ...sb......su......nfc...gunpowder...sr... and ...sb......su......nfc...cannonballs...sr... and load them into a cannon below deck", "30", true);
+//            at("Objective: get ...sb......su......nfc...gunpowder...sr... and ...sb......su......nfc...cannonballs...sr... and load them@into a cannon below deck", "30", true);
 //            nl();
 //            showmap();
 //            MapHandler mapHandler = new MapHandler();
@@ -260,6 +268,7 @@ public class Main {
         showmap();
         mapHandler.game_prompt();
         cls();
+        stop();
         at("...sfr...Narrator: " + mainlib.nlers + "So you have now escaped the workhouse sucessfully, but that is only the beginning of the story,", "30", true);
         nl();
         at("        ...sfr...: " + mainlib.nlers + "of course the legal system is against you, for you are poor", "30", true);
@@ -267,46 +276,68 @@ public class Main {
         at("        ...sfr...: " + mainlib.nlers + "you have just committed murder, and even in self defence you will almost certainly get the death penalty for this", "30", true);
         nl();
         enter_break();
-        at("        ...sfr...: " + mainlib.nlers + "You must escape, but who will take you in?", "30", true);
+        at("...nfw...You: " + mainlib.nlers + " I must escape, but who will take me in?", "30", true);
         nl();
-        at("        ...sfr...: " + mainlib.nlers + "Who would risk their life for a poor fugitive?", "30", true);
+        at("...", "30", true);
         nl();
-        at("        ...sfr...: " + mainlib.nlers + "Only a fellow fugitive with a reason would do that.", "30", true);
+        lw("[1A[2K", "0");
+        at("   ...nfw...:" + mainlib.nlers + " No! That's the wrong attitude, I relied on someone else last time and look where that got me, I must find a way to survive on my own.", "30", true);
         nl();
-        at("...", "500", true);
+        at("   ...nfw...:" + mainlib.nlers + " I still must escape, but where?", "30", true);
+        nl();
         enter_break();
-        playsongFx("idea.wav");
-        at("        ...sfr...: " + mainlib.nlers + "Surely a pirate crew would take you in, so long as you could prove your worth, then you at least wouldnt starve to death, you do have nothing to you name after all.", "30", true);
+        at("   ...nfw...:" + mainlib.nlers + " The forest! When I first entered this workhouse I remember seeing a massive forest just a few hundred meters away.", "30", true);
         nl();
-        playsong("Call_to_Adventure.wav");
-        at("        ...sfr...: " + mainlib.nlers + " You decided to join ...nfr...Capt'n Corkscrew's" + mainlib.nlers + " crew.", "30", true);
-        timeout("1000");
-        at("...", "1000", true);
+        at("   ...nfw...:" + mainlib.nlers + " I must haste, I dont want to get caught.", "30", true);
         nl();
-        at("        ...sfr...: " + mainlib.nlers + " Begrudgingly, they accepted you onboard as a powder boy, and thats where the story begins.", "30", true);
-        nl();
-        at("...nfr...Capt'n Corkscrew:", "30", true);
-        at(mainlib.nlers + " Oi! What do you think you are doing? Get down there and shoot the enemy on my mark!", "75", true);
-        nl();
-        at("...nfbu...Crewmate Cory: ", "30", true);
-        at(mainlib.nlers + "READY WHEN YOU ARE CAPT'N!", "150", true);
-        nl();
-        mainlib.nlers = "...nbba......sfw...";
-        at("Objective: get ...sb......su......nfc...gunpowder...sr... and ...sb......su......nfc...cannonballs...sr... and load them into a cannon below deck", "30", true);
-        nl();
-        mainlib.nlers = "...nbba......sfw...";
-        mainlib.currentmap = "Ship_Up";
-        mainlib.update_variables();
-        mainlib.nlers = "...nbba......sfw...";
+        enter_break();
         cls();
-        mainlib.startanim();
-        mainlib.update_variables();
-        mainlib.animupdate();
-        timeout("200");
-        if (mainlib.animation) {
-            System.out.print("[" + (mainlib.map_height + 4) + "B");
-        }
+        playsongFx("running_footsteps_long.wav");
+        mainLib.nlers = "...sfb......nbba...";
+        at("...sfr...Narrator:" + mainlib.nlers + " You enter the dark and damp forst, it is now midnight and sounds can be heard around you randomly, like footsteps, but with an inhuman quality to them.", "30", true);
+        nl();
+        playsong("spooky.wav");
+        mainlib.currentmap = "Start_forest_1";
         mapHandler.game_prompt();
+        
+//        at("        ...sfr...: " + mainlib.nlers + "Who would risk their life for a poor fugitive?", "30", true);
+//        nl();
+//        at("        ...sfr...: " + mainlib.nlers + "Only a fellow fugitive with a reason would do that.", "30", true);
+//        nl();
+//        at("...", "500", true);
+//        enter_break();
+//        playsongFx("idea.wav");
+//        at("        ...sfr...: " + mainlib.nlers + "Surely a pirate crew would take you in, so long as you could prove your worth, then you at least wouldnt starve to death, you do have nothing to you name after all.", "30", true);
+//        nl();
+//        playsong("Call_to_Adventure.wav");
+//        at("        ...sfr...: " + mainlib.nlers + " You decided to join ...nfr...Capt'n Corkscrew's" + mainlib.nlers + " crew.", "30", true);
+//        timeout("1000");
+//        at("...", "1000", true);
+//        nl();
+//        at("        ...sfr...: " + mainlib.nlers + " Begrudgingly, they accepted you onboard as a powder boy, and thats where the story begins.", "30", true);
+//        nl();
+//        at("...nfr...Capt'n Corkscrew:", "30", true);
+//        at(mainlib.nlers + " Oi! What do you think you are doing? Get down there and shoot the enemy on my mark!", "75", true);
+//        nl();
+//        at("...nfbu...Crewmate Cory: ", "30", true);
+//        at(mainlib.nlers + "READY WHEN YOU ARE CAPT'N!", "150", true);
+//        nl();
+//        mainlib.nlers = "...nbba......sfw...";
+//        at("Objective: get ...sb......su......nfc...gunpowder...sr... and ...sb......su......nfc...cannonballs...sr... and load them@into a cannon below deck", "30", true);
+//        nl();
+//        mainlib.nlers = "...nbba......sfw...";
+//        mainlib.currentmap = "Ship_Up";
+//        mainlib.update_variables();
+//        mainlib.nlers = "...nbba......sfw...";
+//        cls();
+//        mainlib.startanim();
+//        mainlib.update_variables();
+//        mainlib.animupdate();
+//        timeout("200");
+//        if (mainlib.animation) {
+//            System.out.print("[" + (mainlib.map_height + 4) + "B");
+//        }
+//        mapHandler.game_prompt();
 //        while (mainlib.cannonball_loaded.equals("0") || mainlib.gunpowder_loaded.equals("0")) {
 //            mainlib.update_variables();
 //            //            String[] all = mainlib.concat(mainlib.movement_commands, new String[] {"use", "map"});
@@ -477,12 +508,6 @@ public class Main {
     }
     public static String[] concat(String one[], String two[]) {
         return mainlib.concat(one, two);
-    }
-    public static void startmin(String name) {
-        mainlib.startmin(name);
-    }
-    public static void startmin1(String name) throws IOException {
-        mainlib.startmin1(name);
     }
     public static void nl() {
         mainlib.nl();
