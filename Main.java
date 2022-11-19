@@ -293,11 +293,24 @@ public class Main {
         enter_break();
         cls();
         playsongFx("running_footsteps_long.wav");
-        mainLib.nlers = "...sfb......nbba...";
+        mainLib.nlers = "...sfga......nbba...";
         at("...sfr...Narrator:" + mainlib.nlers + " You enter the dark and damp forst, it is now midnight and sounds can be heard around you randomly, like footsteps, but with an inhuman quality to them.", "30", true);
         nl();
         playsong("spooky.wav");
         mainlib.currentmap = "Start_forest_1";
+        nl();
+        nl();
+        nl();
+        nl();
+        nl();
+        nl();
+        nl();
+        nl();
+        nl();
+        nl();
+        nl();
+        nl();
+        nl();
         mapHandler.game_prompt();
         
 //        at("        ...sfr...: " + mainlib.nlers + "Who would risk their life for a poor fugitive?", "30", true);

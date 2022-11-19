@@ -464,6 +464,20 @@ public class Debugger {
                         System.out.println(mainLib.inventory[i][0]);
                     }
                 }
+            } else if (choice.equals("variable")) {
+                choice = mainLib.choices(false, "0", true, new String[]{"mainlib","cancel"});
+                if (choice.equals("mainlib")) {
+                    choice = mainLib.choices(false, "0", true, new String[]{"currentmap","cancel"});
+                    if (choice.equals("currentmap")) {
+                        sc = new Scanner(System.in);
+                        mainLib.currentmap = sc.nextLine();
+                        System.out.println("update variables?");
+                        choice = mainLib.choices(false, "0", true, new String[]{"yes","no"});
+                        if (choice.equals("yes")) {
+                            mainLib.update_variables();
+                        }
+                    }
+                }
             }
         }
         if (choice.equals("view")) {
