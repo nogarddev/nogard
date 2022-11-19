@@ -5,9 +5,7 @@ public class Downstairs_workhouse {
     public static final String north = "empty";
     public static Boolean animation = false;
     public static final String east = "empty";
-    public static String south() {
-        return "Downstairs_workhouse";
-    }
+    public static String south = "Downstairs_workhouse";
     public static String west = "empty";
     public static String[] usableslist = {"hammer"};
     public static Integer animation_frames = 1;
@@ -15,13 +13,17 @@ public class Downstairs_workhouse {
     public static Integer breaka = 0;
     public static Integer map_height = 8;
     public static String[][] grabables = new String[1][1];
-    public static String[][] usables = new String[1][1];
+    public static String[][] usables = new String[2][2];
     public static void init() {
-        usables[0][0] = "empty";
+        usables[0][0] = "workhouse key";
+        usables[0][1] = "1";
+        usables[1][0] = "empty";
         grabables[0][0] = "empty";
     }
     public static void use(String item) {
-        //blank
+        if (item.equals("workhouse key")) {
+            usables[0][1] = "empty";
+        }
     }
     public static Boolean breakconditions() {
         MainLib man = new MainLib();
@@ -30,15 +32,28 @@ public class Downstairs_workhouse {
             man.showmap();
             man.at("You hate this room... the workroom... you slave here day and night for but scraps of food.", "30", true);
             man.nl();
-            man.at("The frontdoor is open", "30", true);
-            man.nl();
+//            man.at("The frontdoor is open", "30", true);
+//            man.nl();
         } 
-        if (man.choice.equals("south") && man.currentmap.equals("Downstairs_workhouse")) {
+//        if (man.choice.equals("south") && man.currentmap.equals("Downstairs_workhouse")) {
+//            return true;
+//        } else {
+//            return false;
+//        }
+        if (mapHandler.lastmap1.equals("Downstairs_workhouse") && mapHandler.lastcommand1.equals("south") && usables[0][1].equals("1")) {
+            man.at("The door locked tight, you need to break out somehow, look around the house to see what you can find.", "30", true);
+            man.nl();
+            hallway1_2.north = "Hallway1_2";
+            hallway1_2.south = "Workhouse_upstairs_south";
+        }
+        if (usables[0][1].equals("empty") && mapHandler.lastmap1.equals("Downstairs_workhouse") && mapHandler.lastcommand1.equals("south")) {
             return true;
         } else {
             return false;
         }
     }
+    static Hallway1_2 hallway1_2 = new Hallway1_2();
+    static MapHandler mapHandler = new MapHandler();
     public static void showmap() {
         MainLib man = new MainLib();
         String tempnlers = man.nlers;
@@ -49,7 +64,7 @@ public class Downstairs_workhouse {
         man.nl();
         man.lw("|  .--.       |==|", "0");
         man.nl();
-        man.lw("|  |  |       |...su...==" + man.nlers + "|", "0");
+        man.lw("|  |  |       |...su...==" + man.nlers + "|...sr..." + man.nlers, "0");
         man.nl();
         man.lw("|  |  |          |", "0");
         man.nl();
@@ -57,7 +72,7 @@ public class Downstairs_workhouse {
         man.nl();
         man.lw("|  \"--\"          |", "0");
         man.nl();
-        man.lw("|_____...su...\\" + man.nlers + "______...nfc..." + man.nlers + " ___.", "0");
+        man.lw("|_____...su...\\" + man.nlers + "______...nfc..." + man.nlers + " ___....sr..." + man.nlers, "0");
         man.nl();
         man.nl();
         man.nlers = tempnlers;

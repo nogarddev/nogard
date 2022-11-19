@@ -46,7 +46,12 @@ public class MainLib  {
 //Ship_down
     public static String cannonball_loaded = "0";
     public static String gunpowder_loaded = "0";
+    public static Boolean forcebreak = false;
     public static Boolean getbreakconditions() {
+        if (forcebreak) {
+            forcebreak = false;
+            return true;
+        }
         if (currentmap.equals("Ship_Down")) {
             Ship_Down ship_Down = new Ship_Down();
             return ship_Down.breakconditions();
@@ -59,9 +64,18 @@ public class MainLib  {
         } else if (currentmap.equals("Room1")) {
             Room1 room1 = new Room1();
             return room1.breakconditions();
+        } else if (currentmap.equals("North_Rinlund_Town_Center")) {
+            North_Rinlund_Town_Center north_Rinlund_Town_Center = new North_Rinlund_Town_Center();
+            return north_Rinlund_Town_Center.breakconditions();
         } else if (currentmap.equals("Start_forest_1")) {
             Start_forest_1 start_forest_1 = new Start_forest_1();
             return start_forest_1.breakconditions();
+        } else if (currentmap.equals("Workhouse_upstairs_north")) {
+            Workhouse_upstairs_north workhouse_upstairs_north = new Workhouse_upstairs_north();
+            return workhouse_upstairs_north.breakconditions();
+        } else if (currentmap.equals("Workhouse_upstairs_south")) {
+            Workhouse_upstairs_south workhouse_upstairs_south = new Workhouse_upstairs_south();
+            return workhouse_upstairs_south.breakconditions();
         } else if (currentmap.equals("Start_forest_2")) {
             Start_forest_2 start_forest_2 = new Start_forest_2();
             return start_forest_2.breakconditions();
@@ -173,6 +187,42 @@ public class MainLib  {
             south = hallway1.south;
             west = hallway1.west;
         }
+        if (currentmap.equals("Workhouse_upstairs_north")) {
+            Workhouse_upstairs_north workhouse_upstairs_north = new Workhouse_upstairs_north();
+            movement_commands = workhouse_upstairs_north.movement_commands;
+            usables = workhouse_upstairs_north.usables;
+            grabables = workhouse_upstairs_north.grabables;
+            up = workhouse_upstairs_north.up;
+            down = workhouse_upstairs_north.down;
+            north = workhouse_upstairs_north.north;
+            east = workhouse_upstairs_north.east;
+            south = workhouse_upstairs_north.south;
+            west = workhouse_upstairs_north.west;
+        }
+        if (currentmap.equals("Workhouse_upstairs_south")) {
+            Workhouse_upstairs_south workhouse_upstairs_south = new Workhouse_upstairs_south();
+            movement_commands = workhouse_upstairs_south.movement_commands;
+            usables = workhouse_upstairs_south.usables;
+            grabables = workhouse_upstairs_south.grabables;
+            up = workhouse_upstairs_south.up;
+            down = workhouse_upstairs_south.down;
+            north = workhouse_upstairs_south.north;
+            east = workhouse_upstairs_south.east;
+            south = workhouse_upstairs_south.south;
+            west = workhouse_upstairs_south.west;
+        }
+        if (currentmap.equals("North_Rinlund_Town_Center")) {
+            North_Rinlund_Town_Center north_Rinlund_Town_Center = new North_Rinlund_Town_Center();
+            movement_commands = north_Rinlund_Town_Center.movement_commands;
+            usables = north_Rinlund_Town_Center.usables;
+            grabables = north_Rinlund_Town_Center.grabables;
+            up = north_Rinlund_Town_Center.up;
+            down = north_Rinlund_Town_Center.down;
+            north = north_Rinlund_Town_Center.north;
+            east = north_Rinlund_Town_Center.east;
+            south = north_Rinlund_Town_Center.south;
+            west = north_Rinlund_Town_Center.west;
+        }
         if (currentmap.equals("Start_forest_1")) {
             Start_forest_1 start_forest_1 = new Start_forest_1();
             movement_commands = start_forest_1.movement_commands;
@@ -242,7 +292,7 @@ public class MainLib  {
             down = downstairs_workhouse.down;
             north = downstairs_workhouse.north;
             east = downstairs_workhouse.east;
-            south = downstairs_workhouse.south();
+            south = downstairs_workhouse.south;
             west = downstairs_workhouse.west;
         }
     }
@@ -272,6 +322,10 @@ public class MainLib  {
             animation_frames = room1.animation_frames;
             map_height = room1.map_height;
 //            animation = room1.animation;
+        } else if (currentmap.equals("North_Rinlund_Town_Center")) {
+            North_Rinlund_Town_Center north_Rinlund_Town_Center = new North_Rinlund_Town_Center();
+            animation_frames = north_Rinlund_Town_Center.animation_frames;
+            map_height = north_Rinlund_Town_Center.map_height;
         } else if (currentmap.equals("Start_forest_1")) {
             Start_forest_1 start_forest_1 = new Start_forest_1();
             animation_frames = start_forest_1.animation_frames;
@@ -288,6 +342,14 @@ public class MainLib  {
             Start_forest_4 start_forest_4 = new Start_forest_4();
             animation_frames = start_forest_4.animation_frames;
             map_height = start_forest_4.map_height;
+        } else if (currentmap.equals("Workhouse_upstairs_north")) {
+            Workhouse_upstairs_north workhouse_upstairs_north = new Workhouse_upstairs_north();
+            animation_frames = workhouse_upstairs_north.animation_frames;
+            map_height = workhouse_upstairs_north.map_height;
+        } else if (currentmap.equals("Workhouse_upstairs_south")) {
+            Workhouse_upstairs_south workhouse_upstairs_south = new Workhouse_upstairs_south();
+            animation_frames = workhouse_upstairs_south.animation_frames;
+            map_height = workhouse_upstairs_south.map_height;
         } else if (currentmap.equals("Hallway1_2")) {
             Hallway1_2 hallway1_2 = new Hallway1_2();
             animation_frames = hallway1_2.animation_frames;
@@ -755,9 +817,21 @@ public class MainLib  {
             Room1 room1 = new Room1();
             room1.showmap();
         }
+        if (currentmap.equals("North_Rinlund_Town_Center")) {
+            North_Rinlund_Town_Center north_Rinlund_Town_Center = new North_Rinlund_Town_Center();
+            north_Rinlund_Town_Center.showmap();
+        }
         if (currentmap.equals("Start_forest_1")) {
             Start_forest_1 start_forest_1 = new Start_forest_1();
             start_forest_1.showmap();
+        }
+        if (currentmap.equals("Workhouse_upstairs_north")) {
+            Workhouse_upstairs_north workhouse_upstairs_north = new Workhouse_upstairs_north();
+            workhouse_upstairs_north.showmap();
+        }
+        if (currentmap.equals("Workhouse_upstairs_south")) {
+            Workhouse_upstairs_south workhouse_upstairs_south = new Workhouse_upstairs_south();
+            workhouse_upstairs_south.showmap();
         }
         if (currentmap.equals("Start_forest_2")) {
             Start_forest_2 start_forest_2 = new Start_forest_2();

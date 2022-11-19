@@ -14,6 +14,13 @@ public class FightMapRouter {
             max_range = testFightMap.max_range;
             canmove = testFightMap.canmove;
         }
+        if (currentmap.equals("CaveFightMap")) {
+            covers = caveFightMap.covers;
+            enemy_currentcover = caveFightMap.enemy_starter;
+            optimal_distance = caveFightMap.optimal_distance;
+            max_range = caveFightMap.max_range;
+            canmove = caveFightMap.canmove;
+        }
     }
     public static Integer optimal_distance;
     public static Integer max_range;
@@ -66,6 +73,7 @@ public class FightMapRouter {
     public static String enemy_currentcover;
     static final FightHandler fightHandler = new FightHandler();
     static final TestFightMap testFightMap = new TestFightMap();
+    static final CaveFightMap caveFightMap = new CaveFightMap();
     public static void update_variables() {
         if (currentmap.equals("empty") == false) {
             extractnames(covers);

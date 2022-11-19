@@ -217,7 +217,7 @@ public class FightHandler {
         cls();
         while (mainlib.choice.equals("no")) {
             options = extractranged(true, mainlib.inventory);
-            at("Choose your weapon or type view to view a weapons statistics:", "30", true);
+            at("Choose your ranged weapon or type view to view a weapons statistics:", "30", true);
             nl();
             mainlib.choice = mainlib.choices(true, "30", false, mainlib.concat(options, new String[]{"view"}));
             player_ranged = grabranged(mainlib.choice, mainlib.inventory);
@@ -235,6 +235,8 @@ public class FightHandler {
         mainlib.choice = "no";
         while (mainlib.choice.equals("no")) {
             options = getmelee(true, mainlib.inventory);
+            at("Choose your melee weapon or type view to view a weapons statistics:", "30", true);
+            nl();
             mainlib.choice = mainlib.choices(true, "30", true, mainlib.concat(options, new String[]{"view"}));
             if (mainlib.choice.equals("view")) {
                 view_at_start_melee(options);
@@ -540,7 +542,7 @@ public class FightHandler {
 //        System.out.println(Integer.parseInt(ai_current_y));
         ai_current_y_int = Integer.parseInt(ai_current_y);
         
-        if (((Integer.parseInt(ai_temp[2]) == 0 && rng.nextInt(101) < 99) || rng.nextInt(101) < 80) && fightMapRouter.canmove && ai_options_amount > 0) {
+        if (((Integer.parseInt(ai_temp[2]) == 0 && rng.nextInt(101) < 99) || rng.nextInt(101) < 20) && fightMapRouter.canmove && ai_options_amount > 0) {
             ai_rng_temp = rng.nextInt(ai_options_amount);
 //            System.out.println("ai_options[" + ai_rng_temp + "] = " + ai_options[ai_rng_temp]);
             ai_rng_temp = rng.nextInt(ai_options_amount);
@@ -667,7 +669,7 @@ public class FightHandler {
 //        System.out.println("potential_damage: " + potential_damage);
 //        System.out.println("attack_chance: " + attack_chance);
 //        System.out.println(rng.nextInt(101));
-        if (attack_chance < rng.nextInt(101)) {
+        if (attack_chance > rng.nextInt(101)) {
             at("Hit!", "30", true);
             enemy_health = enemy_health - potential_damage;
 //            System.out.println("attacked!");
@@ -818,7 +820,7 @@ public class FightHandler {
 //        System.out.println("potential_damage: " + potential_damage);
 //        System.out.println("attack_chance: " + attack_chance);
 //        System.out.println(rng.nextInt(101));
-        if (attack_chance < rng.nextInt(101)) {
+        if (attack_chance > rng.nextInt(101)) {
             at("Hit!", "30", true);
             nl();
             player_health = player_health - potential_damage;

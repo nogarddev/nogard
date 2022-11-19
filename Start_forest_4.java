@@ -10,9 +10,10 @@ public class Start_forest_4 {
     public static Integer animation_frames = 1;
     public static String[][] grabables = new String[1][1];
     public static Integer map_height = 10;
+    static MapHandler mapHandler = new MapHandler();
     public static String[][] usables = new String[1][1];
     public static Boolean breakconditions() {
-        if (man.choice.equals("north") && man.currentmap.equals("Start_forest_4")) {
+        if (mapHandler.lastcommand1.equals("north") && mapHandler.lastmap1.equals("Start_forest_4")) {
             return true;
         } else {
             return false;

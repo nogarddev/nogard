@@ -41,7 +41,7 @@ public class Debugger {
     public static void run() {
         choice = mainLib.choices(false, "0", true, new String[]{"set","view","cancel"});
         if (choice.equals("set")) {
-            choice = mainLib.choices(false, "0", true, new String[]{"variable","inventory","cancel"});
+            choice = mainLib.choices(false, "0", true, new String[]{"variable","inventory","break","cancel"});
             if (choice.equals("inventory")) {
                 choice = mainLib.choices(false, "0", true, new String[]{"make","modify","cancel"});
                 if (choice.equals("modify")) {
@@ -478,6 +478,8 @@ public class Debugger {
                         }
                     }
                 }
+            } else if (choice.equals("break")) {
+                mainLib.forcebreak = true;
             }
         }
         if (choice.equals("view")) {
