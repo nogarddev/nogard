@@ -299,6 +299,7 @@ public class Main {
         mainLib.nlers = "...sfga......nbba...";
         at("...sfr...Narrator:" + mainlib.nlers + " You enter the dark and damp forst, it is now midnight and sounds can be heard around you randomly, like footsteps, but with an inhuman quality to them.", "30", true);
         nl();
+        enter_break();
         playsong("spooky.wav");
         mainlib.currentmap = "Start_forest_1";
         nl();

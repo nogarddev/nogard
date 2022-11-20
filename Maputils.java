@@ -7,7 +7,7 @@ public class Maputils {
     static String option1;
     static String[] item;
     public static String currentshop;
-    public static Float money = (float) 300;
+    public static Float money = (float) 0;
     public static void reduce(Float amount) {
         money = money - amount;
     }
