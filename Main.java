@@ -164,9 +164,9 @@ public class Main {
             nl();
             mainlib.enter_break();
         }
-        if (mainlib.choice.equals("no")) {
-            showmap();
-        }
+//        if (mainlib.choice.equals("no")) {
+//            showmap();
+//        }
 //        if (test == false) {
 //            mainlib.nlers = "...nbba......sfw...";
 //            nl();
@@ -299,6 +299,8 @@ public class Main {
         mainLib.nlers = "...sfga......nbba...";
         at("...sfr...Narrator:" + mainlib.nlers + " You enter the dark and damp forst, it is now midnight and sounds can be heard around you randomly, like footsteps, but with an inhuman quality to them.", "30", true);
         nl();
+        at("        ...sfr...: " + mainlib.nlers + "It is so dark you can barely make out anything, everything looks like static.", "30", true);
+        nl();
         enter_break();
         playsong("spooky.wav");
         mainlib.currentmap = "Start_forest_1";
@@ -337,16 +339,22 @@ public class Main {
         FightHandler fightHandler = new FightHandler();
         fightHandler.FightStarter();
         cls();
-        at("...sfr...Narrator: " + mainlib.nlers + "You run to the exit", "30", true);
         playsongFx("running_footsteps_long.wav");
+        at("...sfr...Narrator: " + mainlib.nlers + "You run to the exit", "30", true);
         at("...", "1", true);
         nl();
         at("        ...sfr...: " + mainlib.nlers + "You sleep the night under a beautiful sprawling willow tree.", "30", true);
         nl();
         at("        ...sfr...: " + mainlib.nlers + "You walk for a few more days and end up at the North Rinlund Village.", "30", true);
         nl();
-        enter_break();
         at("        ...sfr...: " + mainlib.nlers + "You decide to visit the village center.", "30", true);
+        nl();
+        at("        ...sfr...: " + mainlib.nlers + "You should look around and try to earn some money, you may be able to sleep the night in the inn if you can afford it!", "30", true);
+        nl();
+        at("Objective: ...sb......su......nfc...Find some ways to find money around the town and buy a place at the inn for tonight....nbba......sfge...", "30", true);
+        nl();
+        enter_break();
+        cls();
         nl();
         nl();
         nl();
@@ -354,6 +362,7 @@ public class Main {
         nl();
         nl();
         mainlib.currentmap = "North_Rinlund_Town_Center";
+        playsong("Town.wav");
         mapHandler.game_prompt();
 //        at("        ...sfr...: " + mainlib.nlers + "Who would risk their life for a poor fugitive?", "30", true);
 //        nl();

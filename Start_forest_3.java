@@ -4,7 +4,7 @@ public class Start_forest_3 {
     public static final String down = "empty";
     public static final String north = "Start_forest_4";
     public static String east = "empty";
-    public static final String south = "empty";
+    public static final String south = "Start_forest_2";
     public static final String west = "empty";
     public static Boolean animation = false;
     public static Integer animation_frames = 1;

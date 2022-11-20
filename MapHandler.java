@@ -186,6 +186,7 @@ public class MapHandler {
         }
         dofakeanim = false;
     }
+    public static MapRouter mapRouter = new MapRouter();
     public static void reducegrab(String item) {
         Integer i = 0;
         String[] itemarray = {""};
@@ -197,37 +198,38 @@ public class MapHandler {
         if (mainlib.grabables[i][1].equals("0")) {
             mainlib.grabables[i][1] = "empty";
         }
-        if (mainlib.currentmap.equals("Ship_Up")) {
-            Ship_Up ship_Up = new Ship_Up();
-            ship_Up.grabables = mainlib.grabables;
-        } else if (mainlib.currentmap.equals("Ship_Down")) {
-            Ship_Down ship_Down = new Ship_Down();
-            ship_Down.grabables = mainlib.grabables;
-        } else if (mainlib.currentmap.equals("Hallway1")) {
-            Hallway1 hallway1 = new Hallway1();
-            hallway1.grabables = hallway1.grabables;
-        } else if (mainlib.currentmap.equals("Hallway1_2")) {
-            Hallway1_2 hallway1_2 = new Hallway1_2();
-            hallway1_2.grabables = hallway1_2.grabables;
-        } else if (mainlib.currentmap.equals("Downstairs_workhouse")) {
-            Downstairs_workhouse downstairs_workhouse = new Downstairs_workhouse();
-            downstairs_workhouse.grabables = downstairs_workhouse.grabables;
-        } else if (mainlib.currentmap.equals("North_Rinlund_Town_Center")) {
-            North_Rinlund_Town_Center north_Rinlund_Town_Center = new North_Rinlund_Town_Center();
-            north_Rinlund_Town_Center.grabables = north_Rinlund_Town_Center.grabables;
-        } else if (mainlib.currentmap.equals("Start_forest_1")) {
-            Start_forest_1 start_forest_1 = new Start_forest_1();
-            start_forest_1.grabables = start_forest_1.grabables;
-        } else if (mainlib.currentmap.equals("Room1")) {
-            Room1 room1 = new Room1();
-            room1.grabables = mainlib.grabables;
-        } else if (mainlib.currentmap.equals("Workhouse_upstairs_north")) {
-            Workhouse_upstairs_north workhouse_upstairs_north = new Workhouse_upstairs_north();
-            workhouse_upstairs_north.grabables = mainlib.grabables;
-        } else if (mainlib.currentmap.equals("Workhouse_upstairs_south")) {
-            Workhouse_upstairs_south workhouse_upstairs_south = new Workhouse_upstairs_south();
-            workhouse_upstairs_south.grabables = mainlib.grabables;
-        }
+        mapRouter.updategrabables(mainlib.currentmap, mainlib.grabables);
+//        if (mainlib.currentmap.equals("Ship_Up")) {
+//            Ship_Up ship_Up = new Ship_Up();
+//            ship_Up.grabables = mainlib.grabables;
+//        } else if (mainlib.currentmap.equals("Ship_Down")) {
+//            Ship_Down ship_Down = new Ship_Down();
+//            ship_Down.grabables = mainlib.grabables;
+//        } else if (mainlib.currentmap.equals("Hallway1")) {
+//            Hallway1 hallway1 = new Hallway1();
+//            hallway1.grabables = hallway1.grabables;
+//        } else if (mainlib.currentmap.equals("Hallway1_2")) {
+//            Hallway1_2 hallway1_2 = new Hallway1_2();
+//            hallway1_2.grabables = hallway1_2.grabables;
+//        } else if (mainlib.currentmap.equals("Downstairs_workhouse")) {
+//            Downstairs_workhouse downstairs_workhouse = new Downstairs_workhouse();
+//            downstairs_workhouse.grabables = downstairs_workhouse.grabables;
+//        } else if (mainlib.currentmap.equals("North_Rinlund_Town_Center")) {
+//            North_Rinlund_Town_Center north_Rinlund_Town_Center = new North_Rinlund_Town_Center();
+//            north_Rinlund_Town_Center.grabables = north_Rinlund_Town_Center.grabables;
+//        } else if (mainlib.currentmap.equals("Start_forest_1")) {
+//            Start_forest_1 start_forest_1 = new Start_forest_1();
+//            start_forest_1.grabables = start_forest_1.grabables;
+//        } else if (mainlib.currentmap.equals("Room1")) {
+//            Room1 room1 = new Room1();
+//            room1.grabables = mainlib.grabables;
+//        } else if (mainlib.currentmap.equals("Workhouse_upstairs_north")) {
+//            Workhouse_upstairs_north workhouse_upstairs_north = new Workhouse_upstairs_north();
+//            workhouse_upstairs_north.grabables = mainlib.grabables;
+//        } else if (mainlib.currentmap.equals("Workhouse_upstairs_south")) {
+//            Workhouse_upstairs_south workhouse_upstairs_south = new Workhouse_upstairs_south();
+//            workhouse_upstairs_south.grabables = mainlib.grabables;
+//        }
         i = 0;
         Integer exist = 0;
 //        while ((mainlib.inventory[i][0].equals(item) == false) && ((mainlib.inventory[i][0].equals("empty")) == false)) {
@@ -300,58 +302,59 @@ public class MapHandler {
     }
     public static Integer y = 0;
     public static void reduceuse(String item) {
-        if (mainlib.currentmap.equals("Ship_Up")) {
-            Ship_Up ship_Up = new Ship_Up();
-            ship_Up.use(item);
-        }
-        if (mainlib.currentmap.equals("Ship_Down")) {
-            Ship_Down ship_Down = new Ship_Down();
-            ship_Down.use(item);
-        }
-        if (mainlib.currentmap.equals("Room1")) {
-            Room1 room1 = new Room1();
-            room1.use(item);
-        }
-        if (mainlib.currentmap.equals("Workhouse_upstairs_north")) {
-            Workhouse_upstairs_north workhouse_upstairs_north = new Workhouse_upstairs_north();
-            workhouse_upstairs_north.use(item);
-        }
-        if (mainlib.currentmap.equals("Workhouse_upstairs_south")) {
-            Workhouse_upstairs_south workhouse_upstairs_south = new Workhouse_upstairs_south();
-            workhouse_upstairs_south.use(item);
-        }
-        if (mainlib.currentmap.equals("Hallway1")) {
-            Hallway1 hallway1 = new Hallway1();
-            hallway1.use(item);
-        }
-        if (mainlib.currentmap.equals("Hallway1_2")) {
-            Hallway1_2 hallway1_2 = new Hallway1_2();
-            hallway1_2.use(item);
-        }
-        if (mainlib.currentmap.equals("North_Rinlund_Town_Center")) {
-            North_Rinlund_Town_Center north_Rinlund_Town_Center = new North_Rinlund_Town_Center();
-            north_Rinlund_Town_Center.use(item);
-        }
-        if (mainlib.currentmap.equals("Start_forest_1")) {
-            Start_forest_1 start_forest_1 = new Start_forest_1();
-            start_forest_1.use(item);
-        }
-        if (mainlib.currentmap.equals("Start_forest_2")) {
-            Start_forest_2 start_forest_2 = new Start_forest_2();
-            start_forest_2.use(item);
-        }
-        if (mainlib.currentmap.equals("Start_forest_3")) {
-            Start_forest_3 start_forest_3 = new Start_forest_3();
-            start_forest_3.use(item);
-        }
-        if (mainlib.currentmap.equals("Start_forest_4")) {
-            Start_forest_4 start_forest_4 = new Start_forest_4();
-            start_forest_4.use(item);
-        }
-        if (mainlib.currentmap.equals("Downstairs_workhouse")) {
-            Downstairs_workhouse downstairs_workhouse = new Downstairs_workhouse();
-            downstairs_workhouse.use(item);
-        }
+        mapRouter.use(mainlib.currentmap, item);
+//        if (mainlib.currentmap.equals("Ship_Up")) {
+//            Ship_Up ship_Up = new Ship_Up();
+//            ship_Up.use(item);
+//        }
+//        if (mainlib.currentmap.equals("Ship_Down")) {
+//            Ship_Down ship_Down = new Ship_Down();
+//            ship_Down.use(item);
+//        }
+//        if (mainlib.currentmap.equals("Room1")) {
+//            Room1 room1 = new Room1();
+//            room1.use(item);
+//        }
+//        if (mainlib.currentmap.equals("Workhouse_upstairs_north")) {
+//            Workhouse_upstairs_north workhouse_upstairs_north = new Workhouse_upstairs_north();
+//            workhouse_upstairs_north.use(item);
+//        }
+//        if (mainlib.currentmap.equals("Workhouse_upstairs_south")) {
+//            Workhouse_upstairs_south workhouse_upstairs_south = new Workhouse_upstairs_south();
+//            workhouse_upstairs_south.use(item);
+//        }
+//        if (mainlib.currentmap.equals("Hallway1")) {
+//            Hallway1 hallway1 = new Hallway1();
+//            hallway1.use(item);
+//        }
+//        if (mainlib.currentmap.equals("Hallway1_2")) {
+//            Hallway1_2 hallway1_2 = new Hallway1_2();
+//            hallway1_2.use(item);
+//        }
+//        if (mainlib.currentmap.equals("North_Rinlund_Town_Center")) {
+//            North_Rinlund_Town_Center north_Rinlund_Town_Center = new North_Rinlund_Town_Center();
+//            north_Rinlund_Town_Center.use(item);
+//        }
+//        if (mainlib.currentmap.equals("Start_forest_1")) {
+//            Start_forest_1 start_forest_1 = new Start_forest_1();
+//            start_forest_1.use(item);
+//        }
+//        if (mainlib.currentmap.equals("Start_forest_2")) {
+//            Start_forest_2 start_forest_2 = new Start_forest_2();
+//            start_forest_2.use(item);
+//        }
+//        if (mainlib.currentmap.equals("Start_forest_3")) {
+//            Start_forest_3 start_forest_3 = new Start_forest_3();
+//            start_forest_3.use(item);
+//        }
+//        if (mainlib.currentmap.equals("Start_forest_4")) {
+//            Start_forest_4 start_forest_4 = new Start_forest_4();
+//            start_forest_4.use(item);
+//        }
+//        if (mainlib.currentmap.equals("Downstairs_workhouse")) {
+//            Downstairs_workhouse downstairs_workhouse = new Downstairs_workhouse();
+//            downstairs_workhouse.use(item);
+//        }
     }
     String[] itemarray;
     public static void use(String item, Integer change) {

@@ -52,319 +52,331 @@ public class MainLib  {
             forcebreak = false;
             return true;
         }
-        if (currentmap.equals("Ship_Down")) {
-            Ship_Down ship_Down = new Ship_Down();
-            return ship_Down.breakconditions();
-        } else if (currentmap.equals("Ship_Up")) {
-            Ship_Up ship_Up = new Ship_Up();
-            return ship_Up.breakconditions();
-        } else if (currentmap.equals("Hallway1")) {
-            Hallway1 hallway1 = new Hallway1();
-            return hallway1.breakconditions();
-        } else if (currentmap.equals("Room1")) {
-            Room1 room1 = new Room1();
-            return room1.breakconditions();
-        } else if (currentmap.equals("North_Rinlund_Town_Center")) {
-            North_Rinlund_Town_Center north_Rinlund_Town_Center = new North_Rinlund_Town_Center();
-            return north_Rinlund_Town_Center.breakconditions();
-        } else if (currentmap.equals("Start_forest_1")) {
-            Start_forest_1 start_forest_1 = new Start_forest_1();
-            return start_forest_1.breakconditions();
-        } else if (currentmap.equals("Workhouse_upstairs_north")) {
-            Workhouse_upstairs_north workhouse_upstairs_north = new Workhouse_upstairs_north();
-            return workhouse_upstairs_north.breakconditions();
-        } else if (currentmap.equals("Workhouse_upstairs_south")) {
-            Workhouse_upstairs_south workhouse_upstairs_south = new Workhouse_upstairs_south();
-            return workhouse_upstairs_south.breakconditions();
-        } else if (currentmap.equals("Start_forest_2")) {
-            Start_forest_2 start_forest_2 = new Start_forest_2();
-            return start_forest_2.breakconditions();
-        } else if (currentmap.equals("Start_forest_3")) {
-            Start_forest_3 start_forest_3 = new Start_forest_3();
-            return start_forest_3.breakconditions();
-        } else if (currentmap.equals("Start_forest_4")) {
-            Start_forest_4 start_forest_4 = new Start_forest_4();
-            return start_forest_4.breakconditions();
-        } else if (currentmap.equals("Hallway1_2")) {
-            Hallway1_2 hallway1_2 = new Hallway1_2();
-            return hallway1_2.breakconditions();
-        } else if (currentmap.equals("Downstairs_workhouse")) {
-                Downstairs_workhouse downstairs_workhouse = new Downstairs_workhouse();
-                return downstairs_workhouse.breakconditions();
-        } else {
-            System.out.println("no breakconditions found, going with false");
-            return false;
-        }
+        return mapRouter.getbreakconditions(currentmap);
+//        if (currentmap.equals("Ship_Down")) {
+//            Ship_Down ship_Down = new Ship_Down();
+//            return ship_Down.breakconditions();
+//        } else if (currentmap.equals("Ship_Up")) {
+//            Ship_Up ship_Up = new Ship_Up();
+//            return ship_Up.breakconditions();
+//        } else if (currentmap.equals("Hallway1")) {
+//            Hallway1 hallway1 = new Hallway1();
+//            return hallway1.breakconditions();
+//        } else if (currentmap.equals("Room1")) {
+//            Room1 room1 = new Room1();
+//            return room1.breakconditions();
+//        } else if (currentmap.equals("North_Rinlund_Town_Center")) {
+//            North_Rinlund_Town_Center north_Rinlund_Town_Center = new North_Rinlund_Town_Center();
+//            return north_Rinlund_Town_Center.breakconditions();
+//        } else if (currentmap.equals("Start_forest_1")) {
+//            Start_forest_1 start_forest_1 = new Start_forest_1();
+//            return start_forest_1.breakconditions();
+//        } else if (currentmap.equals("Workhouse_upstairs_north")) {
+//            Workhouse_upstairs_north workhouse_upstairs_north = new Workhouse_upstairs_north();
+//            return workhouse_upstairs_north.breakconditions();
+//        } else if (currentmap.equals("Workhouse_upstairs_south")) {
+//            Workhouse_upstairs_south workhouse_upstairs_south = new Workhouse_upstairs_south();
+//            return workhouse_upstairs_south.breakconditions();
+//        } else if (currentmap.equals("Start_forest_2")) {
+//            Start_forest_2 start_forest_2 = new Start_forest_2();
+//            return start_forest_2.breakconditions();
+//        } else if (currentmap.equals("Start_forest_3")) {
+//            Start_forest_3 start_forest_3 = new Start_forest_3();
+//            return start_forest_3.breakconditions();
+//        } else if (currentmap.equals("Start_forest_4")) {
+//            Start_forest_4 start_forest_4 = new Start_forest_4();
+//            return start_forest_4.breakconditions();
+//        } else if (currentmap.equals("Hallway1_2")) {
+//            Hallway1_2 hallway1_2 = new Hallway1_2();
+//            return hallway1_2.breakconditions();
+//        } else if (currentmap.equals("Downstairs_workhouse")) {
+//                Downstairs_workhouse downstairs_workhouse = new Downstairs_workhouse();
+//                return downstairs_workhouse.breakconditions();
+//        } else {
+//            System.out.println("no breakconditions found, going with false");
+//            return false;
+//        }
     }
+    public static MapRouter mapRouter = new MapRouter();
     public static void update_variables() {
-        if (currentmap.equals("Ship_Down")) {
-            Ship_Down ship_Down = new Ship_Down();
-            movement_commands = ship_Down.movement_commands;
-            usables = ship_Down.usables;
-            grabables = ship_Down.grabables;
-//            if (Arrays.asList(movement_commands).contains("up")) {
-            up = ship_Down.up;
-//            }
-//            if (Arrays.asList(movement_commands).contains("down")) {
-            down = ship_Down.down;
-//            }
-//            if (Arrays.asList(movement_commands).contains("north")) {
-            north = ship_Down.north;
-//            }
-//            if (Arrays.asList(movement_commands).contains("east")) {
-            east = ship_Down.east;
-//            }
-//            if (Arrays.asList(movement_commands).contains("south")) {
-            south = ship_Down.south;
-//            }
-//            if (Arrays.asList(movement_commands).contains("west")) {
-            west = ship_Down.west;
-//            }
-        }
-        if (currentmap.equals("Ship_Up")) {
-//            System.out.println("eaa");
-            Ship_Up ship_Up = new Ship_Up();
-            movement_commands = ship_Up.movement_commands;
-            usables = ship_Up.usables;
-            grabables = ship_Up.grabables;
-//            System.out.println(ship_Up.grabables.length);
-//            System.out.println(grabables.length);
-//            if (Arrays.asList(movement_commands).contains("up")) {
-            up = ship_Up.up;
-//            }
-//            if (Arrays.asList(movement_commands).contains("down")) {
-            down = ship_Up.down;
-//            }
-//            if (Arrays.asList(movement_commands).contains("north")) {
-            north = ship_Up.north;
-//            }
-//            if (Arrays.asList(movement_commands).contains("east")) {
-            east = ship_Up.east;
-//            }
-//            if (Arrays.asList(movement_commands).contains("south")) {
-            south = ship_Up.south;
-//            }
-//            if (Arrays.asList(movement_commands).contains("west")) {
-            west = ship_Up.west;
-//            }
-        }
-        if (currentmap.equals("Room1")) {
-//            System.out.println("eaa");
-            Room1 room1 = new Room1();
-            movement_commands = room1.movement_commands;
-            usables = room1.usables;
-            grabables = room1.grabables;
-//            System.out.println(room1.grabables.length);
-//            System.out.println(grabables.length);
-//            if (Arrays.asList(movement_commands).contains("up")) {
-            up = room1.up;
-//            }
-//            if (Arrays.asList(movement_commands).contains("down")) {
-            down = room1.down;
-//            }
-//            if (Arrays.asList(movement_commands).contains("north")) {
-            north = room1.north;
-//            }
-//            if (Arrays.asList(movement_commands).contains("east")) {
-            east = room1.east;
-//            }
-//            if (Arrays.asList(movement_commands).contains("south")) {
-            south = room1.south;
-//            }
-//            if (Arrays.asList(movement_commands).contains("west")) {
-            west = room1.west;
-//            }
-        }
-        if (currentmap.equals("Hallway1")) {
-            Hallway1 hallway1 = new Hallway1();
-            movement_commands = hallway1.movement_commands;
-            usables = hallway1.usables;
-            grabables = hallway1.grabables;
-            up = hallway1.up;
-            down = hallway1.down;
-            north = hallway1.north;
-            east = hallway1.east;
-            south = hallway1.south;
-            west = hallway1.west;
-        }
-        if (currentmap.equals("Workhouse_upstairs_north")) {
-            Workhouse_upstairs_north workhouse_upstairs_north = new Workhouse_upstairs_north();
-            movement_commands = workhouse_upstairs_north.movement_commands;
-            usables = workhouse_upstairs_north.usables;
-            grabables = workhouse_upstairs_north.grabables;
-            up = workhouse_upstairs_north.up;
-            down = workhouse_upstairs_north.down;
-            north = workhouse_upstairs_north.north;
-            east = workhouse_upstairs_north.east;
-            south = workhouse_upstairs_north.south;
-            west = workhouse_upstairs_north.west;
-        }
-        if (currentmap.equals("Workhouse_upstairs_south")) {
-            Workhouse_upstairs_south workhouse_upstairs_south = new Workhouse_upstairs_south();
-            movement_commands = workhouse_upstairs_south.movement_commands;
-            usables = workhouse_upstairs_south.usables;
-            grabables = workhouse_upstairs_south.grabables;
-            up = workhouse_upstairs_south.up;
-            down = workhouse_upstairs_south.down;
-            north = workhouse_upstairs_south.north;
-            east = workhouse_upstairs_south.east;
-            south = workhouse_upstairs_south.south;
-            west = workhouse_upstairs_south.west;
-        }
-        if (currentmap.equals("North_Rinlund_Town_Center")) {
-            North_Rinlund_Town_Center north_Rinlund_Town_Center = new North_Rinlund_Town_Center();
-            movement_commands = north_Rinlund_Town_Center.movement_commands;
-            usables = north_Rinlund_Town_Center.usables;
-            grabables = north_Rinlund_Town_Center.grabables;
-            up = north_Rinlund_Town_Center.up;
-            down = north_Rinlund_Town_Center.down;
-            north = north_Rinlund_Town_Center.north;
-            east = north_Rinlund_Town_Center.east;
-            south = north_Rinlund_Town_Center.south;
-            west = north_Rinlund_Town_Center.west;
-        }
-        if (currentmap.equals("Start_forest_1")) {
-            Start_forest_1 start_forest_1 = new Start_forest_1();
-            movement_commands = start_forest_1.movement_commands;
-            usables = start_forest_1.usables;
-            grabables = start_forest_1.grabables;
-            up = start_forest_1.up;
-            down = start_forest_1.down;
-            north = start_forest_1.north;
-            east = start_forest_1.east;
-            south = start_forest_1.south;
-            west = start_forest_1.west;
-        }
-        if (currentmap.equals("Start_forest_2")) {
-            Start_forest_2 start_forest_2 = new Start_forest_2();
-            movement_commands = start_forest_2.movement_commands;
-            usables = start_forest_2.usables;
-            grabables = start_forest_2.grabables;
-            up = start_forest_2.up;
-            down = start_forest_2.down;
-            north = start_forest_2.north;
-            east = start_forest_2.east;
-            south = start_forest_2.south;
-            west = start_forest_2.west;
-        }
-        if (currentmap.equals("Start_forest_3")) {
-            Start_forest_3 start_forest_3 = new Start_forest_3();
-            movement_commands = start_forest_3.movement_commands;
-            usables = start_forest_3.usables;
-            grabables = start_forest_3.grabables;
-            up = start_forest_3.up;
-            down = start_forest_3.down;
-            north = start_forest_3.north;
-            east = start_forest_3.east;
-            south = start_forest_3.south;
-            west = start_forest_3.west;
-        }
-        if (currentmap.equals("Start_forest_4")) {
-            Start_forest_4 start_forest_4 = new Start_forest_4();
-            movement_commands = start_forest_4.movement_commands;
-            usables = start_forest_4.usables;
-            grabables = start_forest_4.grabables;
-            up = start_forest_4.up;
-            down = start_forest_4.down;
-            north = start_forest_4.north;
-            east = start_forest_4.east;
-            south = start_forest_4.south;
-            west = start_forest_4.west;
-        }
-        if (currentmap.equals("Hallway1_2")) {
-            Hallway1_2 hallway1_2 = new Hallway1_2();
-            movement_commands = hallway1_2.movement_commands;
-            usables = hallway1_2.usables;
-            grabables = hallway1_2.grabables;
-            up = hallway1_2.up;
-            down = hallway1_2.down;
-            north = hallway1_2.north;
-            east = hallway1_2.east;
-            south = hallway1_2.south;
-            west = hallway1_2.west;
-        }
-        if (currentmap.equals("Downstairs_workhouse")) {
-            Downstairs_workhouse downstairs_workhouse = new Downstairs_workhouse();
-            movement_commands = downstairs_workhouse.movement_commands;
-            usables = downstairs_workhouse.usables;
-            grabables = downstairs_workhouse.grabables;
-            up = downstairs_workhouse.up;
-            down = downstairs_workhouse.down;
-            north = downstairs_workhouse.north;
-            east = downstairs_workhouse.east;
-            south = downstairs_workhouse.south;
-            west = downstairs_workhouse.west;
-        }
+            movement_commands = mapRouter.movement_commands(currentmap);
+            usables = mapRouter.usables(currentmap);
+            grabables = mapRouter.grabables(currentmap);
+            up = mapRouter.up(currentmap);
+            down = mapRouter.down(currentmap);
+            north = mapRouter.north(currentmap);
+            east = mapRouter.east(currentmap);
+            south = mapRouter.south(currentmap);
+            west = mapRouter.west(currentmap);
+//        if (currentmap.equals("Ship_Down")) {
+//            Ship_Down ship_Down = new Ship_Down();
+//            movement_commands = ship_Down.movement_commands;
+//            usables = ship_Down.usables;
+//            grabables = ship_Down.grabables;
+////            if (Arrays.asList(movement_commands).contains("up")) {
+//            up = ship_Down.up;
+////            }
+////            if (Arrays.asList(movement_commands).contains("down")) {
+//            down = ship_Down.down;
+////            }
+////            if (Arrays.asList(movement_commands).contains("north")) {
+//            north = ship_Down.north;
+////            }
+////            if (Arrays.asList(movement_commands).contains("east")) {
+//            east = ship_Down.east;
+////            }
+////            if (Arrays.asList(movement_commands).contains("south")) {
+//            south = ship_Down.south;
+////            }
+////            if (Arrays.asList(movement_commands).contains("west")) {
+//            west = ship_Down.west;
+////            }
+//        }
+//        if (currentmap.equals("Ship_Up")) {
+////            System.out.println("eaa");
+//            Ship_Up ship_Up = new Ship_Up();
+//            movement_commands = ship_Up.movement_commands;
+//            usables = ship_Up.usables;
+//            grabables = ship_Up.grabables;
+////            System.out.println(ship_Up.grabables.length);
+////            System.out.println(grabables.length);
+////            if (Arrays.asList(movement_commands).contains("up")) {
+//            up = ship_Up.up;
+////            }
+////            if (Arrays.asList(movement_commands).contains("down")) {
+//            down = ship_Up.down;
+////            }
+////            if (Arrays.asList(movement_commands).contains("north")) {
+//            north = ship_Up.north;
+////            }
+////            if (Arrays.asList(movement_commands).contains("east")) {
+//            east = ship_Up.east;
+////            }
+////            if (Arrays.asList(movement_commands).contains("south")) {
+//            south = ship_Up.south;
+////            }
+////            if (Arrays.asList(movement_commands).contains("west")) {
+//            west = ship_Up.west;
+////            }
+//        }
+//        if (currentmap.equals("Room1")) {
+////            System.out.println("eaa");
+//            Room1 room1 = new Room1();
+//            movement_commands = room1.movement_commands;
+//            usables = room1.usables;
+//            grabables = room1.grabables;
+////            System.out.println(room1.grabables.length);
+////            System.out.println(grabables.length);
+////            if (Arrays.asList(movement_commands).contains("up")) {
+//            up = room1.up;
+////            }
+////            if (Arrays.asList(movement_commands).contains("down")) {
+//            down = room1.down;
+////            }
+////            if (Arrays.asList(movement_commands).contains("north")) {
+//            north = room1.north;
+////            }
+////            if (Arrays.asList(movement_commands).contains("east")) {
+//            east = room1.east;
+////            }
+////            if (Arrays.asList(movement_commands).contains("south")) {
+//            south = room1.south;
+////            }
+////            if (Arrays.asList(movement_commands).contains("west")) {
+//            west = room1.west;
+////            }
+//        }
+//        if (currentmap.equals("Hallway1")) {
+//            Hallway1 hallway1 = new Hallway1();
+//            movement_commands = hallway1.movement_commands;
+//            usables = hallway1.usables;
+//            grabables = hallway1.grabables;
+//            up = hallway1.up;
+//            down = hallway1.down;
+//            north = hallway1.north;
+//            east = hallway1.east;
+//            south = hallway1.south;
+//            west = hallway1.west;
+//        }
+//        if (currentmap.equals("Workhouse_upstairs_north")) {
+//            Workhouse_upstairs_north workhouse_upstairs_north = new Workhouse_upstairs_north();
+//            movement_commands = workhouse_upstairs_north.movement_commands;
+//            usables = workhouse_upstairs_north.usables;
+//            grabables = workhouse_upstairs_north.grabables;
+//            up = workhouse_upstairs_north.up;
+//            down = workhouse_upstairs_north.down;
+//            north = workhouse_upstairs_north.north;
+//            east = workhouse_upstairs_north.east;
+//            south = workhouse_upstairs_north.south;
+//            west = workhouse_upstairs_north.west;
+//        }
+//        if (currentmap.equals("Workhouse_upstairs_south")) {
+//            Workhouse_upstairs_south workhouse_upstairs_south = new Workhouse_upstairs_south();
+//            movement_commands = workhouse_upstairs_south.movement_commands;
+//            usables = workhouse_upstairs_south.usables;
+//            grabables = workhouse_upstairs_south.grabables;
+//            up = workhouse_upstairs_south.up;
+//            down = workhouse_upstairs_south.down;
+//            north = workhouse_upstairs_south.north;
+//            east = workhouse_upstairs_south.east;
+//            south = workhouse_upstairs_south.south;
+//            west = workhouse_upstairs_south.west;
+//        }
+//        if (currentmap.equals("North_Rinlund_Town_Center")) {
+//            North_Rinlund_Town_Center north_Rinlund_Town_Center = new North_Rinlund_Town_Center();
+//            movement_commands = north_Rinlund_Town_Center.movement_commands;
+//            usables = north_Rinlund_Town_Center.usables;
+//            grabables = north_Rinlund_Town_Center.grabables;
+//            up = north_Rinlund_Town_Center.up;
+//            down = north_Rinlund_Town_Center.down;
+//            north = north_Rinlund_Town_Center.north;
+//            east = north_Rinlund_Town_Center.east;
+//            south = north_Rinlund_Town_Center.south;
+//            west = north_Rinlund_Town_Center.west;
+//        }
+//        if (currentmap.equals("Start_forest_1")) {
+//            Start_forest_1 start_forest_1 = new Start_forest_1();
+//            movement_commands = start_forest_1.movement_commands;
+//            usables = start_forest_1.usables;
+//            grabables = start_forest_1.grabables;
+//            up = start_forest_1.up;
+//            down = start_forest_1.down;
+//            north = start_forest_1.north;
+//            east = start_forest_1.east;
+//            south = start_forest_1.south;
+//            west = start_forest_1.west;
+//        }
+//        if (currentmap.equals("Start_forest_2")) {
+//            Start_forest_2 start_forest_2 = new Start_forest_2();
+//            movement_commands = start_forest_2.movement_commands;
+//            usables = start_forest_2.usables;
+//            grabables = start_forest_2.grabables;
+//            up = start_forest_2.up;
+//            down = start_forest_2.down;
+//            north = start_forest_2.north;
+//            east = start_forest_2.east;
+//            south = start_forest_2.south;
+//            west = start_forest_2.west;
+//        }
+//        if (currentmap.equals("Start_forest_3")) {
+//            Start_forest_3 start_forest_3 = new Start_forest_3();
+//            movement_commands = start_forest_3.movement_commands;
+//            usables = start_forest_3.usables;
+//            grabables = start_forest_3.grabables;
+//            up = start_forest_3.up;
+//            down = start_forest_3.down;
+//            north = start_forest_3.north;
+//            east = start_forest_3.east;
+//            south = start_forest_3.south;
+//            west = start_forest_3.west;
+//        }
+//        if (currentmap.equals("Start_forest_4")) {
+//            Start_forest_4 start_forest_4 = new Start_forest_4();
+//            movement_commands = start_forest_4.movement_commands;
+//            usables = start_forest_4.usables;
+//            grabables = start_forest_4.grabables;
+//            up = start_forest_4.up;
+//            down = start_forest_4.down;
+//            north = start_forest_4.north;
+//            east = start_forest_4.east;
+//            south = start_forest_4.south;
+//            west = start_forest_4.west;
+//        }
+//        if (currentmap.equals("Hallway1_2")) {
+//            Hallway1_2 hallway1_2 = new Hallway1_2();
+//            movement_commands = hallway1_2.movement_commands;
+//            usables = hallway1_2.usables;
+//            grabables = hallway1_2.grabables;
+//            up = hallway1_2.up;
+//            down = hallway1_2.down;
+//            north = hallway1_2.north;
+//            east = hallway1_2.east;
+//            south = hallway1_2.south;
+//            west = hallway1_2.west;
+//        }
+//        if (currentmap.equals("Downstairs_workhouse")) {
+//            Downstairs_workhouse downstairs_workhouse = new Downstairs_workhouse();
+//            movement_commands = downstairs_workhouse.movement_commands;
+//            usables = downstairs_workhouse.usables;
+//            grabables = downstairs_workhouse.grabables;
+//            up = downstairs_workhouse.up;
+//            down = downstairs_workhouse.down;
+//            north = downstairs_workhouse.north;
+//            east = downstairs_workhouse.east;
+//            south = downstairs_workhouse.south;
+//            west = downstairs_workhouse.west;
+//        }
     }
     public static Integer frame = 0;
     public static Integer animation_frames = 0;
     public static Integer map_height = 0;
     public static Boolean animation = true;
     public static void animupdate() {
-
-        if (currentmap.equals("Ship_Up")) {
-            Ship_Up ship_Up = new Ship_Up();
-            animation_frames = ship_Up.animation_frames;
-            map_height = ship_Up.map_height;
-//            animation = ship_Up.animation;
-        } else if (currentmap.equals("Hallway1")) {
-            Hallway1 hallway1 = new Hallway1();
-            animation_frames = hallway1.animation_frames;
-            map_height = hallway1.map_height;
-//            animation = hallway1.animation;
-        } else if (currentmap.equals("Ship_Down")) {
-            Ship_Down ship_Down = new Ship_Down();
-            animation_frames = ship_Down.animation_frames;
-            map_height = ship_Down.map_height;
-//            animation = ship_Down.animation;
-        } else if (currentmap.equals("Room1")) {
-            Room1 room1 = new Room1();
-            animation_frames = room1.animation_frames;
-            map_height = room1.map_height;
-//            animation = room1.animation;
-        } else if (currentmap.equals("North_Rinlund_Town_Center")) {
-            North_Rinlund_Town_Center north_Rinlund_Town_Center = new North_Rinlund_Town_Center();
-            animation_frames = north_Rinlund_Town_Center.animation_frames;
-            map_height = north_Rinlund_Town_Center.map_height;
-        } else if (currentmap.equals("Start_forest_1")) {
-            Start_forest_1 start_forest_1 = new Start_forest_1();
-            animation_frames = start_forest_1.animation_frames;
-            map_height = start_forest_1.map_height;
-        } else if (currentmap.equals("Start_forest_2")) {
-            Start_forest_2 start_forest_2 = new Start_forest_2();
-            animation_frames = start_forest_2.animation_frames;
-            map_height = start_forest_2.map_height;
-        } else if (currentmap.equals("Start_forest_3")) {
-            Start_forest_3 start_forest_3 = new Start_forest_3();
-            animation_frames = start_forest_3.animation_frames;
-            map_height = start_forest_3.map_height;
-        } else if (currentmap.equals("Start_forest_4")) {
-            Start_forest_4 start_forest_4 = new Start_forest_4();
-            animation_frames = start_forest_4.animation_frames;
-            map_height = start_forest_4.map_height;
-        } else if (currentmap.equals("Workhouse_upstairs_north")) {
-            Workhouse_upstairs_north workhouse_upstairs_north = new Workhouse_upstairs_north();
-            animation_frames = workhouse_upstairs_north.animation_frames;
-            map_height = workhouse_upstairs_north.map_height;
-        } else if (currentmap.equals("Workhouse_upstairs_south")) {
-            Workhouse_upstairs_south workhouse_upstairs_south = new Workhouse_upstairs_south();
-            animation_frames = workhouse_upstairs_south.animation_frames;
-            map_height = workhouse_upstairs_south.map_height;
-        } else if (currentmap.equals("Hallway1_2")) {
-            Hallway1_2 hallway1_2 = new Hallway1_2();
-            animation_frames = hallway1_2.animation_frames;
-            map_height = hallway1_2.map_height;
-//            animation = hallway1_2.animation;
-        } else if (currentmap.equals("Downstairs_workhouse")) {
-            Downstairs_workhouse downstairs_workhouse = new Downstairs_workhouse();
-            animation_frames = downstairs_workhouse.animation_frames;
-            map_height = downstairs_workhouse.map_height;
-//            animation = downstairs_workhouse.animation;
-        } else {
-            animation_frames = 0;
-            map_height = 0;
-//            animation = false;
-        }
+        animation_frames = mapRouter.animation_frames(currentmap);
+        map_height = mapRouter.animation_frames(currentmap);
+//        if (currentmap.equals("Ship_Up")) {
+//            Ship_Up ship_Up = new Ship_Up();
+//            animation_frames = ship_Up.animation_frames;
+//            map_height = ship_Up.map_height;
+////            animation = ship_Up.animation;
+//        } else if (currentmap.equals("Hallway1")) {
+//            Hallway1 hallway1 = new Hallway1();
+//            animation_frames = hallway1.animation_frames;
+//            map_height = hallway1.map_height;
+////            animation = hallway1.animation;
+//        } else if (currentmap.equals("Ship_Down")) {
+//            Ship_Down ship_Down = new Ship_Down();
+//            animation_frames = ship_Down.animation_frames;
+//            map_height = ship_Down.map_height;
+////            animation = ship_Down.animation;
+//        } else if (currentmap.equals("Room1")) {
+//            Room1 room1 = new Room1();
+//            animation_frames = room1.animation_frames;
+//            map_height = room1.map_height;
+////            animation = room1.animation;
+//        } else if (currentmap.equals("North_Rinlund_Town_Center")) {
+//            North_Rinlund_Town_Center north_Rinlund_Town_Center = new North_Rinlund_Town_Center();
+//            animation_frames = north_Rinlund_Town_Center.animation_frames;
+//            map_height = north_Rinlund_Town_Center.map_height;
+//        } else if (currentmap.equals("Start_forest_1")) {
+//            Start_forest_1 start_forest_1 = new Start_forest_1();
+//            animation_frames = start_forest_1.animation_frames;
+//            map_height = start_forest_1.map_height;
+//        } else if (currentmap.equals("Start_forest_2")) {
+//            Start_forest_2 start_forest_2 = new Start_forest_2();
+//            animation_frames = start_forest_2.animation_frames;
+//            map_height = start_forest_2.map_height;
+//        } else if (currentmap.equals("Start_forest_3")) {
+//            Start_forest_3 start_forest_3 = new Start_forest_3();
+//            animation_frames = start_forest_3.animation_frames;
+//            map_height = start_forest_3.map_height;
+//        } else if (currentmap.equals("Start_forest_4")) {
+//            Start_forest_4 start_forest_4 = new Start_forest_4();
+//            animation_frames = start_forest_4.animation_frames;
+//            map_height = start_forest_4.map_height;
+//        } else if (currentmap.equals("Workhouse_upstairs_north")) {
+//            Workhouse_upstairs_north workhouse_upstairs_north = new Workhouse_upstairs_north();
+//            animation_frames = workhouse_upstairs_north.animation_frames;
+//            map_height = workhouse_upstairs_north.map_height;
+//        } else if (currentmap.equals("Workhouse_upstairs_south")) {
+//            Workhouse_upstairs_south workhouse_upstairs_south = new Workhouse_upstairs_south();
+//            animation_frames = workhouse_upstairs_south.animation_frames;
+//            map_height = workhouse_upstairs_south.map_height;
+//        } else if (currentmap.equals("Hallway1_2")) {
+//            Hallway1_2 hallway1_2 = new Hallway1_2();
+//            animation_frames = hallway1_2.animation_frames;
+//            map_height = hallway1_2.map_height;
+////            animation = hallway1_2.animation;
+//        } else if (currentmap.equals("Downstairs_workhouse")) {
+//            Downstairs_workhouse downstairs_workhouse = new Downstairs_workhouse();
+//            animation_frames = downstairs_workhouse.animation_frames;
+//            map_height = downstairs_workhouse.map_height;
+////            animation = downstairs_workhouse.animation;
+//        } else {
+//            animation_frames = 0;
+//            map_height = 0;
+////            animation = false;
+//        }
 
     }
 //    public static void anim(Integer frame) {
@@ -805,58 +817,59 @@ public class MainLib  {
         comingfromcorelib = true;
         String tempnlers = nlers;
 //        nlers = "...sbw......nfba...";
-        if (currentmap.equals("Ship_Up")) {
-            Ship_Up ship_Up = new Ship_Up();
-            ship_Up.showmap();
-        }
-        if (currentmap.equals("Ship_Down")) {
-            Ship_Down ship_Down = new Ship_Down();
-            ship_Down.showmap();
-        }
-        if (currentmap.equals("Room1")) {
-            Room1 room1 = new Room1();
-            room1.showmap();
-        }
-        if (currentmap.equals("North_Rinlund_Town_Center")) {
-            North_Rinlund_Town_Center north_Rinlund_Town_Center = new North_Rinlund_Town_Center();
-            north_Rinlund_Town_Center.showmap();
-        }
-        if (currentmap.equals("Start_forest_1")) {
-            Start_forest_1 start_forest_1 = new Start_forest_1();
-            start_forest_1.showmap();
-        }
-        if (currentmap.equals("Workhouse_upstairs_north")) {
-            Workhouse_upstairs_north workhouse_upstairs_north = new Workhouse_upstairs_north();
-            workhouse_upstairs_north.showmap();
-        }
-        if (currentmap.equals("Workhouse_upstairs_south")) {
-            Workhouse_upstairs_south workhouse_upstairs_south = new Workhouse_upstairs_south();
-            workhouse_upstairs_south.showmap();
-        }
-        if (currentmap.equals("Start_forest_2")) {
-            Start_forest_2 start_forest_2 = new Start_forest_2();
-            start_forest_2.showmap();
-        }
-        if (currentmap.equals("Start_forest_3")) {
-            Start_forest_3 start_forest_3 = new Start_forest_3();
-            start_forest_3.showmap();
-        }
-        if (currentmap.equals("Start_forest_4")) {
-            Start_forest_4 start_forest_4 = new Start_forest_4();
-            start_forest_4.showmap();
-        }
-        if (currentmap.equals("Hallway1")) {
-            Hallway1 hallway1 = new Hallway1();
-            hallway1.showmap();
-        }
-        if (currentmap.equals("Downstairs_workhouse")) {
-            Downstairs_workhouse downstairs_workhouse = new Downstairs_workhouse();
-            downstairs_workhouse.showmap();
-        }
-        if (currentmap.equals("Hallway1_2")) {
-            Hallway1_2 hallway1_2 = new Hallway1_2();
-            hallway1_2.showmap();
-        }
+        mapRouter.showmap(currentmap);
+//        if (currentmap.equals("Ship_Up")) {
+//            Ship_Up ship_Up = new Ship_Up();
+//            ship_Up.showmap();
+//        }
+//        if (currentmap.equals("Ship_Down")) {
+//            Ship_Down ship_Down = new Ship_Down();
+//            ship_Down.showmap();
+//        }
+//        if (currentmap.equals("Room1")) {
+//            Room1 room1 = new Room1();
+//            room1.showmap();
+//        }
+//        if (currentmap.equals("North_Rinlund_Town_Center")) {
+//            North_Rinlund_Town_Center north_Rinlund_Town_Center = new North_Rinlund_Town_Center();
+//            north_Rinlund_Town_Center.showmap();
+//        }
+//        if (currentmap.equals("Start_forest_1")) {
+//            Start_forest_1 start_forest_1 = new Start_forest_1();
+//            start_forest_1.showmap();
+//        }
+//        if (currentmap.equals("Workhouse_upstairs_north")) {
+//            Workhouse_upstairs_north workhouse_upstairs_north = new Workhouse_upstairs_north();
+//            workhouse_upstairs_north.showmap();
+//        }
+//        if (currentmap.equals("Workhouse_upstairs_south")) {
+//            Workhouse_upstairs_south workhouse_upstairs_south = new Workhouse_upstairs_south();
+//            workhouse_upstairs_south.showmap();
+//        }
+//        if (currentmap.equals("Start_forest_2")) {
+//            Start_forest_2 start_forest_2 = new Start_forest_2();
+//            start_forest_2.showmap();
+//        }
+//        if (currentmap.equals("Start_forest_3")) {
+//            Start_forest_3 start_forest_3 = new Start_forest_3();
+//            start_forest_3.showmap();
+//        }
+//        if (currentmap.equals("Start_forest_4")) {
+//            Start_forest_4 start_forest_4 = new Start_forest_4();
+//            start_forest_4.showmap();
+//        }
+//        if (currentmap.equals("Hallway1")) {
+//            Hallway1 hallway1 = new Hallway1();
+//            hallway1.showmap();
+//        }
+//        if (currentmap.equals("Downstairs_workhouse")) {
+//            Downstairs_workhouse downstairs_workhouse = new Downstairs_workhouse();
+//            downstairs_workhouse.showmap();
+//        }
+//        if (currentmap.equals("Hallway1_2")) {
+//            Hallway1_2 hallway1_2 = new Hallway1_2();
+//            hallway1_2.showmap();
+//        }
         nlers = tempnlers;
         //        nlers = "...sbw......nfba...";
 //        lw("  ################################################################################################################################################################################################################################################################################################  ", "0");
