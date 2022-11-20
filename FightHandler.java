@@ -43,7 +43,7 @@ public class FightHandler {
         Integer y = 0;
         String[] outranged = new String[]{};
         while (i < arr.length && (arr[i][0].equals("empty") == false)) {
-            if (arr[i][0].equals(item)) {
+            if (arr[i][0].equalsIgnoreCase(item)) {
                 outranged = arr[i];
             }
             i++;
@@ -207,7 +207,7 @@ public class FightHandler {
     }
     public static String[] grabmelee(String name, String[][] arr) {
         Integer ia = 0;
-        while (name.equals(arr[ia][0]) == false && ia.equals(arr.length - 1) == false) {
+        while (name.equalsIgnoreCase(arr[ia][0]) == false && ia.equals(arr.length - 1) == false) {
             ia++;
         }
         return arr[ia];
@@ -344,7 +344,7 @@ public class FightHandler {
                     fightMapRouter.update_variables();
                     mainlib.choice = mainlib.choices(true, "30", true, fightMapRouter.covers_list);
                     Integer i = 0;
-                    while (fightMapRouter.covers[i][0].equals(mainlib.choice) == false) {
+                    while (fightMapRouter.covers[i][0].equalsIgnoreCase(mainlib.choice) == false) {
                         i++;
                     }
                     viewcover(fightMapRouter.covers[i]);

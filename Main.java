@@ -143,7 +143,7 @@ public class Main {
             nl();
             at("Try opening the map using the command \"map\"", "30", true);
             nl();
-            mainlib.choice = mainlib.choices(true, "30", true, new String[]{"use", "north", "south", "east", "west", "map"});
+            mainlib.choice = mainlib.choices(true, "30", true, new String[]{"USe", "NOrth", "SOuth", "EAst", "WEst", "MAp"});
             while (mainlib.choice.equals("map") == false) {
                 at("Try \"map\"!", "30", true);
                 System.out.print("[1A");
@@ -153,12 +153,18 @@ public class Main {
                 System.out.print("[1A");
                 
                 nl();
-                mainlib.choice = mainlib.choices(true, "30", true, new String[]{"use", "north", "south", "east", "west", "map"});
+                mainlib.choice = mainlib.choices(true, "30", true, new String[]{"USe", "NOrth", "SOuth", "EAst", "WEst", "MAp"});
             }
             if (mainlib.choice.equals("map")) {
-                showmap();
+//                showmap();
+                Integer skip = 1;
             }
             at("Well done!", "30", true);
+            mainlib.nlers = "...nbba......sfw...";
+            nl();
+            at("...sr...When you are prompted for an input, some letters may be in inverted colours (switched background and foreground colours) you can type just these letters as an abbreviation if you wish, but this in non-essential.", "30", true);
+            nl();
+            at("For example, if you had the prompt \"([7my[27mes,[7mn[27mo)\" and you wanted the yes option, you could type \"y\" or \"yes\"", "30", true);
             nl();
             at("...sr...One other note, you will be represented with a red ...nfr...@...sr... symbol, use this to tell where you are.", "30", true);
             nl();

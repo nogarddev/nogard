@@ -17,10 +17,11 @@ public class ThreadedScanner extends Thread {
 //            prompt = getinput();
         prompt = "";
         String failx = "0";
-        while (Arrays.asList(args).contains(prompt) == false) {
+        String[] optionswithabbreviation = man.arrtoarrwithabbreviations(args);
+        while (Arrays.asList(optionswithabbreviation).contains(prompt) == false) {
 
             if (failx.equals("0")) {
-                at("(" +  String.join(",", args)  + ")", ms, skip_spaces);
+                at("(" +  man.capstounderline(String.join(",", args))  + ")", ms, skip_spaces);
             }
 
             if (failx.equals("1")) {

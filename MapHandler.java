@@ -101,7 +101,7 @@ public class MapHandler {
                 options = mainlib.concat(options, new String[]{"shop"});
             }
             if (main.test) {
-                mainlib.choice = mainlib.choices(true, "30", true, mainlib.concat(options, new String[]{"test"}));
+                mainlib.choice = mainlib.choices(true, "30", true, mainlib.concat(options, new String[]{"Test"}));
             } else {
                 mainlib.choice = mainlib.choices(true, "30", true, options);
             }
@@ -190,7 +190,7 @@ public class MapHandler {
     public static void reducegrab(String item) {
         Integer i = 0;
         String[] itemarray = {""};
-        while (mainlib.grabables[i][0].equals(item) == false) {
+        while (mainlib.grabables[i][0].equalsIgnoreCase(item) == false) {
             i++;
         }
         itemarray = mainlib.grabables[i];
@@ -240,7 +240,7 @@ public class MapHandler {
 //            i++;
 //        }
         while ((mainlib.inventory[i][0].equals("empty") == false && exist == 0)) {
-            if (mainlib.inventory[i][0].equals(item)) {
+            if (mainlib.inventory[i][0].equalsIgnoreCase(item)) {
                 exist = 1;
 //                System.out.println("exist");
             } else {
@@ -277,7 +277,7 @@ public class MapHandler {
     public static void give_item(String[] item) {
         Integer exist = 0;
         while ((mainlib.inventory[i][0].equals("empty") == false && exist == 0)) {
-            if (mainlib.inventory[i][0].equals(item[0])) {
+            if (mainlib.inventory[i][0].equalsIgnoreCase(item[0])) {
                 exist = 1;
 //                System.out.println("exist");
             } else {
@@ -371,7 +371,7 @@ public class MapHandler {
         Boolean empty = false; 
         if (non_empty) {
             while (i < arr.length && (arr[i][0].equals("empty") == false)) {
-                if ((arr[i][1].equals("empty")) == false && arr[i][0].equals(item)) {
+                if ((arr[i][1].equals("empty")) == false && arr[i][0].equalsIgnoreCase(item)) {
                     empty = true;
                 }
                 i++;
@@ -379,7 +379,7 @@ public class MapHandler {
             return empty;
         } else {
             while (i < arr.length) {
-                if (arr[i][0].equals(item)) {
+                if (arr[i][0].equalsIgnoreCase(item)) {
                     empty = true;
                 }
             }
@@ -393,9 +393,10 @@ public class MapHandler {
         Integer y = 0;
         Boolean emptya = true; 
         while (i < arr.length && (arr[i][0].equals("empty") == false)) {
-            if ((arr[i][0].equals(item))) {
+            if ((arr[i][0].equalsIgnoreCase(item))) {
                 arr[i][1] = String.valueOf((Integer.parseInt(arr[i][1]) + change));
             } else if (arr[i][1].equals("empty") == false) {
+                skip = "1";
             }
             i++;
         }

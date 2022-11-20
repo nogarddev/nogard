@@ -1,5 +1,5 @@
 public class Shops {
-    public static String[][] North_Rinlund = new String[][]{{"used wood axe","1","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","200"}};
+    public static String[][] North_Rinlund = new String[][]{{"Used Wood Axe","1","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","200"}};
     public static String[][] Shop_Locations = new String[][]{{"North_Rinlund_Town_Center","North_Rinlund"}};
     public static Boolean hasShop(String currentmap) {
         Integer i = 0;
@@ -35,7 +35,7 @@ public class Shops {
     public static String[] getitem(String name, String item) {
         Integer i = 0;
         String[][] shop = grabshop(name);
-        while (i < shop.length && shop[i][0].equals(item) == false) {
+        while (i < shop.length && shop[i][0].equalsIgnoreCase(item) == false) {
             i++;
         }
         if (i == shop.length) {
@@ -79,7 +79,7 @@ public class Shops {
         }
         String[][] shop = grabshop(name);
         Integer i = 0;
-        while (shop[i][0].equals(item) == false && i < shop.length) {
+        while (shop[i][0].equalsIgnoreCase(item) == false && i < shop.length) {
             i++;
         }
         grabshop(name)[i][0] = "empty";

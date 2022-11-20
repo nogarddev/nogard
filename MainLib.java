@@ -463,17 +463,17 @@ public class MainLib  {
             if (mapHandler.dofakeanim) {
                 mapHandler.fakeanim();
             }
-            return threadedScanner.output.toString();
+            return abbreivationtoword(threadedScanner.output.toString(), args);
         } else {
             String prompt = "";
-            at("(" +  String.join(",", args)  + ")", ms, skip_spaces);
+            at("(" +  capstounderline(String.join(",", args))  + ")", ms, skip_spaces);
             //            nl();
             //            lw(" > ", "0");
             //            prompt = getinput();
             prompt = "";
             String failx = "0";
-
-            while (Arrays.asList(args).contains(prompt) == false) {
+            String[] optionswithabbreviation = arrtoarrwithabbreviations(args);//
+            while (Arrays.asList(optionswithabbreviation).contains(prompt) == false) {
                 if (failx.equals("1")) {
                     System.out.print("[1A");
                     System.out.print("[2K");
@@ -494,8 +494,295 @@ public class MainLib  {
             if (mapHandler.dofakeanim) {
                 mapHandler.fakeanim();
             }
-            return prompt.toString();        
+            return abbreivationtoword(prompt.toString(), args);
         }
+    }
+    static String[] temporiginalandabbreviation;
+    public static String abbreivationtoword(String input, String[] options) {
+        Integer i = 0;
+        while (i < options.length) {
+            temporiginalandabbreviation = capstolowercaseandabbreviationtwinned(options[i]);
+            if (input.equals(temporiginalandabbreviation[1])) {
+                return temporiginalandabbreviation[0];
+            } else if (input.equals(temporiginalandabbreviation[0])) {
+                return temporiginalandabbreviation[0];
+            }
+            i++;
+        }
+        System.out.println("Could not convert abbreviation to option, returning original input");
+        return input;
+    }
+    public static String[] arrtoarrwithabbreviations(String[] input) {
+        String[] out = capstolowercaseandabbreviation(input[0]);
+        Integer i = 1;
+        while (i < input.length) {
+            out = concat(out, capstolowercaseandabbreviation(input[i]));
+            i++;
+        }
+        return out;
+    }
+    static String inputb;
+    public static String[] capstolowercaseandabbreviationtwinned(String input) {
+        String[] out = capstolowercaseandabbreviation(input);
+        if (out.length == 1) {
+            out = new String[]{out[0],null};
+        }
+        return out;
+    }
+    public static String[] capstolowercaseandabbreviation(String input) {
+        String inputa = input;
+        inputa = inputa.replace("A", "a");
+        inputa = inputa.replace("B", "b");
+        inputa = inputa.replace("C", "c");
+        inputa = inputa.replace("D", "d");
+        inputa = inputa.replace("E", "e");
+        inputa = inputa.replace("F", "f");
+        inputa = inputa.replace("G", "g");
+        inputa = inputa.replace("H", "h");
+        inputa = inputa.replace("I", "i");
+        inputa = inputa.replace("J", "j");
+        inputa = inputa.replace("K", "k");
+        inputa = inputa.replace("L", "l");
+        inputa = inputa.replace("M", "m");
+        inputa = inputa.replace("N", "n");
+        inputa = inputa.replace("O", "o");
+        inputa = inputa.replace("P", "p");
+        inputa = inputa.replace("Q", "q");
+        inputa = inputa.replace("R", "r");
+        inputa = inputa.replace("S", "s");
+        inputa = inputa.replace("T", "t");
+        inputa = inputa.replace("U", "u");
+        inputa = inputa.replace("V", "v");
+        inputa = inputa.replace("W", "w");
+        inputa = inputa.replace("X", "x");
+        inputa = inputa.replace("Y", "y");
+        inputa = inputa.replace("Z", "z");
+        char[] inputbchararr = input.toCharArray();
+        Integer i = 0;
+        inputb = null;
+        while (i < inputbchararr.length) {
+            if (Character.toString(inputbchararr[i]).equals(("A"))) {
+                if (inputb == null) {
+                    inputb = "a";
+                } else {
+                    inputb = inputb + "a";
+                }
+            }
+            if (Character.toString(inputbchararr[i]).equals(("B"))) {
+                if (inputb == null) {
+                    inputb = "b";
+                } else {
+                    inputb = inputb + "b";
+                }
+            }
+            if (Character.toString(inputbchararr[i]).equals(("C"))) {
+                if (inputb == null) {
+                    inputb = "c";
+                } else {
+                    inputb = inputb + "c";
+                }
+            }
+            if (Character.toString(inputbchararr[i]).equals(("D"))) {
+                if (inputb == null) {
+                    inputb = "d";
+                } else {
+                    inputb = inputb + "d";
+                }
+            }
+            if (Character.toString(inputbchararr[i]).equals(("E"))) {
+                if (inputb == null) {
+                    inputb = "e";
+                } else {
+                    inputb = inputb + "e";
+                }
+            }
+            if (Character.toString(inputbchararr[i]).equals(("F"))) {
+                if (inputb == null) {
+                    inputb = "f";
+                } else {
+                    inputb = inputb + "f";
+                }
+            }
+            if (Character.toString(inputbchararr[i]).equals(("G"))) {
+                if (inputb == null) {
+                    inputb = "g";
+                } else {
+                    inputb = inputb + "g";
+                }
+            }
+            if (Character.toString(inputbchararr[i]).equals(("H"))) {
+                if (inputb == null) {
+                    inputb = "h";
+                } else {
+                    inputb = inputb + "h";
+                }
+            }
+            if (Character.toString(inputbchararr[i]).equals(("I"))) {
+                if (inputb == null) {
+                    inputb = "i";
+                } else {
+                    inputb = inputb + "i";
+                }
+            }
+            if (Character.toString(inputbchararr[i]).equals(("J"))) {
+                if (inputb == null) {
+                    inputb = "j";
+                } else {
+                    inputb = inputb + "j";
+                }
+            }
+            if (Character.toString(inputbchararr[i]).equals(("K"))) {
+                if (inputb == null) {
+                    inputb = "k";
+                } else {
+                    inputb = inputb + "k";
+                }
+            }
+            if (Character.toString(inputbchararr[i]).equals(("L"))) {
+                if (inputb == null) {
+                    inputb = "l";
+                } else {
+                    inputb = inputb + "l";
+                }
+            }
+            if (Character.toString(inputbchararr[i]).equals(("M"))) {
+                if (inputb == null) {
+                    inputb = "m";
+                } else {
+                    inputb = inputb + "m";
+                }
+            }
+            if (Character.toString(inputbchararr[i]).equals(("N"))) {
+                if (inputb == null) {
+                    inputb = "n";
+                } else {
+                    inputb = inputb + "n";
+                }
+            }
+            if (Character.toString(inputbchararr[i]).equals(("O"))) {
+                if (inputb == null) {
+                    inputb = "o";
+                } else {
+                    inputb = inputb + "o";
+                }
+            }
+            if (Character.toString(inputbchararr[i]).equals(("P"))) {
+                if (inputb == null) {
+                    inputb = "p";
+                } else {
+                    inputb = inputb + "p";
+                }
+            }
+            if (Character.toString(inputbchararr[i]).equals(("Q"))) {
+                if (inputb == null) {
+                    inputb = "q";
+                } else {
+                    inputb = inputb + "q";
+                }
+            }
+            if (Character.toString(inputbchararr[i]).equals(("R"))) {
+                if (inputb == null) {
+                    inputb = "r";
+                } else {
+                    inputb = inputb + "r";
+                }
+            }
+            if (Character.toString(inputbchararr[i]).equals(("S"))) {
+                if (inputb == null) {
+                    inputb = "s";
+                } else {
+                    inputb = inputb + "s";
+                }
+            }
+            if (Character.toString(inputbchararr[i]).equals(("T"))) {
+                if (inputb == null) {
+                    inputb = "t";
+                } else {
+                    inputb = inputb + "t";
+                }
+            }
+            if (Character.toString(inputbchararr[i]).equals(("U"))) {
+                if (inputb == null) {
+                    inputb = "u";
+                } else {
+                    inputb = inputb + "u";
+                }
+            }
+            if (Character.toString(inputbchararr[i]).equals(("V"))) {
+                if (inputb == null) {
+                    inputb = "v";
+                } else {
+                    inputb = inputb + "v";
+                }
+            }
+            if (Character.toString(inputbchararr[i]).equals(("W"))) {
+                if (inputb == null) {
+                    inputb = "w";
+                } else {
+                    inputb = inputb + "w";
+                }
+            }
+            if (Character.toString(inputbchararr[i]).equals(("X"))) {
+                if (inputb == null) {
+                    inputb = "x";
+                } else {
+                    inputb = inputb + "x";
+                }
+            }
+            if (Character.toString(inputbchararr[i]).equals(("Y"))) {
+                if (inputb == null) {
+                    inputb = "y";
+                } else {
+                    inputb = inputb + "y";
+                }
+            }
+            if (Character.toString(inputbchararr[i]).equals(("Z"))) {
+                if (inputb == null) {
+                    inputb = "z";
+                } else {
+                    inputb = inputb + "z";
+                }
+            }
+            i++;
+        }
+        if ((inputb == null) == false) {
+            return concat(new String[]{inputa},new String[]{inputb});
+        } else {
+            return new String[]{inputa};
+        }
+    }
+    public static String capstounderline(String input) {
+        input = input.replace("A", "...su...a...sr......nlers...");
+        input = input.replace("B", "...su...b...sr......nlers...");
+        input = input.replace("C", "...su...c...sr......nlers...");
+        input = input.replace("D", "...su...d...sr......nlers...");
+        input = input.replace("E", "...su...e...sr......nlers...");
+        input = input.replace("F", "...su...f...sr......nlers...");
+        input = input.replace("G", "...su...g...sr......nlers...");
+        input = input.replace("H", "...su...h...sr......nlers...");
+        input = input.replace("I", "...su...i...sr......nlers...");
+        input = input.replace("J", "...su...j...sr......nlers...");
+        input = input.replace("K", "...su...k...sr......nlers...");
+        input = input.replace("L", "...su...l...sr......nlers...");
+        input = input.replace("M", "...su...m...sr......nlers...");
+        input = input.replace("N", "...su...n...sr......nlers...");
+        input = input.replace("O", "...su...o...sr......nlers...");
+        input = input.replace("P", "...su...p...sr......nlers...");
+        input = input.replace("Q", "...su...q...sr......nlers...");
+        input = input.replace("R", "...su...r...sr......nlers...");
+        input = input.replace("S", "...su...s...sr......nlers...");
+        input = input.replace("T", "...su...t...sr......nlers...");
+        input = input.replace("U", "...su...u...sr......nlers...");
+        input = input.replace("V", "...su...v...sr......nlers...");
+        input = input.replace("W", "...su...w...sr......nlers...");
+        input = input.replace("X", "...su...x...sr......nlers...");
+        input = input.replace("Y", "...su...y...sr......nlers...");
+        input = input.replace("Z", "...su...z...sr......nlers...");
+        input = input.replace("...sr......nlers......sb...","");
+        input = input.replace("...nlers...", "");
+        input = input.replace("...su...","[7m");
+        input = input.replace("...sr...","[27m");
+        return input;         
     }
     public static Boolean comingfromcorelib = false;
     public static String startyouanim = "0";
@@ -1096,17 +1383,7 @@ public class MainLib  {
     {
         int i;
         int n = one.length + two.length;
-        // create a new array of size n+1
         String newarr[] = new String[n];
-    
-        // insert the elements from
-        // the old array into the new array
-        // insert all elements till n
-        // then insert x at n+1
-//        for (i = 0; i < n; i++)
-//            newarr[i] = arr[i];
-//    
-//        newarr[n] = x;
         i = 0;
         while ((i >= one.length) == false) {
             newarr[i] = one[i];

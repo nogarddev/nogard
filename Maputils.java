@@ -71,7 +71,8 @@ public class Maputils {
         try {
             Scanner sc = new Scanner(new File("./maps/" + url));
             while (sc.hasNextLine()) {
-                System.out.println(sc.nextLine());
+                mainLib.lw(sc.nextLine(), "0");
+                mainLib.nl();
             }
         } catch (Exception ex) {
             System.out.println("Failed to print map!");
