@@ -18,6 +18,7 @@ public class Debugger {
     final static Ship_Up ship_Up = new Ship_Up();
     final static TestFightMap testFightMap = new TestFightMap();
     final static ThreadedScanner threadedScanner = new ThreadedScanner();
+    final static Maputils maputils = new Maputils();
     public static String choice;
     public static String choice1;
     static String name;
@@ -39,9 +40,26 @@ public class Debugger {
     static Integer i;
     static Scanner sc;
     public static void run() {
-        choice = mainLib.choices(false, "0", true, new String[]{"set","view","cancel"});
+        choice = mainLib.choices(false, "0", true, new String[]{"set","view","run","cancel"});
+        if (choice.equals("run")) {
+            choice = mainLib.choices(false, "0", true, new String[]{"maputils","break","cancel"});
+            if (choice.equals("break")) {
+                mainLib.forcebreak = true;
+            } else if (choice.equals("maputils")) {
+                choice = mainLib.choices(false, "0", true, new String[]{"trymap","mapviewer","cancel"});
+                if (choice.equals("trymap")) {
+                    Scanner sc = new Scanner(System.in);
+                    System.out.println("Enter location: ");
+                    maputils.trymap(sc.nextLine());
+                } else if (choice.equals("mapviewer")) {
+                    Scanner sc = new Scanner(System.in);
+                    System.out.println("Enter url: ");
+                    maputils.mapviewer(sc.nextLine());
+                }
+            }
+        }
         if (choice.equals("set")) {
-            choice = mainLib.choices(false, "0", true, new String[]{"variable","inventory","break","cancel"});
+            choice = mainLib.choices(false, "0", true, new String[]{"variable","inventory","cancel"});
             if (choice.equals("inventory")) {
                 choice = mainLib.choices(false, "0", true, new String[]{"make","modify","cancel"});
                 if (choice.equals("modify")) {
@@ -478,8 +496,6 @@ public class Debugger {
                         }
                     }
                 }
-            } else if (choice.equals("break")) {
-                mainLib.forcebreak = true;
             }
         }
         if (choice.equals("view")) {
