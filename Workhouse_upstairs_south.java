@@ -13,7 +13,7 @@ public class Workhouse_upstairs_south {
     public static Integer map_height = 5;
     public static String[][] usables = new String[1][1];
     public static void init() {
-        grabables[0][0] = "rotting axe";
+        grabables[0][0] = "Rotting Axe";
         grabables[0][1] = "1";
         grabables[0][2] = "empty";
         grabables[0][3] = "empty";

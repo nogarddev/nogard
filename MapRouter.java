@@ -1,8 +1,9 @@
 public class MapRouter {
     public static Boolean getbreakconditions(String currentmap) {
-        if (getvalue(currentmap, "breakconditions").equals("true")) {
+        String breakcondition = getvalue(currentmap, "breakconditions");
+        if (breakcondition.equals("true")) {
             return true;
-        } else if (getvalue(currentmap, "breakconditions") == null) {
+        } else if (breakcondition == null) {
             System.out.println("no breakconditions found, going with false");
             return false;
         } else {
@@ -97,7 +98,7 @@ public class MapRouter {
                 refnorth = ref.north;
                 refeast = ref.east;
                 refsouth = ref.south;
-                refwest = ref.south;
+                refwest = ref.west;
                 return "This should not be used as an output, I am here to update \"movements\"";
             }
             if (type.equals("animation")) {
@@ -138,7 +139,7 @@ public class MapRouter {
                 refnorth = ref.north;
                 refeast = ref.east;
                 refsouth = ref.south;
-                refwest = ref.south;
+                refwest = ref.west;
                 return "This should not be used as an output, I am here to update \"movements\"";
             }
             if (type.equals("animation")) {
@@ -179,7 +180,7 @@ public class MapRouter {
                 refnorth = ref.north;
                 refeast = ref.east;
                 refsouth = ref.south;
-                refwest = ref.south;
+                refwest = ref.west;
                 return "This should not be used as an output, I am here to update \"movements\"";
             }
             if (type.equals("animation")) {
@@ -220,7 +221,7 @@ public class MapRouter {
                 refnorth = ref.north;
                 refeast = ref.east;
                 refsouth = ref.south;
-                refwest = ref.south;
+                refwest = ref.west;
                 return "This should not be used as an output, I am here to update \"movements\"";
             }
             if (type.equals("animation")) {
@@ -261,7 +262,7 @@ public class MapRouter {
                 refnorth = ref.north;
                 refeast = ref.east;
                 refsouth = ref.south;
-                refwest = ref.south;
+                refwest = ref.west;
                 return "This should not be used as an output, I am here to update \"movements\"";
             }
             if (type.equals("animation")) {
@@ -302,7 +303,7 @@ public class MapRouter {
                 refnorth = ref.north;
                 refeast = ref.east;
                 refsouth = ref.south;
-                refwest = ref.south;
+                refwest = ref.west;
                 return "This should not be used as an output, I am here to update \"movements\"";
             }
             if (type.equals("animation")) {
@@ -343,7 +344,7 @@ public class MapRouter {
                 refnorth = ref.north;
                 refeast = ref.east;
                 refsouth = ref.south;
-                refwest = ref.south;
+                refwest = ref.west;
                 return "This should not be used as an output, I am here to update \"movements\"";
             }
             if (type.equals("animation")) {
@@ -384,7 +385,7 @@ public class MapRouter {
                 refnorth = ref.north;
                 refeast = ref.east;
                 refsouth = ref.south;
-                refwest = ref.south;
+                refwest = ref.west;
                 return "This should not be used as an output, I am here to update \"movements\"";
             }
             if (type.equals("animation")) {
@@ -425,7 +426,7 @@ public class MapRouter {
                 refnorth = ref.north;
                 refeast = ref.east;
                 refsouth = ref.south;
-                refwest = ref.south;
+                refwest = ref.west;
                 return "This should not be used as an output, I am here to update \"movements\"";
             }
             if (type.equals("animation")) {
@@ -466,7 +467,7 @@ public class MapRouter {
                 refnorth = ref.north;
                 refeast = ref.east;
                 refsouth = ref.south;
-                refwest = ref.south;
+                refwest = ref.west;
                 return "This should not be used as an output, I am here to update \"movements\"";
             }
             if (type.equals("animation")) {
@@ -507,7 +508,7 @@ public class MapRouter {
                 refnorth = ref.north;
                 refeast = ref.east;
                 refsouth = ref.south;
-                refwest = ref.south;
+                refwest = ref.west;
                 return "This should not be used as an output, I am here to update \"movements\"";
             }
             if (type.equals("animation")) {
@@ -548,7 +549,7 @@ public class MapRouter {
                 refnorth = ref.north;
                 refeast = ref.east;
                 refsouth = ref.south;
-                refwest = ref.south;
+                refwest = ref.west;
                 return "This should not be used as an output, I am here to update \"movements\"";
             }
             if (type.equals("animation")) {
@@ -589,7 +590,7 @@ public class MapRouter {
                 refnorth = ref.north;
                 refeast = ref.east;
                 refsouth = ref.south;
-                refwest = ref.south;
+                refwest = ref.west;
                 return "This should not be used as an output, I am here to update \"movements\"";
             }
             if (type.equals("animation")) {

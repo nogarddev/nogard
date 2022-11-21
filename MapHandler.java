@@ -146,7 +146,7 @@ public class MapHandler {
                 options = extract(true, mainlib.usables);
                 i = 0;
                 while (i < options.length) {
-                    if (Arrays.asList(extract(true, mainlib.inventory)).contains(options[i])) {
+                    if (Arrays.asList(extract(true, mainlib.inventory)).contains(options[i])) {//make function to turn extract(true, mainlib.inventory) lowercase
                         optionsa = mainlib.concat(optionsa, new String[]{options[i]});
                     }
                     i++;
