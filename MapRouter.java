@@ -612,6 +612,662 @@ public class MapRouter {
             }
         }
 
+        if (currentmap.equals("NRTC_11")) {
+            NRTC_11 ref = new NRTC_11();
+            if (type.equals("breakconditions")) {
+                Boolean bc = ref.breakconditions();
+                if (bc) {
+                    return "true";
+                } else {
+                    return "false";
+                }
+            }
+            if (type.equals("movements")) {
+                refmovement_commands = ref.movement_commands;
+                refusables = ref.usables;
+                refgrabables = ref.grabables;
+                refup = ref.up;
+                refdown = ref.down;
+                refnorth = ref.north;
+                refeast = ref.east;
+                refsouth = ref.south;
+                refwest = ref.west;
+                return "This should not be used as an output, I am here to update \"movements\"";
+            }
+            if (type.equals("animation")) {
+                refanimation_frames = ref.animation_frames;
+                refmap_height = ref.map_height;
+                return "This should not be used as an output, I am here to update \"animation\"";
+            }
+            if (type.equals("showmap")) {
+                ref.showmap();
+                return "This should not be used as an output, I am here to update \"showmap\"";
+            }
+            if (type.equals("setgrabables")) {
+                ref.grabables = grabablestoupdate;
+                return "This should not be used as an output, I am here to update \"setgrabables\"";
+            }
+            if (type.equals("use")) {
+                ref.use(itemtouse);
+                return "This should not be used as an output, I am here to update \"use\"";                
+            }
+        }
+
+        if (currentmap.equals("NRTC_12")) {
+            NRTC_12 ref = new NRTC_12();
+            if (type.equals("breakconditions")) {
+                Boolean bc = ref.breakconditions();
+                if (bc) {
+                    return "true";
+                } else {
+                    return "false";
+                }
+            }
+            if (type.equals("movements")) {
+                refmovement_commands = ref.movement_commands;
+                refusables = ref.usables;
+                refgrabables = ref.grabables;
+                refup = ref.up;
+                refdown = ref.down;
+                refnorth = ref.north;
+                refeast = ref.east;
+                refsouth = ref.south;
+                refwest = ref.west;
+                return "This should not be used as an output, I am here to update \"movements\"";
+            }
+            if (type.equals("animation")) {
+                refanimation_frames = ref.animation_frames;
+                refmap_height = ref.map_height;
+                return "This should not be used as an output, I am here to update \"animation\"";
+            }
+            if (type.equals("showmap")) {
+                ref.showmap();
+                return "This should not be used as an output, I am here to update \"showmap\"";
+            }
+            if (type.equals("setgrabables")) {
+                ref.grabables = grabablestoupdate;
+                return "This should not be used as an output, I am here to update \"setgrabables\"";
+            }
+            if (type.equals("use")) {
+                ref.use(itemtouse);
+                return "This should not be used as an output, I am here to update \"use\"";                
+            }
+        }
+
+        if (currentmap.equals("NRTC_13")) {
+            NRTC_13 ref = new NRTC_13();
+            if (type.equals("breakconditions")) {
+                Boolean bc = ref.breakconditions();
+                if (bc) {
+                    return "true";
+                } else {
+                    return "false";
+                }
+            }
+            if (type.equals("movements")) {
+                refmovement_commands = ref.movement_commands;
+                refusables = ref.usables;
+                refgrabables = ref.grabables;
+                refup = ref.up;
+                refdown = ref.down;
+                refnorth = ref.north;
+                refeast = ref.east;
+                refsouth = ref.south;
+                refwest = ref.west;
+                return "This should not be used as an output, I am here to update \"movements\"";
+            }
+            if (type.equals("animation")) {
+                refanimation_frames = ref.animation_frames;
+                refmap_height = ref.map_height;
+                return "This should not be used as an output, I am here to update \"animation\"";
+            }
+            if (type.equals("showmap")) {
+                ref.showmap();
+                return "This should not be used as an output, I am here to update \"showmap\"";
+            }
+            if (type.equals("setgrabables")) {
+                ref.grabables = grabablestoupdate;
+                return "This should not be used as an output, I am here to update \"setgrabables\"";
+            }
+            if (type.equals("use")) {
+                ref.use(itemtouse);
+                return "This should not be used as an output, I am here to update \"use\"";                
+            }
+        }
+
+        if (currentmap.equals("NRTC_14")) {
+            NRTC_14 ref = new NRTC_14();
+            if (type.equals("breakconditions")) {
+                Boolean bc = ref.breakconditions();
+                if (bc) {
+                    return "true";
+                } else {
+                    return "false";
+                }
+            }
+            if (type.equals("movements")) {
+                refmovement_commands = ref.movement_commands;
+                refusables = ref.usables;
+                refgrabables = ref.grabables;
+                refup = ref.up;
+                refdown = ref.down;
+                refnorth = ref.north;
+                refeast = ref.east;
+                refsouth = ref.south;
+                refwest = ref.west;
+                return "This should not be used as an output, I am here to update \"movements\"";
+            }
+            if (type.equals("animation")) {
+                refanimation_frames = ref.animation_frames;
+                refmap_height = ref.map_height;
+                return "This should not be used as an output, I am here to update \"animation\"";
+            }
+            if (type.equals("showmap")) {
+                ref.showmap();
+                return "This should not be used as an output, I am here to update \"showmap\"";
+            }
+            if (type.equals("setgrabables")) {
+                ref.grabables = grabablestoupdate;
+                return "This should not be used as an output, I am here to update \"setgrabables\"";
+            }
+            if (type.equals("use")) {
+                ref.use(itemtouse);
+                return "This should not be used as an output, I am here to update \"use\"";                
+            }
+        }
+
+        if (currentmap.equals("NRTC_21")) {
+            NRTC_21 ref = new NRTC_21();
+            if (type.equals("breakconditions")) {
+                Boolean bc = ref.breakconditions();
+                if (bc) {
+                    return "true";
+                } else {
+                    return "false";
+                }
+            }
+            if (type.equals("movements")) {
+                refmovement_commands = ref.movement_commands;
+                refusables = ref.usables;
+                refgrabables = ref.grabables;
+                refup = ref.up;
+                refdown = ref.down;
+                refnorth = ref.north;
+                refeast = ref.east;
+                refsouth = ref.south;
+                refwest = ref.west;
+                return "This should not be used as an output, I am here to update \"movements\"";
+            }
+            if (type.equals("animation")) {
+                refanimation_frames = ref.animation_frames;
+                refmap_height = ref.map_height;
+                return "This should not be used as an output, I am here to update \"animation\"";
+            }
+            if (type.equals("showmap")) {
+                ref.showmap();
+                return "This should not be used as an output, I am here to update \"showmap\"";
+            }
+            if (type.equals("setgrabables")) {
+                ref.grabables = grabablestoupdate;
+                return "This should not be used as an output, I am here to update \"setgrabables\"";
+            }
+            if (type.equals("use")) {
+                ref.use(itemtouse);
+                return "This should not be used as an output, I am here to update \"use\"";                
+            }
+        }
+
+        if (currentmap.equals("NRTC_22")) {
+            NRTC_22 ref = new NRTC_22();
+            if (type.equals("breakconditions")) {
+                Boolean bc = ref.breakconditions();
+                if (bc) {
+                    return "true";
+                } else {
+                    return "false";
+                }
+            }
+            if (type.equals("movements")) {
+                refmovement_commands = ref.movement_commands;
+                refusables = ref.usables;
+                refgrabables = ref.grabables;
+                refup = ref.up;
+                refdown = ref.down;
+                refnorth = ref.north;
+                refeast = ref.east;
+                refsouth = ref.south;
+                refwest = ref.west;
+                return "This should not be used as an output, I am here to update \"movements\"";
+            }
+            if (type.equals("animation")) {
+                refanimation_frames = ref.animation_frames;
+                refmap_height = ref.map_height;
+                return "This should not be used as an output, I am here to update \"animation\"";
+            }
+            if (type.equals("showmap")) {
+                ref.showmap();
+                return "This should not be used as an output, I am here to update \"showmap\"";
+            }
+            if (type.equals("setgrabables")) {
+                ref.grabables = grabablestoupdate;
+                return "This should not be used as an output, I am here to update \"setgrabables\"";
+            }
+            if (type.equals("use")) {
+                ref.use(itemtouse);
+                return "This should not be used as an output, I am here to update \"use\"";                
+            }
+        }
+
+        if (currentmap.equals("NRTC_23")) {
+            NRTC_23 ref = new NRTC_23();
+            if (type.equals("breakconditions")) {
+                Boolean bc = ref.breakconditions();
+                if (bc) {
+                    return "true";
+                } else {
+                    return "false";
+                }
+            }
+            if (type.equals("movements")) {
+                refmovement_commands = ref.movement_commands;
+                refusables = ref.usables;
+                refgrabables = ref.grabables;
+                refup = ref.up;
+                refdown = ref.down;
+                refnorth = ref.north;
+                refeast = ref.east;
+                refsouth = ref.south;
+                refwest = ref.west;
+                return "This should not be used as an output, I am here to update \"movements\"";
+            }
+            if (type.equals("animation")) {
+                refanimation_frames = ref.animation_frames;
+                refmap_height = ref.map_height;
+                return "This should not be used as an output, I am here to update \"animation\"";
+            }
+            if (type.equals("showmap")) {
+                ref.showmap();
+                return "This should not be used as an output, I am here to update \"showmap\"";
+            }
+            if (type.equals("setgrabables")) {
+                ref.grabables = grabablestoupdate;
+                return "This should not be used as an output, I am here to update \"setgrabables\"";
+            }
+            if (type.equals("use")) {
+                ref.use(itemtouse);
+                return "This should not be used as an output, I am here to update \"use\"";                
+            }
+        }
+
+        if (currentmap.equals("NRTC_24")) {
+            NRTC_24 ref = new NRTC_24();
+            if (type.equals("breakconditions")) {
+                Boolean bc = ref.breakconditions();
+                if (bc) {
+                    return "true";
+                } else {
+                    return "false";
+                }
+            }
+            if (type.equals("movements")) {
+                refmovement_commands = ref.movement_commands;
+                refusables = ref.usables;
+                refgrabables = ref.grabables;
+                refup = ref.up;
+                refdown = ref.down;
+                refnorth = ref.north;
+                refeast = ref.east;
+                refsouth = ref.south;
+                refwest = ref.west;
+                return "This should not be used as an output, I am here to update \"movements\"";
+            }
+            if (type.equals("animation")) {
+                refanimation_frames = ref.animation_frames;
+                refmap_height = ref.map_height;
+                return "This should not be used as an output, I am here to update \"animation\"";
+            }
+            if (type.equals("showmap")) {
+                ref.showmap();
+                return "This should not be used as an output, I am here to update \"showmap\"";
+            }
+            if (type.equals("setgrabables")) {
+                ref.grabables = grabablestoupdate;
+                return "This should not be used as an output, I am here to update \"setgrabables\"";
+            }
+            if (type.equals("use")) {
+                ref.use(itemtouse);
+                return "This should not be used as an output, I am here to update \"use\"";                
+            }
+        }
+
+        if (currentmap.equals("NRTC_31")) {
+            NRTC_31 ref = new NRTC_31();
+            if (type.equals("breakconditions")) {
+                Boolean bc = ref.breakconditions();
+                if (bc) {
+                    return "true";
+                } else {
+                    return "false";
+                }
+            }
+            if (type.equals("movements")) {
+                refmovement_commands = ref.movement_commands;
+                refusables = ref.usables;
+                refgrabables = ref.grabables;
+                refup = ref.up;
+                refdown = ref.down;
+                refnorth = ref.north;
+                refeast = ref.east;
+                refsouth = ref.south;
+                refwest = ref.west;
+                return "This should not be used as an output, I am here to update \"movements\"";
+            }
+            if (type.equals("animation")) {
+                refanimation_frames = ref.animation_frames;
+                refmap_height = ref.map_height;
+                return "This should not be used as an output, I am here to update \"animation\"";
+            }
+            if (type.equals("showmap")) {
+                ref.showmap();
+                return "This should not be used as an output, I am here to update \"showmap\"";
+            }
+            if (type.equals("setgrabables")) {
+                ref.grabables = grabablestoupdate;
+                return "This should not be used as an output, I am here to update \"setgrabables\"";
+            }
+            if (type.equals("use")) {
+                ref.use(itemtouse);
+                return "This should not be used as an output, I am here to update \"use\"";                
+            }
+        }
+
+        if (currentmap.equals("NRTC_32")) {
+            NRTC_32 ref = new NRTC_32();
+            if (type.equals("breakconditions")) {
+                Boolean bc = ref.breakconditions();
+                if (bc) {
+                    return "true";
+                } else {
+                    return "false";
+                }
+            }
+            if (type.equals("movements")) {
+                refmovement_commands = ref.movement_commands;
+                refusables = ref.usables;
+                refgrabables = ref.grabables;
+                refup = ref.up;
+                refdown = ref.down;
+                refnorth = ref.north;
+                refeast = ref.east;
+                refsouth = ref.south;
+                refwest = ref.west;
+                return "This should not be used as an output, I am here to update \"movements\"";
+            }
+            if (type.equals("animation")) {
+                refanimation_frames = ref.animation_frames;
+                refmap_height = ref.map_height;
+                return "This should not be used as an output, I am here to update \"animation\"";
+            }
+            if (type.equals("showmap")) {
+                ref.showmap();
+                return "This should not be used as an output, I am here to update \"showmap\"";
+            }
+            if (type.equals("setgrabables")) {
+                ref.grabables = grabablestoupdate;
+                return "This should not be used as an output, I am here to update \"setgrabables\"";
+            }
+            if (type.equals("use")) {
+                ref.use(itemtouse);
+                return "This should not be used as an output, I am here to update \"use\"";                
+            }
+        }
+
+        if (currentmap.equals("NRTC_33")) {
+            NRTC_33 ref = new NRTC_33();
+            if (type.equals("breakconditions")) {
+                Boolean bc = ref.breakconditions();
+                if (bc) {
+                    return "true";
+                } else {
+                    return "false";
+                }
+            }
+            if (type.equals("movements")) {
+                refmovement_commands = ref.movement_commands;
+                refusables = ref.usables;
+                refgrabables = ref.grabables;
+                refup = ref.up;
+                refdown = ref.down;
+                refnorth = ref.north;
+                refeast = ref.east;
+                refsouth = ref.south;
+                refwest = ref.west;
+                return "This should not be used as an output, I am here to update \"movements\"";
+            }
+            if (type.equals("animation")) {
+                refanimation_frames = ref.animation_frames;
+                refmap_height = ref.map_height;
+                return "This should not be used as an output, I am here to update \"animation\"";
+            }
+            if (type.equals("showmap")) {
+                ref.showmap();
+                return "This should not be used as an output, I am here to update \"showmap\"";
+            }
+            if (type.equals("setgrabables")) {
+                ref.grabables = grabablestoupdate;
+                return "This should not be used as an output, I am here to update \"setgrabables\"";
+            }
+            if (type.equals("use")) {
+                ref.use(itemtouse);
+                return "This should not be used as an output, I am here to update \"use\"";                
+            }
+        }
+
+        if (currentmap.equals("NRTC_34")) {
+            NRTC_34 ref = new NRTC_34();
+            if (type.equals("breakconditions")) {
+                Boolean bc = ref.breakconditions();
+                if (bc) {
+                    return "true";
+                } else {
+                    return "false";
+                }
+            }
+            if (type.equals("movements")) {
+                refmovement_commands = ref.movement_commands;
+                refusables = ref.usables;
+                refgrabables = ref.grabables;
+                refup = ref.up;
+                refdown = ref.down;
+                refnorth = ref.north;
+                refeast = ref.east;
+                refsouth = ref.south;
+                refwest = ref.west;
+                return "This should not be used as an output, I am here to update \"movements\"";
+            }
+            if (type.equals("animation")) {
+                refanimation_frames = ref.animation_frames;
+                refmap_height = ref.map_height;
+                return "This should not be used as an output, I am here to update \"animation\"";
+            }
+            if (type.equals("showmap")) {
+                ref.showmap();
+                return "This should not be used as an output, I am here to update \"showmap\"";
+            }
+            if (type.equals("setgrabables")) {
+                ref.grabables = grabablestoupdate;
+                return "This should not be used as an output, I am here to update \"setgrabables\"";
+            }
+            if (type.equals("use")) {
+                ref.use(itemtouse);
+                return "This should not be used as an output, I am here to update \"use\"";                
+            }
+        }
+
+        if (currentmap.equals("NRTC_41")) {
+            NRTC_41 ref = new NRTC_41();
+            if (type.equals("breakconditions")) {
+                Boolean bc = ref.breakconditions();
+                if (bc) {
+                    return "true";
+                } else {
+                    return "false";
+                }
+            }
+            if (type.equals("movements")) {
+                refmovement_commands = ref.movement_commands;
+                refusables = ref.usables;
+                refgrabables = ref.grabables;
+                refup = ref.up;
+                refdown = ref.down;
+                refnorth = ref.north;
+                refeast = ref.east;
+                refsouth = ref.south;
+                refwest = ref.west;
+                return "This should not be used as an output, I am here to update \"movements\"";
+            }
+            if (type.equals("animation")) {
+                refanimation_frames = ref.animation_frames;
+                refmap_height = ref.map_height;
+                return "This should not be used as an output, I am here to update \"animation\"";
+            }
+            if (type.equals("showmap")) {
+                ref.showmap();
+                return "This should not be used as an output, I am here to update \"showmap\"";
+            }
+            if (type.equals("setgrabables")) {
+                ref.grabables = grabablestoupdate;
+                return "This should not be used as an output, I am here to update \"setgrabables\"";
+            }
+            if (type.equals("use")) {
+                ref.use(itemtouse);
+                return "This should not be used as an output, I am here to update \"use\"";                
+            }
+        }
+
+        if (currentmap.equals("NRTC_42")) {
+            NRTC_42 ref = new NRTC_42();
+            if (type.equals("breakconditions")) {
+                Boolean bc = ref.breakconditions();
+                if (bc) {
+                    return "true";
+                } else {
+                    return "false";
+                }
+            }
+            if (type.equals("movements")) {
+                refmovement_commands = ref.movement_commands;
+                refusables = ref.usables;
+                refgrabables = ref.grabables;
+                refup = ref.up;
+                refdown = ref.down;
+                refnorth = ref.north;
+                refeast = ref.east;
+                refsouth = ref.south;
+                refwest = ref.west;
+                return "This should not be used as an output, I am here to update \"movements\"";
+            }
+            if (type.equals("animation")) {
+                refanimation_frames = ref.animation_frames;
+                refmap_height = ref.map_height;
+                return "This should not be used as an output, I am here to update \"animation\"";
+            }
+            if (type.equals("showmap")) {
+                ref.showmap();
+                return "This should not be used as an output, I am here to update \"showmap\"";
+            }
+            if (type.equals("setgrabables")) {
+                ref.grabables = grabablestoupdate;
+                return "This should not be used as an output, I am here to update \"setgrabables\"";
+            }
+            if (type.equals("use")) {
+                ref.use(itemtouse);
+                return "This should not be used as an output, I am here to update \"use\"";                
+            }
+        }
+
+        if (currentmap.equals("NRTC_43")) {
+            NRTC_43 ref = new NRTC_43();
+            if (type.equals("breakconditions")) {
+                Boolean bc = ref.breakconditions();
+                if (bc) {
+                    return "true";
+                } else {
+                    return "false";
+                }
+            }
+            if (type.equals("movements")) {
+                refmovement_commands = ref.movement_commands;
+                refusables = ref.usables;
+                refgrabables = ref.grabables;
+                refup = ref.up;
+                refdown = ref.down;
+                refnorth = ref.north;
+                refeast = ref.east;
+                refsouth = ref.south;
+                refwest = ref.west;
+                return "This should not be used as an output, I am here to update \"movements\"";
+            }
+            if (type.equals("animation")) {
+                refanimation_frames = ref.animation_frames;
+                refmap_height = ref.map_height;
+                return "This should not be used as an output, I am here to update \"animation\"";
+            }
+            if (type.equals("showmap")) {
+                ref.showmap();
+                return "This should not be used as an output, I am here to update \"showmap\"";
+            }
+            if (type.equals("setgrabables")) {
+                ref.grabables = grabablestoupdate;
+                return "This should not be used as an output, I am here to update \"setgrabables\"";
+            }
+            if (type.equals("use")) {
+                ref.use(itemtouse);
+                return "This should not be used as an output, I am here to update \"use\"";                
+            }
+        }
+
+        if (currentmap.equals("NRTC_44")) {
+            NRTC_44 ref = new NRTC_44();
+            if (type.equals("breakconditions")) {
+                Boolean bc = ref.breakconditions();
+                if (bc) {
+                    return "true";
+                } else {
+                    return "false";
+                }
+            }
+            if (type.equals("movements")) {
+                refmovement_commands = ref.movement_commands;
+                refusables = ref.usables;
+                refgrabables = ref.grabables;
+                refup = ref.up;
+                refdown = ref.down;
+                refnorth = ref.north;
+                refeast = ref.east;
+                refsouth = ref.south;
+                refwest = ref.west;
+                return "This should not be used as an output, I am here to update \"movements\"";
+            }
+            if (type.equals("animation")) {
+                refanimation_frames = ref.animation_frames;
+                refmap_height = ref.map_height;
+                return "This should not be used as an output, I am here to update \"animation\"";
+            }
+            if (type.equals("showmap")) {
+                ref.showmap();
+                return "This should not be used as an output, I am here to update \"showmap\"";
+            }
+            if (type.equals("setgrabables")) {
+                ref.grabables = grabablestoupdate;
+                return "This should not be used as an output, I am here to update \"setgrabables\"";
+            }
+            if (type.equals("use")) {
+                ref.use(itemtouse);
+                return "This should not be used as an output, I am here to update \"use\"";                
+            }
+        }
+
         System.out.println("Map not found, returning null");
         return null;
     }

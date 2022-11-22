@@ -53,8 +53,22 @@ public class Debugger {
                     maputils.trymap(sc.nextLine());
                 } else if (choice.equals("mapviewer")) {
                     Scanner sc = new Scanner(System.in);
-                    System.out.println("Enter url: ");
-                    maputils.mapviewer(sc.nextLine());
+                    System.out.println("loop?");
+                    String choice2 = mainLib.choices(false, "0", true, new String[]{"Yes","No","Cancel"});
+                    if (choice2.equalsIgnoreCase("cancel") == false) {
+                        System.out.println("Enter url: ");
+                        String url = sc.nextLine();
+                        if (choice2.equals("yes")) {
+                            System.out.println("Enter ms delay: ");
+                            String ms = sc.nextLine();
+                            while ("1".equals("1")) {
+                                maputils.mapviewer(url);
+                                mainLib.timeout(ms);
+                            }
+                        } else {
+                            maputils.mapviewer(url);
+                        }
+                    }
                 }
             }
         }

@@ -17,10 +17,11 @@ public class MapHandler {
     public static String lastcommand;
     public static String lastmap1;
     public static String lastcommand1;
+    static final Maputils maputils = new Maputils();
     public static void game_prompt() {
         System.out.println("[s");
         Integer map_clear = 0;
-        while (map_clear == mainlib.map_height) {
+        while (map_clear == mapRouter.map_height(mainlib.currentmap)) {
             System.out.println("[2K");
             map_clear++;
         }
@@ -64,7 +65,7 @@ public class MapHandler {
             Integer i = 0;
             options = new String[]{};
             optionsa = new String[]{};
-            if (mainlib.usables[0][0].equals("empty") == false) {
+            if (mainlib.usables[0][0].equals("empty") == false || maputils.hasmap(mainlib.currentmap)) {
                 options = mainlib.concat(options, new String[] {"use"});
                 i++;
             }
@@ -145,18 +146,23 @@ public class MapHandler {
                 optionsa = new String[]{};
                 options = extract(true, mainlib.usables);
                 i = 0;
+                if (maputils.hasmap(mainlib.currentmap)) {
+                    optionsa = mainlib.concat(optionsa, new String[]{maputils.getmapname(maputils.getmaproot(mainlib.currentmap))});
+                }
                 while (i < options.length) {
                     if (Arrays.asList(extract(true, mainlib.inventory)).contains(options[i])) {//make function to turn extract(true, mainlib.inventory) lowercase
                         optionsa = mainlib.concat(optionsa, new String[]{options[i]});
                     }
                     i++;
-                } 
+                }
                 mainlib.choice = mainlib.choices(true, "30", true, mainlib.concat(optionsa, new String[]{"cancel"}));
                 if (mainlib.choice.equals("cancel")) {
                     cancelled = 1;
                 }
-                if (cancelled == 0) {
+                if (cancelled == 0 && maputils.getmapname(maputils.getmaproot(mainlib.currentmap)).equalsIgnoreCase(mainlib.choice) == false) {
                     reduceuse(mainlib.choice);
+                } else if (maputils.getmapname(maputils.getmaproot(mainlib.currentmap)).equalsIgnoreCase(mainlib.choice)) {
+                    maputils.trymap(mainlib.currentmap);
                 }
             }
             if (mainlib.choice.equals("grab")) {
@@ -488,13 +494,16 @@ public class MapHandler {
             System.out.print("[s");
             System.out.print("[H");
             i = 0;
-            while (i < mainlib.map_height) {
-                System.out.print("[2K");
-                System.out.print(mainlib.colour("...nbba......sfw..."));
-                System.out.print("[1B");
+            while (i < mapRouter.map_height(mainlib.currentmap)) {
+                System.out.println("[2K");
+//                System.out.print(mainlib.colour("...nbba......sfw..."));
+//                System.out.print("[1B");
                 i++;
             }
-            System.out.print("[2K");
+            System.out.println("[2K");
+            System.out.println("[2K");
+            System.out.println("[2K");
+            System.out.println("[2K");
             System.out.print("[H");
             showmap();
             System.out.println(mainlib.colour(mainlib.nlers));
@@ -503,7 +512,7 @@ public class MapHandler {
             if (main.mini == false) {
                 System.out.println("####################################################################################################################################################################################################################################################################################################");
             }
-    //        System.out.print("[1B");
+            //        System.out.print("[1B");
             System.out.print("[u");
     //        mainlib.pause_typing = false;
         }
