@@ -59,7 +59,7 @@ public class Room1 {
         grabables[1][11] = "empty";
         grabables[1][12] = "empty";
         grabables[1][13] = "empty";
-        grabables[3][0] = "pocket knife";
+        grabables[3][0] = "Pocket Knife";
         grabables[3][1] = "1";
         grabables[3][2] = "empty";
         grabables[3][3] = "empty";

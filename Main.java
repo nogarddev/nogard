@@ -78,6 +78,38 @@ public class Main {
         mainLib.init();
         Room1 room1 = new Room1();
         room1.init();
+        NRTC_11 nRTC_11 = new NRTC_11();
+        nRTC_11.init();
+        NRTC_12 nRTC_12 = new NRTC_12();
+        nRTC_12.init();
+        NRTC_13 nRTC_13 = new NRTC_13();
+        nRTC_13.init();
+        NRTC_14 nRTC_14 = new NRTC_14();
+        nRTC_14.init();
+        NRTC_21 nRTC_21 = new NRTC_21();
+        nRTC_21.init();
+        NRTC_22 nRTC_22 = new NRTC_22();
+        nRTC_22.init();
+        NRTC_23 nRTC_23 = new NRTC_23();
+        nRTC_23.init();
+        NRTC_24 nRTC_24 = new NRTC_24();
+        nRTC_24.init();
+        NRTC_31 nRTC_31 = new NRTC_31();
+        nRTC_31.init();
+        NRTC_32 nRTC_32 = new NRTC_32();
+        nRTC_32.init();
+        NRTC_33 nRTC_33 = new NRTC_33();
+        nRTC_33.init();
+        NRTC_34 nRTC_34 = new NRTC_34();
+        nRTC_34.init();
+        NRTC_41 nRTC_41 = new NRTC_41();
+        nRTC_41.init();
+        NRTC_42 nRTC_42 = new NRTC_42();
+        nRTC_42.init();
+        NRTC_43 nRTC_43 = new NRTC_43();
+        nRTC_43.init();
+        NRTC_44 nRTC_44 = new NRTC_44();
+        nRTC_44.init();
         Workhouse_upstairs_north workhouse_upstairs_north = new Workhouse_upstairs_north();
         workhouse_upstairs_north.init();
         Workhouse_upstairs_south workhouse_upstairs_south = new Workhouse_upstairs_south();
@@ -101,7 +133,7 @@ public class Main {
             nl();
             at("ssh: used to allow compatability with ssh clients and similar, this should be tried as a potential fix when typing into inputs doesn't work", "30", true);
             nl();
-            at("mute: stops audio from@playing so that no error messages pop up", "30", true);
+            at("mute: stops audio from playing so that no error messages pop up", "30", true);
             nl();
             at("press enter to close", "30", true);
             nl();
@@ -143,7 +175,7 @@ public class Main {
             nl();
             at("Try opening the map using the command \"map\"", "30", true);
             nl();
-            mainlib.choice = mainlib.choices(true, "30", true, new String[]{"use", "north", "south", "east", "west", "map"});
+            mainlib.choice = mainlib.choices(true, "30", true, new String[]{"USe", "NOrth", "SOuth", "EAst", "WEst", "MAp"});
             while (mainlib.choice.equals("map") == false) {
                 at("Try \"map\"!", "30", true);
                 System.out.print("[1A");
@@ -153,20 +185,26 @@ public class Main {
                 System.out.print("[1A");
                 
                 nl();
-                mainlib.choice = mainlib.choices(true, "30", true, new String[]{"use", "north", "south", "east", "west", "map"});
+                mainlib.choice = mainlib.choices(true, "30", true, new String[]{"USe", "NOrth", "SOuth", "EAst", "WEst", "MAp"});
             }
             if (mainlib.choice.equals("map")) {
-                showmap();
+//                showmap();
+                Integer skip = 1;
             }
             at("Well done!", "30", true);
+            mainlib.nlers = "...nbba......sfw...";
+            nl();
+            at("...sr...When you are prompted for an input, some letters may be in inverted colours (switched background and foreground colours) you can type just these letters as an abbreviation if you wish, but this in non-essential.", "30", true);
+            nl();
+            at("For example, if you had the prompt \"([7my[27mes,[7mn[27mo)\" and you wanted the yes option, you could type \"y\" or \"yes\"", "30", true);
             nl();
             at("...sr...One other note, you will be represented with a red ...nfr...@...sr... symbol, use this to tell where you are.", "30", true);
             nl();
             mainlib.enter_break();
         }
-        if (mainlib.choice.equals("no")) {
-            showmap();
-        }
+//        if (mainlib.choice.equals("no")) {
+//            showmap();
+//        }
 //        if (test == false) {
 //            mainlib.nlers = "...nbba......sfw...";
 //            nl();
@@ -299,6 +337,9 @@ public class Main {
         mainLib.nlers = "...sfga......nbba...";
         at("...sfr...Narrator:" + mainlib.nlers + " You enter the dark and damp forst, it is now midnight and sounds can be heard around you randomly, like footsteps, but with an inhuman quality to them.", "30", true);
         nl();
+        at("        ...sfr...: " + mainlib.nlers + "It is so dark you can barely make out anything, everything looks like static.", "30", true);
+        nl();
+        enter_break();
         playsong("spooky.wav");
         mainlib.currentmap = "Start_forest_1";
         nl();
@@ -336,16 +377,22 @@ public class Main {
         FightHandler fightHandler = new FightHandler();
         fightHandler.FightStarter();
         cls();
-        at("...sfr...Narrator: " + mainlib.nlers + "You run to the exit", "30", true);
         playsongFx("running_footsteps_long.wav");
+        at("...sfr...Narrator: " + mainlib.nlers + "You run to the exit", "30", true);
         at("...", "1", true);
         nl();
         at("        ...sfr...: " + mainlib.nlers + "You sleep the night under a beautiful sprawling willow tree.", "30", true);
         nl();
         at("        ...sfr...: " + mainlib.nlers + "You walk for a few more days and end up at the North Rinlund Village.", "30", true);
         nl();
-        enter_break();
         at("        ...sfr...: " + mainlib.nlers + "You decide to visit the village center.", "30", true);
+        nl();
+        at("        ...sfr...: " + mainlib.nlers + "You should look around and try to earn some money, you may be able to sleep the night in the inn if you can afford it!", "30", true);
+        nl();
+        at("Objective: ...sb......su......nfc...Find some ways to find money around the town and buy a place at the inn for tonight....nbba......sfge...", "30", true);
+        nl();
+        enter_break();
+        cls();
         nl();
         nl();
         nl();
@@ -353,6 +400,7 @@ public class Main {
         nl();
         nl();
         mainlib.currentmap = "North_Rinlund_Town_Center";
+        playsong("Town.wav");
         mapHandler.game_prompt();
 //        at("        ...sfr...: " + mainlib.nlers + "Who would risk their life for a poor fugitive?", "30", true);
 //        nl();

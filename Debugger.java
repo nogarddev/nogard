@@ -18,6 +18,7 @@ public class Debugger {
     final static Ship_Up ship_Up = new Ship_Up();
     final static TestFightMap testFightMap = new TestFightMap();
     final static ThreadedScanner threadedScanner = new ThreadedScanner();
+    final static Maputils maputils = new Maputils();
     public static String choice;
     public static String choice1;
     static String name;
@@ -39,11 +40,42 @@ public class Debugger {
     static Integer i;
     static Scanner sc;
     public static void run() {
-        choice = mainLib.choices(false, "0", true, new String[]{"set","view","cancel"});
+        choice = mainLib.choices(false, "0", true, new String[]{"Set","View","Run","Cancel"});
+        if (choice.equals("run")) {
+            choice = mainLib.choices(false, "0", true, new String[]{"Maputils","Break","Cancel"});
+            if (choice.equals("break")) {
+                mainLib.forcebreak = true;
+            } else if (choice.equals("maputils")) {
+                choice = mainLib.choices(false, "0", true, new String[]{"Trymap","Mapviewer","Cancel"});
+                if (choice.equals("trymap")) {
+                    Scanner sc = new Scanner(System.in);
+                    System.out.println("Enter location: ");
+                    maputils.trymap(sc.nextLine());
+                } else if (choice.equals("mapviewer")) {
+                    Scanner sc = new Scanner(System.in);
+                    System.out.println("loop?");
+                    String choice2 = mainLib.choices(false, "0", true, new String[]{"Yes","No","Cancel"});
+                    if (choice2.equalsIgnoreCase("cancel") == false) {
+                        System.out.println("Enter url: ");
+                        String url = sc.nextLine();
+                        if (choice2.equals("yes")) {
+                            System.out.println("Enter ms delay: ");
+                            String ms = sc.nextLine();
+                            while ("1".equals("1")) {
+                                maputils.mapviewer(url);
+                                mainLib.timeout(ms);
+                            }
+                        } else {
+                            maputils.mapviewer(url);
+                        }
+                    }
+                }
+            }
+        }
         if (choice.equals("set")) {
-            choice = mainLib.choices(false, "0", true, new String[]{"variable","inventory","break","cancel"});
+            choice = mainLib.choices(false, "0", true, new String[]{"Variable","Inventory","Cancel"});
             if (choice.equals("inventory")) {
-                choice = mainLib.choices(false, "0", true, new String[]{"make","modify","cancel"});
+                choice = mainLib.choices(false, "0", true, new String[]{"MAke","MOdify","Cancel"});
                 if (choice.equals("modify")) {
                     i = 0;
                     arr_mod = new String[]{};
@@ -52,7 +84,7 @@ public class Debugger {
                         i++;
                     }
                     System.out.println("modify what?");
-                    choice = mainLib.choices(false, "0", true, mainLib.concat(arr_mod, new String[]{"cancel"}));
+                    choice = mainLib.choices(false, "0", true, mainLib.concat(arr_mod, new String[]{"Cancel"}));
                     if (choice.equals("cancel") == false) {
                         i = 0;
                         while (mainLib.inventory[i][0].equals(choice) == false) {
@@ -156,11 +188,11 @@ public class Debugger {
                         durability = mainLib.inventory[i][13];
     ////                    sc.close();
                         System.out.println("Do you want to edit any of these?");
-                        choice1 = mainLib.choices(false, "0", true, new String[]{"yes", "no"});
+                        choice1 = mainLib.choices(false, "0", true, new String[]{"Yes", "No"});
                         while (choice1.equals("yes") && choice.equals("done") == false) {
                             if (choice1.equals("yes")) {
                                 System.out.println("Change which number?");
-                                choice = mainLib.choices(false, "0", true, new String[]{"0","1","2","3","4","5","6","7","8","9","10","11","12","13","done"});
+                                choice = mainLib.choices(false, "0", true, new String[]{"0","1","2","3","4","5","6","7","8","9","10","11","12","13","Done"});
                                 if (choice.equals("0")) {
                                     System.out.println("0: ");
                                     sc = new Scanner(System.in);
@@ -364,10 +396,10 @@ public class Debugger {
                     choice1 = "yes";
                     while (choice1.equals("yes")) {
                         System.out.println("Do you want to edit any of these?");
-                        choice1 = mainLib.choices(false, "0", true, new String[]{"yes", "no"});
+                        choice1 = mainLib.choices(false, "0", true, new String[]{"Yes", "No"});
                         if (choice1.equals("yes")) {
                             System.out.println("Change which number?");
-                            choice = mainLib.choices(false, "0", true, new String[]{"0","1","2","3","4","5","6","7","8","9","10","11","12","13","cancel"});
+                            choice = mainLib.choices(false, "0", true, new String[]{"0","1","2","3","4","5","6","7","8","9","10","11","12","13","Cancel"});
                             if (choice.equals("0")) {
                                 System.out.println("0: ");
                                 sc = new Scanner(System.in);
@@ -465,27 +497,32 @@ public class Debugger {
                     }
                 }
             } else if (choice.equals("variable")) {
-                choice = mainLib.choices(false, "0", true, new String[]{"mainlib","cancel"});
+                choice = mainLib.choices(false, "0", true, new String[]{"MainLib","MapUtils","Cancel"});
                 if (choice.equals("mainlib")) {
-                    choice = mainLib.choices(false, "0", true, new String[]{"currentmap","cancel"});
+                    choice = mainLib.choices(false, "0", true, new String[]{"CUrrentmap","CAncel"});
                     if (choice.equals("currentmap")) {
                         sc = new Scanner(System.in);
                         mainLib.currentmap = sc.nextLine();
                         System.out.println("update variables?");
-                        choice = mainLib.choices(false, "0", true, new String[]{"yes","no"});
+                        choice = mainLib.choices(false, "0", true, new String[]{"Yes","No"});
                         if (choice.equals("yes")) {
                             mainLib.update_variables();
                         }
                     }
+                } else if (choice.equals("maputils")) {
+                    choice = mainLib.choices(false, "0", true, new String[]{"Money","Cancel"});
+                    if (choice.equals("money")) {
+                        sc = new Scanner(System.in);
+                        System.out.println("Enter amount of money: ");
+                        maputils.money = Integer.parseInt(sc.nextLine()) / (float) 1;
+                    }
                 }
-            } else if (choice.equals("break")) {
-                mainLib.forcebreak = true;
             }
         }
         if (choice.equals("view")) {
-            choice = mainLib.choices(false, "0", true, new String[]{"inventory","cancel"});
+            choice = mainLib.choices(false, "0", true, new String[]{"Inventory","Cancel"});
             if (choice.equals("inventory")) {
-                choice = mainLib.choices(false, "0", true, new String[]{"full","item","cancel"});
+                choice = mainLib.choices(false, "0", true, new String[]{"Full","Item","Cancel"});
                 if (choice.equals("full")) {
                     System.out.println("");
                     System.out.println("");
@@ -518,7 +555,7 @@ public class Debugger {
                         items = mainLib.concat(items, new String[]{mainLib.inventory[i][0]});
                         i++;
                     }
-                    choice = mainLib.choices(false, "0", true, mainLib.concat(items, new String[]{"cancel"}));
+                    choice = mainLib.choices(false, "0", true, mainLib.concat(items, new String[]{"Cancel"}));
                     if (choice.equals("cancel") == false) {
                         i = 0;
                         while (mainLib.inventory[i][0].equals(choice) == false) {

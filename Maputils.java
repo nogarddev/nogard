@@ -1,4 +1,5 @@
-import java.lang.*;
+import java.util.*;
+import java.io.*;
 public class Maputils {
     static MainLib mainLib = new MainLib();
     static MapHandler mapHandler = new MapHandler();
@@ -6,8 +7,107 @@ public class Maputils {
     static Shops shops = new Shops();
     static String option1;
     static String[] item;
+//mapname > root > location > .map file
+//mapname - item
+//root - categorise similar maps e.g. of the same map but variations, when the root is {root} and location is {location} cd is ./{root}/{location}.map
+//location - currentmap for individual map files, when the root is {root} and location is {location} cd is ./{root}/{location}.map
+//mapname: used to check if map is possesed
+//root: used for the code name for the map, 1 individual folder per root, each root has many locations under it in "locationtoroot", mapname > root is done with a y-axis of 2 in "roottomapname"
+//location: used to identify individal maps, each root has many locations under it in "locationtoroot"
+//maplist: the .map file path, location > maplist is done with the y-axis of 2 in the "locationtomaplist"
+//mapname > root: getmapname, "roottomapname"
+//location > root: getmaproot, "locationtoroot"
+//location > mapname: locationtomapurl, location > root: getmaproot, "locationtoroot"
+    public static String[][] locationtomaplist = new String[][]{{"North_Rinlund_Town_Center","North_Rinlund_Village/North_Rinlund_Town_Center.map"}};//depreciated
+    //maproots:
+    public static String[][] locationtoroot = new String[][]{{"North_Rinlund_Village","North_Rinlund_Town_Center"}};
+    public static String[][] roottomapname = new String[][]{{"North Rinlund Village Map","North_Rinlund_Village"}};
     public static String currentshop;
-    public static Float money = (float) 300;
+    static MapHandler maphandler = new MapHandler();
+    public static boolean hasmap(String location) {
+//        System.out.println("1 = \"" + getmaproot(location) + "\"");
+//        System.out.println("2 = \"" + getmapname(getmaproot(location)) + "\"");
+        if ((getmapname(getmaproot(location)) == null) == false) {
+            if (mapHandler.exists(true, getmapname(getmaproot(location)))) {
+//                System.out.println("true!");
+                return true;
+            }
+        }
+//        System.out.println("false!");
+        return false;
+    }
+    public static String locationtomapurl(String location) {
+//        String out = null;
+//        Integer x = 0;
+//        while (x < locationtomaplist.length && out == null) {
+//            if (locationtomaplist[x][0].equals(location)) {
+//                out = locationtomaplist[x][1];
+//            }
+//            x++;
+//        }
+//        if (out == null) {
+//            System.out.println("Tried to find map but it does not exist, returning null");
+//        }
+//        return out;
+        String out = null;
+        if ((getmaproot(location) == null) == false) {
+            return getmaproot(location) + "/" + location + ".map";
+        }
+        return out;
+    }
+    public static String getmaproot(String location) {
+        String out = null;
+        Integer x = 0;
+        Integer y = 0;
+        while (x < locationtoroot.length && out == null) {
+            y = 0;
+            while (y < locationtoroot[x].length && out == null) {
+                if (locationtoroot[x][y].equals(location)) {
+                    out = locationtoroot[x][0];
+                }
+                y++;
+            }
+            x++;
+        }
+//        System.out.println("out = \"" + out + "\"");
+        return out;
+    }
+    public static String getmapname(String root) {
+        String out = null;
+        Integer x = 0;
+        Integer y = 0;
+        while (x < roottomapname.length && out == null) {
+            y = 0;
+            while (y < roottomapname[x].length && out == null) {
+                if (roottomapname[x][y].equals(root)) {
+                    out = roottomapname[x][0];
+                }
+                y++;
+            }
+            x++;
+        }
+//        System.out.println("mapname = \"" + out + "\"");
+        return out;
+    }
+    public static void mapviewer(String url) {
+        try {
+            Scanner sc = new Scanner(new File("./maps/" + url));
+            while (sc.hasNextLine()) {
+                mainLib.lw(sc.nextLine(), "0");
+                mainLib.nl();
+            }
+        } catch (Exception ex) {
+            System.out.println("Failed to print map!");
+        }
+
+    }
+    public static void trymap(String location) {
+        if (hasmap(location)) {
+//            System.out.println("HAS MAP!");
+            mapviewer(locationtomapurl(location));
+        }
+    }
+    public static Float money = (float) 0;
     public static void reduce(Float amount) {
         money = money - amount;
     }
