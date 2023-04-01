@@ -1,6 +1,6 @@
 # nogard
 ## setup
-1) install java jdk and python
+1) install java JDK and python
 2) run the command `pip3 install opencv-python`
 3) create a folder you want to install the game in, then run the command `git init`, then run `git clone https://github.com/nogarddev/nogard`
 4) wait for the download to finish then run `javac Main.java`
