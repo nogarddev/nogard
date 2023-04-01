@@ -133,7 +133,7 @@ public class Main {
             nl();
             at("ssh: used to allow compatability with ssh clients and similar, this should be tried as a potential fix when typing into inputs doesn't work", "30", true);
             nl();
-            at("mute: stops audio from@playing so that no error messages pop up", "30", true);
+            at("mute: stops audio from playing so that no error messages pop up", "30", true);
             nl();
             at("press enter to close", "30", true);
             nl();

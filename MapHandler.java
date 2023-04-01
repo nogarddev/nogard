@@ -159,10 +159,13 @@ public class MapHandler {
                 if (mainlib.choice.equals("cancel")) {
                     cancelled = 1;
                 }
-                if (cancelled == 0 && maputils.getmapname(maputils.getmaproot(mainlib.currentmap)).equalsIgnoreCase(mainlib.choice) == false) {
-                    reduceuse(mainlib.choice);
-                } else if (maputils.getmapname(maputils.getmaproot(mainlib.currentmap)).equalsIgnoreCase(mainlib.choice)) {
-                    maputils.trymap(mainlib.currentmap);
+                bugfix = maputils.getmapname(maputils.getmaproot(mainlib.currentmap));
+                if ((bugfix == null) == false) {
+                    if (cancelled == 0 && bugfix.equalsIgnoreCase(mainlib.choice) == false) {
+                        reduceuse(mainlib.choice);
+                    } else if (maputils.getmapname(maputils.getmaproot(mainlib.currentmap)).equalsIgnoreCase(mainlib.choice)) {
+                        maputils.trymap(mainlib.currentmap);
+                    }
                 }
             }
             if (mainlib.choice.equals("grab")) {
@@ -192,6 +195,7 @@ public class MapHandler {
         }
         dofakeanim = false;
     }
+    static String bugfix;
     public static MapRouter mapRouter = new MapRouter();
     public static void reducegrab(String item) {
         Integer i = 0;
