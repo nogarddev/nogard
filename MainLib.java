@@ -830,7 +830,7 @@ public class MainLib  {
             }
 
             if (Integer.parseInt(ms) < 0) {
-                timeout(ms);
+                timeout("" + Math.abs(Integer.parseInt(ms)));
             }
             z = 1;
             w = 0;
