@@ -10,6 +10,7 @@ public class Main {
     public static Boolean mini = false;
     public static Boolean mute = false;
     public static Integer xy = 0;
+    static Nogard2videoplayer nogard2videoplayer = new Nogard2videoplayer();
     public static void main(String[] args) {
         if ((args.length == 0) == false) {
             Integer loop1 = 0;
@@ -310,32 +311,34 @@ public class Main {
         mapHandler.game_prompt();
         cls();
         stop();
-        at("...sfr...Narrator: " + mainlib.nlers + "So you have now escaped the workhouse sucessfully, but that is only the beginning of the story,", "30", true);
-        nl();
-        at("        ...sfr...: " + mainlib.nlers + "of course the legal system is against you, for you are poor", "30", true);
-        nl();
-        at("        ...sfr...: " + mainlib.nlers + "you have just committed murder, and even in self defence you will almost certainly get the death penalty for this", "30", true);
-        nl();
-        enter_break();
-        at("...nfw...You: " + mainlib.nlers + " I must escape, but who will take me in?", "30", true);
-        nl();
-        at("...", "30", true);
-        nl();
-        lw("[1A[2K", "0");
-        at("   ...nfw...:" + mainlib.nlers + " No! That's the wrong attitude, I relied on someone else last time and look where that got me, I must find a way to survive on my own.", "30", true);
-        nl();
-        at("   ...nfw...:" + mainlib.nlers + " I still must escape, but where?", "30", true);
-        nl();
-        enter_break();
-        at("   ...nfw...:" + mainlib.nlers + " The forest! When I first entered this workhouse I remember seeing a massive forest just a few hundred meters away.", "30", true);
-        nl();
-        at("   ...nfw...:" + mainlib.nlers + " I must haste, I dont want to get caught.", "30", true);
-        nl();
-        enter_break();
+        if (test == false) {
+            at("...sfr...Narrator: " + mainlib.nlers + "So you have now escaped the workhouse sucessfully, but that is only the beginning of the story,", "30", true);
+            nl();
+            at("        ...sfr...: " + mainlib.nlers + "of course the legal system is against you, for you are poor", "30", true);
+            nl();
+            at("        ...sfr...: " + mainlib.nlers + "you have just committed murder, and even in self defence you will almost certainly get the death penalty for this", "30", true);
+            nl();
+            enter_break();
+            at("...nfw...You: " + mainlib.nlers + " I must escape, but who will take me in?", "30", true);
+            nl();
+            at("...", "30", true);
+            nl();
+            lw("[1A[2K", "0");
+            at("   ...nfw...:" + mainlib.nlers + " No! That's the wrong attitude, I relied on someone else last time and look where that got me, I must find a way to survive on my own.", "30", true);
+            nl();
+            at("   ...nfw...:" + mainlib.nlers + " I still must escape, but where?", "30", true);
+            nl();
+            enter_break();
+            at("   ...nfw...:" + mainlib.nlers + " The forest! When I first entered this workhouse I remember seeing a massive forest just a few hundred meters away.", "30", true);
+            nl();
+            at("   ...nfw...:" + mainlib.nlers + " I must haste, I dont want to get caught.", "30", true);
+            nl();
+            enter_break();
+        }
         cls();
         playsongFx("running_footsteps_long.wav");
         mainLib.nlers = "...sfga......nbba...";
-        at("...sfr...Narrator:" + mainlib.nlers + " You enter the dark and damp forst, it is now midnight and sounds can be heard around you randomly, like footsteps, but with an inhuman quality to them.", "30", true);
+        at("...sfr...Narrator:" + mainlib.nlers + " You enter the dark and damp forest, it is now midnight and sounds can be heard around you randomly, like footsteps, but with an inhuman quality to them.", "30", true);
         nl();
         at("        ...sfr...: " + mainlib.nlers + "It is so dark you can barely make out anything, everything looks like static.", "30", true);
         nl();
@@ -357,6 +360,8 @@ public class Main {
         nl();
         mapHandler.game_prompt();
         cls();
+        stop();
+        nogard2videoplayer.playvideo("to_open-12161.png", 12161, 60, true, "to_open-12161.wav");
         playsongFx("falling_cave.wav");
         at("...nfw...You: " + mainlib.nlers + "DAMNIT!", "30", true);
         nl();
