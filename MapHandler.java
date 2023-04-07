@@ -166,6 +166,10 @@ public class MapHandler {
                     } else if (maputils.getmapname(maputils.getmaproot(mainlib.currentmap)).equalsIgnoreCase(mainlib.choice)) {
                         maputils.trymap(mainlib.currentmap);
                     }
+                } else {
+                    if (cancelled == 0) {
+                        reduceuse(mainlib.choice);
+                    }
                 }
             }
             if (mainlib.choice.equals("grab")) {

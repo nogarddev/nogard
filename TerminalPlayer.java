@@ -19,7 +19,7 @@ class TerminalPlayer {
     static Integer i;
     static Color current_pixel;
     static String[] frame;
-    public static BufferedImage image;
+    public static BufferedImage[] image;
     static long waittime;
     public static void playvideo(String foldername, Integer frames, Integer fps, Boolean play_audio, String name) {//foldername=filename of long image
 //        System.out.println("line25a");
@@ -45,11 +45,16 @@ class TerminalPlayer {
         //        while (i.equals(frametimes.length) == false) {
             ////            System.out.println(frametimes[i++][0]);
             //        }
-        try {
-            image = ImageIO.read(new File("./" + foldername));
-        } catch (Exception ex) {
-            System.out.println("Image import failed");
-            System.out.println("./" + foldername);
+        image = new BufferedImage[(int) Math.ceil((float) frames / (float) 2000)];
+        Integer i = 0;
+        while (i == image.length) {
+            try {
+                image[i] = ImageIO.read(new File("./" + foldername + "-" + frames + "-" + i));
+            } catch (Exception ex) {
+                System.out.println("Image import failed");
+                System.out.println("./" + foldername + "-" + frames + "-" + i);
+            }
+            i++;
         }
 //        System.out.println("line51");
         if (play_audio) {
@@ -60,7 +65,11 @@ class TerminalPlayer {
         }
         long current = System.nanoTime();
 //        System.out.println("line55");
+        Integer filenum = -1;
         while ((currentframe >= frames) == false && done) {
+            if ((currentframe % 2000) == 0) {
+                filenum++;
+            }
             currentframe++;
 //            filename = String.valueOf(currentframe);
 //            if (currentframe < 10000) {
@@ -77,21 +86,25 @@ class TerminalPlayer {
 //            }
 //            File frame = new File("./" + foldername + "/" + filename + ".png");
 ////            System.out.println("./" + foldername + "/" + filename + ".png");
-            image_width = (int) (image.getWidth() / frames);
+            if (frames < 2000) {
+                image_width = (int) (image[0].getWidth() / frames);
+            } else {
+                image_width = (int) (image[0].getWidth() / 2000);
+            }
 ////            System.out.println("frames = " + frames + "image.getwidth = " + image.getWidth() + "imagewidth = " + image_width);
-            image_height = image.getHeight();
+            image_height = image[0].getHeight();
             String[] frame = new String[image_height];
             y = 0;
             x = (currentframe - 1) * image_width;
             i = 0;
             while (y.equals(image_height) == false && done) {
                 x = (currentframe - 1) * image_width;
-                current_pixel = new Color(image.getRGB(x, y));
+                current_pixel = new Color(image[filenum].getRGB(x - (2000 * filenum), y));
                 frame[y] = "[48;2;" + current_pixel.getRed() + ";" + current_pixel.getGreen() + ";" + current_pixel.getBlue() + "m ";
                 x++;
                 while (x.equals(((currentframe) * image_width) - 1) == false && done) {
 ////                    System.out.println("x = " + x + " y = " + y);
-                    current_pixel = new Color(image.getRGB(x, y));
+                    current_pixel = new Color(image[filenum].getRGB(x - (2000 * filenum), y));
                     frame[y] = frame[y] + "[48;2;" + current_pixel.getRed() + ";" + current_pixel.getGreen() + ";" + current_pixel.getBlue() + "m ";
                     x++;
                 }
