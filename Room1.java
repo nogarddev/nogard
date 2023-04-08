@@ -92,8 +92,8 @@ public class Room1 {
             } else {
                 usables[1][1] = "empty";
                 mapHandler.reduceinv("chisel", -1);
-                System.out.println(man.inventory[0][0] + "," + man.inventory[0][1]);
-                System.out.println(man.inventory[1][0] + "," + man.inventory[1][1]);
+//                System.out.println(man.inventory[0][0] + "," + man.inventory[0][1]);
+//                System.out.println(man.inventory[1][0] + "," + man.inventory[1][1]);
                 man.at("...sfr...Narrator: " + man.nlers + "your chisel broke.", "30", true);
                 east = "Hallway1";
             }

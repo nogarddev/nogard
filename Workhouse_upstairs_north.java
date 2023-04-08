@@ -40,6 +40,7 @@ public class Workhouse_upstairs_north {
             man.at("You enter the room of the other workhouse owner, he has passed out from some affliction, potentially alchohol, hopefully he dies for what he has done to you.", "30", true);
             man.nl();
             man.at("The key to the front door is attatched to his waist", "30", true);
+            man.nl();
         }
         if (grabables[0][1].equals("1") == false) {
             Downstairs_workhouse downstairs_workhouse = new Downstairs_workhouse();

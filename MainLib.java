@@ -529,6 +529,72 @@ public class MainLib  {
         }
         return out;
     }
+    public static String[] ripfirsts(String[][] input) {
+        Integer i = 0;
+        String[] out = new String[input.length];
+        while (i < input.length) {
+            out[i] = input[i][0];
+            i++;
+        }
+        return out;
+    }
+    public static String[] lowercasearr(String[] input) {
+        Integer i = 0;
+        while (i < input.length) {
+            input[i] = lowercase(input[i]);
+//            System.out.println(input[i]);
+            i++;
+        }
+        return input;
+    }
+    public static String lowercase(String input) {
+        if (input == null) {
+//            System.out.println("null!");
+            return null;
+        }
+        input = input.replace("A", "a");
+        input = input.replace("B", "b");
+        input = input.replace("C", "c");
+        input = input.replace("D", "d");
+        input = input.replace("E", "e");
+        input = input.replace("F", "f");
+        input = input.replace("G", "g");
+        input = input.replace("H", "h");
+        input = input.replace("I", "i");
+        input = input.replace("J", "j");
+        input = input.replace("K", "k");
+        input = input.replace("L", "l");
+        input = input.replace("M", "m");
+        input = input.replace("N", "n");
+        input = input.replace("O", "o");
+        input = input.replace("P", "p");
+        input = input.replace("Q", "q");
+        input = input.replace("R", "r");
+        input = input.replace("S", "s");
+        input = input.replace("T", "t");
+        input = input.replace("U", "u");
+        input = input.replace("V", "v");
+        input = input.replace("W", "w");
+        input = input.replace("X", "x");
+        input = input.replace("Y", "y");
+        input = input.replace("Z", "z");
+        return input;
+    }
+    public static String[][] a1dto2d(String[] arr) {
+        String[][] out = new String[arr.length][1];
+        Integer i = 0;
+        while (i < arr.length) {
+            out[i][0] = arr[i++];
+        }
+        return out;
+    }
+    public static String[][] lowercasefirsts(String[][] arr) {
+        Integer i = 0;
+        while (i < arr.length) {
+            arr[i][0] = lowercase(arr[i++][0]);
+        }
+        return arr;
+    }
     public static String[] capstolowercaseandabbreviation(String input) {
         String inputa = input;
         inputa = inputa.replace("A", "a");

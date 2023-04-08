@@ -8,13 +8,13 @@ public class Hallway1_2 {
     public static String south = "empty";
     public static String west = "Room1";
     public static Boolean animation = false;
-    public static String[] usableslist = {"hammer"};
+    public static String[] usableslist = {"Rotting Axe"};
     public static Integer animation_frames = 1;
     public static String[][] grabables = new String[1][1];
     public static String[][] usables = new String[2][2];
     public static Boolean first_unlocked_rooms = true;
     public static void init() {
-        usables[0][0] = "rotting axe";
+        usables[0][0] = "Rotting Axe";
         usables[0][1] = "1";
         usables[1][0] = "empty";
         grabables[0][0] = "empty";
@@ -33,12 +33,12 @@ public class Hallway1_2 {
     public static Boolean breakconditions() {
         Room1 room1 = new Room1();
         if (mapHandler.lastmap1.equals("Hallway1_2") && mapHandler.lastcommand1.equals("north") && usables[0][1].equals("1")) {
-            man.at("The door is locked on the inside, I need to find a way to break it down", "30", true);
+            man.at("...sfr...Narrator: " + man.nlers + "The door is locked on the inside, I need to find a way to break it down", "30", true);
             man.nl();
         }
         if (north.equals("Workhouse_upstairs_north") && first_unlocked_rooms) {
             first_unlocked_rooms = false;
-            man.at("To the north is the other workhouse owner's room, they may have a key you could use", "30", true);
+            man.at("...sfr...Narrator: " + man.nlers + "To the north is the other workhouse owner's room, they may have a key you could use", "30", true);
             man.nl();
         }
         room1.east = "Hallway1_2";

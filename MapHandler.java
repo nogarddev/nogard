@@ -157,8 +157,25 @@ public class MapHandler {
                 if (maputils.hasmap(mainlib.currentmap)) {
                     optionsa = mainlib.concat(optionsa, new String[]{maputils.getmapname(maputils.getmaproot(mainlib.currentmap))});
                 }
+                i = 0;
+//                while (i < mainlib.lowercasearr(mainlib.ripfirsts(mainlib.inventory)).length) {
+//                    System.out.println(mainlib.lowercasearr(mainlib.ripfirsts(mainlib.inventory))[i++]);
+//                }
+                Integer y = 0;
+//                while (y < 5) {
+//                    System.out.println("mainlib.lowercasearr(mainlib.ripfirsts(mainlib.inventory))[" + y + "] = " + mainlib.lowercasearr(mainlib.ripfirsts(mainlib.inventory))[y]);
+//                    System.out.println("mainlib.ripfirsts(mainlib.inventory)[" + y + "] = " + mainlib.ripfirsts(mainlib.inventory)[y++]);
+//                    System.out.println(options.length);
+//                }
                 while (i < options.length) {
-                    if (Arrays.asList(extract(true, mainlib.inventory)).contains(options[i])) {//make function to turn extract(true, mainlib.inventory) lowercase
+                    if (Arrays.asList(extract(true, mainlib.lowercasefirsts(mainlib.inventory))).contains(mainlib.lowercase(options[i]))) {//make function to turn extract(true, mainlib.inventory) lowercase
+//                        y = 0;
+//                        while (y < 5) {
+//                            System.out.println("extract(true, new String[][]{mainlib.lowercasearr(mainlib.ripfirsts(mainlib.inventory))})[" + y + "] = " + extract(true, new String[][]{mainlib.lowercasearr(mainlib.ripfirsts(mainlib.inventory))})[y]);
+//                            y++;
+//                        }
+//                        System.out.println("mainlib.lowercase(options[" + i + "] = " + mainlib.lowercase(options[i]));
+//                        System.out.println("Arrays.asList(extract(true, new String[][]{mainlib.lowercasearr(mainlib.ripfirsts(mainlib.inventory))}))[]" + y + "] contains mainlib.lowercase(options[" + i + "]) = " + Arrays.asList(extract(true, new String[][]{mainlib.lowercasearr(mainlib.ripfirsts(mainlib.inventory))})).contains(mainlib.lowercase(options[i])));
                         optionsa = mainlib.concat(optionsa, new String[]{options[i]});
                     }
                     i++;
@@ -433,6 +450,7 @@ public class MapHandler {
             while (i < arr.length && (arr[i][0].equals("empty") == false)) {
                 if ((arr[i][1].equals("empty")) == false) {
                     out = mainLib.concat(out, new String[] {arr[i][0]});
+//                    System.out.println(arr[i][0]);
                 }
                 i++;
             }

@@ -21,7 +21,7 @@ public class Downstairs_workhouse {
         grabables[0][0] = "empty";
     }
     public static void use(String item) {
-        if (item.equals("workhouse key")) {
+        if (item.equals("Workhouse key")) {
             usables[0][1] = "empty";
         }
     }
@@ -30,7 +30,7 @@ public class Downstairs_workhouse {
         if (first == 1 && man.currentmap.equals("Downstairs_workhouse")) {
             first = 0;
             man.showmap();
-            man.at("You hate this room... the workroom... you slave here day and night for but scraps of food.", "30", true);
+            man.at("...sfr...Narrator: " + man.nlers + "You hate this room... the workroom... you slave here day and night for but scraps of food.", "30", true);
             man.nl();
 //            man.at("The frontdoor is open", "30", true);
 //            man.nl();
@@ -41,7 +41,7 @@ public class Downstairs_workhouse {
 //            return false;
 //        }
         if (mapHandler.lastmap1.equals("Downstairs_workhouse") && mapHandler.lastcommand1.equals("south") && usables[0][1].equals("1")) {
-            man.at("The door locked tight, you need to break out somehow, look around the house to see what you can find.", "30", true);
+            man.at("...sfr...Narrator: " + man.nlers + "The door locked tight, you need to break out somehow, look around the house to see what you can find.", "30", true);
             man.nl();
             hallway1_2.north = "Hallway1_2";
             hallway1_2.south = "Workhouse_upstairs_south";
