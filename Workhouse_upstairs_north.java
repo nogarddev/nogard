@@ -14,7 +14,7 @@ public class Workhouse_upstairs_north {
     public static Integer map_height = 5;
     public static String[][] usables = new String[1][1];
     public static void init() {
-        grabables[0][0] = "workhouse key";
+        grabables[0][0] = "Workhouse Key";
         grabables[0][1] = "1";
         grabables[0][2] = "empty";
         grabables[0][3] = "empty";

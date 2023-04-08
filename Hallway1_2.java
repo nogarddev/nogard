@@ -8,7 +8,7 @@ public class Hallway1_2 {
     public static String south = "empty";
     public static String west = "Room1";
     public static Boolean animation = false;
-    public static String[] usableslist = {"Rotting Axe"};
+    public static String[] usableslist = {"rotting axe"};
     public static Integer animation_frames = 1;
     public static String[][] grabables = new String[1][1];
     public static String[][] usables = new String[2][2];
@@ -20,7 +20,7 @@ public class Hallway1_2 {
         grabables[0][0] = "empty";
     }
     public static void use(String item) {
-        if (item.equals("rotting axe")) {
+        if (item.equalsIgnoreCase("rotting axe")) {
             mapHandler.use("rotting axe", -1);
             man.at("You broke down the door but your axe snapped.", "30", true);
             man.nl();

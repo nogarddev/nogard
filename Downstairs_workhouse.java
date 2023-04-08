@@ -15,13 +15,13 @@ public class Downstairs_workhouse {
     public static String[][] grabables = new String[1][1];
     public static String[][] usables = new String[2][2];
     public static void init() {
-        usables[0][0] = "workhouse key";
+        usables[0][0] = "Workhouse Key";
         usables[0][1] = "1";
         usables[1][0] = "empty";
         grabables[0][0] = "empty";
     }
     public static void use(String item) {
-        if (item.equals("Workhouse key")) {
+        if (item.equalsIgnoreCase("workhouse key")) {
             usables[0][1] = "empty";
         }
     }
