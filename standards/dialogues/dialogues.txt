@@ -1,0 +1,19 @@
+dialogue y axis:
+dialogue variable name: {location}
+repeating {
+[0]: name of person
+[1]: are they enabled {1 or 0}?
+}
+
+for person dialogues:
+variable name: {location}__{person name}
+x axis: response id (first one will be start)
+y axis:
+[0]: response id
+[1]: response
+repeating {
+[2]: user response 1 (user will select these with numbers)
+[3] is user response enabled? {1 or 0}
+[4] id it will take you to (empty = exit)
+}
+[{last one}]: "emptyend" - maybe? (only if needed)

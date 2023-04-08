@@ -212,7 +212,14 @@ public class FightHandler {
         }
         return arr[ia];
     }
+    static Main main = new Main();
     public static void FightStarter() {
+        if (main.test) {
+            System.out.println("(test menu): exit?");
+            if (mainlib.choices(false, "0", true, new String[]{"Yes","No"}).equals("yes")) {
+                return;
+            }
+        }
         mainlib.choice = "no";
         cls();
         while (mainlib.choice.equals("no")) {
