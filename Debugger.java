@@ -42,7 +42,7 @@ public class Debugger {
     public static void run() {
         choice = mainLib.choices(false, "0", true, new String[]{"Set","View","Run","Cancel"});
         if (choice.equals("run")) {
-            choice = mainLib.choices(false, "0", true, new String[]{"Maputils","Break","Cancel"});
+            choice = mainLib.choices(false, "0", true, new String[]{"Maputils","Break","Cancel","DialogueS","DialogueHandler"});
             if (choice.equals("break")) {
                 mainLib.forcebreak = true;
             } else if (choice.equals("maputils")) {
@@ -69,6 +69,50 @@ public class Debugger {
                             maputils.mapviewer(url);
                         }
                     }
+                }
+            } else if (choice.equals("dialoguehandler")) {
+                choice = mainLib.choices(false, "0", true, new String[]{"Trydialogue","Cancel"});
+                if (choice.equals("trydialogue")) {
+                    Scanner sc = new Scanner(System.in);
+                    System.out.println("enter location: ");
+                    DialogueHandler dialoguehandler = new DialogueHandler();
+                    dialoguehandler.talk(sc.nextLine());
+                }
+            }
+            if (choice.equals("dialogues")) {
+                choice = mainLib.choices(false, "0", true, new String[]{"Set Id enabled","Set Person enabled","Has_speakers","Cancel"});
+                if (choice.equals("set id enabled")) {
+                    Scanner sc = new Scanner(System.in);
+                    System.out.println("enter location: ");
+                    String location = sc.nextLine();
+                    System.out.println("enter person: ");
+                    String person = sc.nextLine();
+                    System.out.println("enter id: ");
+                    String id = sc.nextLine();
+                    System.out.println("enter response number: ");
+                    String number = sc.nextLine();
+                    System.out.println("enter new value: ");
+                    String value = sc.nextLine();                    
+                    Dialogues dialogues = new Dialogues();
+                    dialogues.set_id_enabled(location, person, id, number, value);
+                }
+                if (choice.equals("set person enabled")) {
+                    Scanner sc = new Scanner(System.in);
+                    System.out.println("enter location: ");
+                    String location = sc.nextLine();
+                    System.out.println("enter person: ");
+                    String person = sc.nextLine();
+                    System.out.println("enter value: ");
+                    String value = sc.nextLine();
+                    Dialogues dialogues = new Dialogues();
+                    dialogues.set_person_enabled(location, person, value);
+                }
+                if (choice.equals("has_speakers")) {
+                    Scanner sc = new Scanner(System.in);
+                    System.out.println("enter location: ");
+                    String location = sc.nextLine();
+                    Dialogues dialogues = new Dialogues();
+                    System.out.println(dialogues.has_speakers(location));
                 }
             }
         }

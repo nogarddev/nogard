@@ -1,5 +1,5 @@
 public class Shops {
-    public static String[][] North_Rinlund = new String[][]{{"Used Wood Axe","1","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","200"}};
+    public static String[][] North_Rinlund = new String[][]{{"Used Wood Axe","1","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","200"},{"North Rinlund Village Map","1","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","50"}};
     public static String[][] Shop_Locations = new String[][]{{"North_Rinlund_Town_Center","North_Rinlund"}};
     public static Boolean hasShop(String currentmap) {
         Integer i = 0;

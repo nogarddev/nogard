@@ -9,6 +9,8 @@ public class MapHandler {
     public static String historicmap = "";
     public static Boolean dofakeanim = false;
     public static String skip = "0";
+    static Dialogues dialogues = new Dialogues();
+    static DialogueHandler dialogueHandler = new DialogueHandler();
     final static Main main = new Main();
     final static Debugger debugger = new Debugger();
     final static Shops shops = new Shops();
@@ -101,6 +103,9 @@ public class MapHandler {
             if (shops.hasShop(mainlib.currentmap)) {
                 options = mainlib.concat(options, new String[]{"shop"});
             }
+            if (dialogues.has_speakers(mainlib.currentmap)) {
+                options = mainlib.concat(options, new String[]{"talk"});
+            }
             if (main.test) {
                 mainlib.choice = mainlib.choices(true, "30", true, mainlib.concat(options, new String[]{"Test"}));
             } else {
@@ -112,6 +117,9 @@ public class MapHandler {
             lastmap1 = mainlib.currentmap;
             if (mainlib.choice.equals("test")) {
                 debugger.run();
+            }
+            if (mainlib.choice.equals("talk")) {
+                dialogueHandler.talk(mainlib.currentmap);
             }
             if (mainlib.choice.equals("map")) {
                 showmap();
@@ -289,6 +297,7 @@ public class MapHandler {
         }
     }
     public static void give_item(String[] item) {
+        i = 0;
         Integer exist = 0;
         while ((mainlib.inventory[i][0].equals("empty") == false && exist == 0)) {
             if (mainlib.inventory[i][0].equalsIgnoreCase(item[0])) {

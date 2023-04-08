@@ -10,6 +10,7 @@ public class Main {
     public static Boolean mini = false;
     public static Boolean mute = false;
     public static Integer xy = 0;
+    static Dialogues dialogues = new Dialogues();
     static Nogard2videoplayer nogard2videoplayer = new Nogard2videoplayer();
     public static void main(String[] args) {
         if ((args.length == 0) == false) {
@@ -336,13 +337,15 @@ public class Main {
             enter_break();
         }
         cls();
-        playsongFx("running_footsteps_long.wav");
-        mainLib.nlers = "...sfga......nbba...";
-        at("...sfr...Narrator:" + mainlib.nlers + " You enter the dark and damp forest, it is now midnight and sounds can be heard around you randomly, like footsteps, but with an inhuman quality to them.", "30", true);
-        nl();
-        at("        ...sfr...: " + mainlib.nlers + "It is so dark you can barely make out anything, everything looks like static.", "30", true);
-        nl();
-        enter_break();
+        if (test == false) {
+            playsongFx("running_footsteps_long.wav");
+            mainLib.nlers = "...sfga......nbba...";
+            at("...sfr...Narrator:" + mainlib.nlers + " You enter the dark and damp forest, it is now midnight and sounds can be heard around you randomly, like footsteps, but with an inhuman quality to them.", "30", true);
+            nl();
+            at("        ...sfr...: " + mainlib.nlers + "It is so dark you can barely make out anything, everything looks like static.", "30", true);
+            nl();
+            enter_break();
+        }   
         playsong("spooky.wav");
         mainlib.currentmap = "Start_forest_1";
         nl();
@@ -361,18 +364,22 @@ public class Main {
         mapHandler.game_prompt();
         cls();
         stop();
-        nogard2videoplayer.playvideo("to_open-12161.png", 12161, 60, true, "to_open-12161.wav");
+        if (test == false) {
+            nogard2videoplayer.playvideo("to_open-12161.png", 12161, 60, true, "to_open-12161.wav");
+        }
         playsongFx("falling_cave.wav");
-        at("...nfw...You: " + mainlib.nlers + "DAMNIT!", "30", true);
-        nl();
-        at("...sfr...Narrator: " + mainlib.nlers + "You fall into a cave about 5 metres deep, too smooth to climb out of but you can clearly see a light in the distance, which you could try to exit.", "30", true);
-        nl();
-        playsongFx("Skeleton.wav");
-        at("        ...sfr...: " + mainlib.nlers + "A skeleton approaches", "30", true);
-        at("...", "500", true);
-        nl();
-        at("        ...sfr...: " + mainlib.nlers + "You must kill it.", "30", true);
-        nl();
+        if (test == false) {
+            at("...nfw...You: " + mainlib.nlers + "DAMNIT!", "30", true);
+            nl();
+            at("...sfr...Narrator: " + mainlib.nlers + "You fall into a cave about 5 metres deep, too smooth to climb out of but you can clearly see a light in the distance, which you could try to exit.", "30", true);
+            nl();
+            playsongFx("Skeleton.wav");
+            at("        ...sfr...: " + mainlib.nlers + "A skeleton approaches", "30", true);
+            at("...", "500", true);
+            nl();
+            at("        ...sfr...: " + mainlib.nlers + "You must kill it.", "30", true);
+            nl();
+        }
         enter_break();
         cls();
         fightMapRouter.currentmap = "CaveFightMap";
@@ -382,21 +389,31 @@ public class Main {
         FightHandler fightHandler = new FightHandler();
         fightHandler.FightStarter();
         cls();
-        playsongFx("running_footsteps_long.wav");
-        at("...sfr...Narrator: " + mainlib.nlers + "You run to the exit", "30", true);
-        at("...", "1", true);
-        nl();
-        at("        ...sfr...: " + mainlib.nlers + "You sleep the night under a beautiful sprawling willow tree.", "30", true);
-        nl();
-        at("        ...sfr...: " + mainlib.nlers + "You walk for a few more days and end up at the North Rinlund Village.", "30", true);
-        nl();
-        at("        ...sfr...: " + mainlib.nlers + "You decide to visit the village center.", "30", true);
-        nl();
-        at("        ...sfr...: " + mainlib.nlers + "You should look around and try to earn some money, you may be able to sleep the night in the inn if you can afford it!", "30", true);
-        nl();
-        at("Objective: ...sb......su......nfc...Find some ways to find money around the town and buy a place at the inn for tonight....nbba......sfge...", "30", true);
-        nl();
+        if (test == false) {
+            playsongFx("running_footsteps_long.wav");
+            at("...sfr...Narrator: " + mainlib.nlers + "You run to the exit", "30", true);
+            at("...", "1", true);
+            nl();
+            at("        ...sfr...: " + mainlib.nlers + "You sleep the night under a beautiful sprawling willow tree.", "30", true);
+            nl();
+            at("        ...sfr...: " + mainlib.nlers + "You walk for a few more days and end up at the North Rinlund Village.", "30", true);
+            nl();
+            at("        ...sfr...: " + mainlib.nlers + "You decide to visit the village center.", "30", true);
+            nl();
+            at("        ...sfr...: " + mainlib.nlers + "You should look around and try to earn some money, you may be able to sleep the night in the inn if you can afford it!", "30", true);
+            nl();
+            at("Objective: ...sb......su......nfc...Find some ways to find money around the town and buy a place at the inn for tonight....nbba......sfge......sr...", "30", true);
+            nl();
+        }
         enter_break();
+        mainLib.nlers = "...sbw......nfba...";
+        nl();
+        cls();
+        nl();
+        lw("Objective: ...sb......su......nfc...Find some ways to find money around the town and buy a place at the inn for tonight....nbba......sfge...", "0");
+        nl();
+        mainlib.currentmap = "North_Rinlund_Town_Center";
+        playsong("Town.wav");
         cls();
         nl();
         nl();
@@ -404,9 +421,17 @@ public class Main {
         nl();
         nl();
         nl();
-        mainlib.currentmap = "North_Rinlund_Town_Center";
-        playsong("Town.wav");
+        nl();
+        nl();
+        nl();
+        nl();
+        nl();
+        nl();
         mapHandler.game_prompt();
+        at("...nfw...Terry: " + mainlib.nlers + "HEY! You sir! Could you help me with some problems I've been having?", "30", true);
+        dialogues.set_person_enabled("North_Rinlund_Town_Center", "terry", "1");
+        mapHandler.game_prompt();
+        cls();
 //        at("        ...sfr...: " + mainlib.nlers + "Who would risk their life for a poor fugitive?", "30", true);
 //        nl();
 //        at("        ...sfr...: " + mainlib.nlers + "Only a fellow fugitive with a reason would do that.", "30", true);

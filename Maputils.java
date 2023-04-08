@@ -20,7 +20,7 @@ public class Maputils {
 //location > mapname: locationtomapurl, location > root: getmaproot, "locationtoroot"
     public static String[][] locationtomaplist = new String[][]{{"North_Rinlund_Town_Center","North_Rinlund_Village/North_Rinlund_Town_Center.map"}};//depreciated
     //maproots:
-    public static String[][] locationtoroot = new String[][]{{"North_Rinlund_Village","North_Rinlund_Town_Center"}};
+    public static String[][] locationtoroot = new String[][]{{"North_Rinlund_Village","North_Rinlund_Town_Center","NRTC_11","NRTC_12","NRTC_13","NRTC_14","NRTC_21","NRTC_22","NRTC_23","NRTC_24","NRTC_31","NRTC_32","NRTC_33","NRTC_34","NRTC_41","NRTC_42","NRTC_43","NRTC_44"}};
     public static String[][] roottomapname = new String[][]{{"North Rinlund Village Map","North_Rinlund_Village"}};
     public static String currentshop;
     static MapHandler maphandler = new MapHandler();
@@ -235,6 +235,7 @@ public class Maputils {
                     }
                 } else  if (mainLib.choice.equals("exit") == false) {
                     item = shops.getitem(shops.locationtoshop(name), mainLib.choice);
+                    System.out.println("mainlib.choice = " + mainLib.choice + " item[0] = " + item[0]);
                     mainLib.at("Are you sure you want to buy \"" + item[0] + "\" for " + String.valueOf(Float.parseFloat(item[14])) + " money? You have: " + money + " money.", "30", true);
                     mainLib.nl();
                     option1 = mainLib.choices(false, "30", true, new String[]{"yes","no"});
@@ -243,8 +244,8 @@ public class Maputils {
                             mainLib.at("You dont have enough money!", "30", true);
                             mainLib.nl();
                         } else {
-                            shops.buy(shops.locationtoshop(name), mainLib.choice);
                             mapHandler.give_item(new String[]{item[0],item[1],item[2],item[3],item[4],item[5],item[6],item[7],item[8],item[9],item[10],item[11],item[12],item[13]});
+                            shops.buy(shops.locationtoshop(name), mainLib.choice);
                             reduce(Float.parseFloat(item[14]));
                             mainLib.at("pleasure doing business with you!", "30", true);
                             mainLib.nl();
