@@ -320,7 +320,7 @@ public class Main {
             at("        ...sfr...: " + mainlib.nlers + "you have just committed murder, and even in self defence you will almost certainly get the death penalty for this", "30", true);
             nl();
             enter_break();
-            at("...nfw...You: " + mainlib.nlers + " I must escape, but who will take me in?", "30", true);
+            at("...nfw...You: " + mainlib.nlers + "I must escape, but who will take me in?", "30", true);
             nl();
             at("...", "30", true);
             nl();
@@ -364,9 +364,7 @@ public class Main {
         mapHandler.game_prompt();
         cls();
         stop();
-        if (test == false) {
-            nogard2videoplayer.playvideo("to_open-12161.png", 12161, 60, true, "to_open-12161.wav");
-        }
+        nogard2videoplayer.playvideo("to_open", 12161, 60, true, "to_open-12161.wav");
         playsongFx("falling_cave.wav");
         if (test == false) {
             at("...nfw...You: " + mainlib.nlers + "DAMNIT!", "30", true);

@@ -46,10 +46,12 @@ class TerminalPlayer {
             ////            System.out.println(frametimes[i++][0]);
             //        }
         image = new BufferedImage[(int) Math.ceil((float) frames / (float) 2000)];
+//        System.out.println(image.length);
         Integer i = 0;
-        while (i == image.length) {
+        while (i < image.length) {
             try {
-                image[i] = ImageIO.read(new File("./" + foldername + "-" + frames + "-" + i));
+                image[i] = ImageIO.read(new File("./" + foldername + "-" + frames + "-" + i + ".png"));
+//                System.out.println("./" + foldername + "-" + frames + "-" + i);
             } catch (Exception ex) {
                 System.out.println("Image import failed");
                 System.out.println("./" + foldername + "-" + frames + "-" + i);

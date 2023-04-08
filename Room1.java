@@ -95,6 +95,7 @@ public class Room1 {
 //                System.out.println(man.inventory[0][0] + "," + man.inventory[0][1]);
 //                System.out.println(man.inventory[1][0] + "," + man.inventory[1][1]);
                 man.at("...sfr...Narrator: " + man.nlers + "your chisel broke.", "30", true);
+                man.nl();
                 east = "Hallway1";
             }
         } else if (usables[0][1].equals("1") && item.equals("hammer") && mapHandler.exists(true, "hammer")) {
