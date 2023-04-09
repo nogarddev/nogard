@@ -4,17 +4,23 @@ public class Menu {
     static Saver saver = new Saver();
     public static String choice = "empty";
     public static void start_menu() {
-        at("Welcome to nogard!", "30", true);
-        while (true) {
+//        at("Welcome to nogard!", "30", true);
+        playsongFx("startup.wav");
+        cls();
+        at("LOADING NOGARD", "300", true);
+        at("...", "1000", true);
+        timeout("10100");
+        playsong("background_startup.wav");
+        while ((choice.equals("1") || choice.equals("2")) == false) {
             start_draw();
             choice = mainlib.choices(false, "30", true, new String[]{"1","2","3","4","5"});
             if (choice.equals("1")) {
                 saver.loader();
-                return;
+//                return;
             }
             if (choice.equals("2")) {
                 saver.save();
-                return;
+//                return;
             }
             if (choice.equals("3")) {
                 playsong("title.wav");
@@ -123,6 +129,8 @@ public class Menu {
                 }
             }
         }
+        playsongFx("end_startup.wav");
+        stop();
     }
     static Main main = new Main();
     //{"Ship_Down","Ship_Up","Hallway1","Room1","North_Rinlund_Town_Center","Start_forest_1","Workhouse_upstairs_north","Workhouse_upstairs_south","Start_forest_2","Start_forest_3","Start_forest_4","Hallway1_2","Downstairs_workhouse","NRTC_11","NRTC_12","NRTC_13","NRTC_14","NRTC_21","NRTC_22","NRTC_23","NRTC_24","NRTC_31","NRTC_32","NRTC_33","NRTC_34","NRTC_41","NRTC_42","NRTC_43","NRTC_44"}
@@ -167,7 +175,7 @@ public class Menu {
         lw("5: setup", "0");
         nl();
         nl();
-        lw("Release 09/04/2023","0");
+        lw("Release 09/04/2023 #2","0");
         nl();
         nl();
         nl();
