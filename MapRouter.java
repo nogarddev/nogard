@@ -10,9 +10,80 @@ public class MapRouter {
             return false;
         }
     }
+    public static String[][] usables_to_set;
+    public static void setusables(String map, String[][] usables) {
+        usables_to_set = eradicate_nulls(usables);
+//        System.out.println("map = " + map + " -MapRouter.java:16");
+        getvalue(map, "setusables");
+    }
     public static void updategrabables(String map, String[][] input) {
-        grabablestoupdate = input;
+//        System.out.println("map = " + map + " -MapRouter.java:20");
+//        Integer x = 0;
+//        Integer y = 0;
+//        while (x < input.length) {
+//            y = 0;
+//            while (y < input[x].length) {
+//                System.out.println("input[" + x + "][" + y + "] = " + input[x][y] + " -MapRouter.java:27");
+//                y++;
+//            }
+//            x++;
+//        }
+//        while (x < input.length) {
+//            y = 0;
+//            while (y < input[x].length) {
+//                if ((input[x][y] == null) == false) {
+//                    if (input[x][y].equals("null")) {
+//                        input[x][y] = null;
+//                    }
+//                }
+//                y++;
+//            }
+//            x++;
+//        }
+//        x = 0;
+//        y = 0;
+//        while (x < input.length) {
+//            if ((input[x][0] == null) == false) {
+//                y++;
+//            }
+//            x++;
+//        }
+//        String[][] temp = new String[y][];
+//        x = 0;
+//        y = 0;
+//        while (x < input.length) {
+//            if ((input[x][0] == null) == false) {
+//                temp[y++] = input[x];
+//            }
+//            x++;
+//        }
+        grabablestoupdate = eradicate_nulls(input);
+
         getvalue(map, "setgrabables");
+    }
+    public static String[][] eradicate_nulls(String[][] input) {
+        Integer x = 0;
+        Integer y = 0;
+        while (x < input.length) {
+            if ((input[x][0] == null) == false) {
+                if (input[x][0].equals("null") == false) {
+                    y++;
+                }
+            }
+            x++;
+        }
+        String[][] out = new String[y][];
+        x = 0;
+        y = 0;
+        while (x < input.length) {
+            if ((input[x][0] == null) == false) {
+                if (input[x][0].equals("null") == false) {
+                    out[y++] = input[x];
+                }
+            }
+            x++;
+        } 
+        return out;
     }
     public static String[][] grabablestoupdate;
     public static String[] movement_commands(String currentmap) {
@@ -89,6 +160,10 @@ public class MapRouter {
                     return "false";
                 }
             }
+            if (type.equals("setusables")) {
+                ref.usables = usables_to_set;
+                return "This should not be used as an output, I am here to update \"setusables\"";
+            }
             if (type.equals("movements")) {
                 refmovement_commands = ref.movement_commands;
                 refusables = ref.usables;
@@ -129,6 +204,10 @@ public class MapRouter {
                 } else {
                     return "false";
                 }
+            }
+            if (type.equals("setusables")) {
+                ref.usables = usables_to_set;
+                return "This should not be used as an output, I am here to update \"setusables\"";
             }
             if (type.equals("movements")) {
                 refmovement_commands = ref.movement_commands;
@@ -171,6 +250,10 @@ public class MapRouter {
                     return "false";
                 }
             }
+            if (type.equals("setusables")) {
+                ref.usables = usables_to_set;
+                return "This should not be used as an output, I am here to update \"setusables\"";
+            }
             if (type.equals("movements")) {
                 refmovement_commands = ref.movement_commands;
                 refusables = ref.usables;
@@ -211,6 +294,10 @@ public class MapRouter {
                 } else {
                     return "false";
                 }
+            }
+            if (type.equals("setusables")) {
+                ref.usables = usables_to_set;
+                return "This should not be used as an output, I am here to update \"setusables\"";
             }
             if (type.equals("movements")) {
                 refmovement_commands = ref.movement_commands;
@@ -253,6 +340,10 @@ public class MapRouter {
                     return "false";
                 }
             }
+            if (type.equals("setusables")) {
+                ref.usables = usables_to_set;
+                return "This should not be used as an output, I am here to update \"setusables\"";
+            }
             if (type.equals("movements")) {
                 refmovement_commands = ref.movement_commands;
                 refusables = ref.usables;
@@ -293,6 +384,10 @@ public class MapRouter {
                 } else {
                     return "false";
                 }
+            }
+            if (type.equals("setusables")) {
+                ref.usables = usables_to_set;
+                return "This should not be used as an output, I am here to update \"setusables\"";
             }
             if (type.equals("movements")) {
                 refmovement_commands = ref.movement_commands;
@@ -335,6 +430,10 @@ public class MapRouter {
                     return "false";
                 }
             }
+            if (type.equals("setusables")) {
+                ref.usables = usables_to_set;
+                return "This should not be used as an output, I am here to update \"setusables\"";
+            }
             if (type.equals("movements")) {
                 refmovement_commands = ref.movement_commands;
                 refusables = ref.usables;
@@ -375,6 +474,10 @@ public class MapRouter {
                 } else {
                     return "false";
                 }
+            }
+            if (type.equals("setusables")) {
+                ref.usables = usables_to_set;
+                return "This should not be used as an output, I am here to update \"setusables\"";
             }
             if (type.equals("movements")) {
                 refmovement_commands = ref.movement_commands;
@@ -417,6 +520,10 @@ public class MapRouter {
                     return "false";
                 }
             }
+            if (type.equals("setusables")) {
+                ref.usables = usables_to_set;
+                return "This should not be used as an output, I am here to update \"setusables\"";
+            }
             if (type.equals("movements")) {
                 refmovement_commands = ref.movement_commands;
                 refusables = ref.usables;
@@ -457,6 +564,10 @@ public class MapRouter {
                 } else {
                     return "false";
                 }
+            }
+            if (type.equals("setusables")) {
+                ref.usables = usables_to_set;
+                return "This should not be used as an output, I am here to update \"setusables\"";
             }
             if (type.equals("movements")) {
                 refmovement_commands = ref.movement_commands;
@@ -499,6 +610,10 @@ public class MapRouter {
                     return "false";
                 }
             }
+            if (type.equals("setusables")) {
+                ref.usables = usables_to_set;
+                return "This should not be used as an output, I am here to update \"setusables\"";
+            }
             if (type.equals("movements")) {
                 refmovement_commands = ref.movement_commands;
                 refusables = ref.usables;
@@ -539,6 +654,10 @@ public class MapRouter {
                 } else {
                     return "false";
                 }
+            }
+            if (type.equals("setusables")) {
+                ref.usables = usables_to_set;
+                return "This should not be used as an output, I am here to update \"setusables\"";
             }
             if (type.equals("movements")) {
                 refmovement_commands = ref.movement_commands;
@@ -581,6 +700,10 @@ public class MapRouter {
                     return "false";
                 }
             }
+            if (type.equals("setusables")) {
+                ref.usables = usables_to_set;
+                return "This should not be used as an output, I am here to update \"setusables\"";
+            }
             if (type.equals("movements")) {
                 refmovement_commands = ref.movement_commands;
                 refusables = ref.usables;
@@ -621,6 +744,10 @@ public class MapRouter {
                 } else {
                     return "false";
                 }
+            }
+            if (type.equals("setusables")) {
+                ref.usables = usables_to_set;
+                return "This should not be used as an output, I am here to update \"setusables\"";
             }
             if (type.equals("movements")) {
                 refmovement_commands = ref.movement_commands;
@@ -663,6 +790,10 @@ public class MapRouter {
                     return "false";
                 }
             }
+            if (type.equals("setusables")) {
+                ref.usables = usables_to_set;
+                return "This should not be used as an output, I am here to update \"setusables\"";
+            }
             if (type.equals("movements")) {
                 refmovement_commands = ref.movement_commands;
                 refusables = ref.usables;
@@ -703,6 +834,10 @@ public class MapRouter {
                 } else {
                     return "false";
                 }
+            }
+            if (type.equals("setusables")) {
+                ref.usables = usables_to_set;
+                return "This should not be used as an output, I am here to update \"setusables\"";
             }
             if (type.equals("movements")) {
                 refmovement_commands = ref.movement_commands;
@@ -745,6 +880,10 @@ public class MapRouter {
                     return "false";
                 }
             }
+            if (type.equals("setusables")) {
+                ref.usables = usables_to_set;
+                return "This should not be used as an output, I am here to update \"setusables\"";
+            }
             if (type.equals("movements")) {
                 refmovement_commands = ref.movement_commands;
                 refusables = ref.usables;
@@ -785,6 +924,10 @@ public class MapRouter {
                 } else {
                     return "false";
                 }
+            }
+            if (type.equals("setusables")) {
+                ref.usables = usables_to_set;
+                return "This should not be used as an output, I am here to update \"setusables\"";
             }
             if (type.equals("movements")) {
                 refmovement_commands = ref.movement_commands;
@@ -827,6 +970,10 @@ public class MapRouter {
                     return "false";
                 }
             }
+            if (type.equals("setusables")) {
+                ref.usables = usables_to_set;
+                return "This should not be used as an output, I am here to update \"setusables\"";
+            }
             if (type.equals("movements")) {
                 refmovement_commands = ref.movement_commands;
                 refusables = ref.usables;
@@ -867,6 +1014,10 @@ public class MapRouter {
                 } else {
                     return "false";
                 }
+            }
+            if (type.equals("setusables")) {
+                ref.usables = usables_to_set;
+                return "This should not be used as an output, I am here to update \"setusables\"";
             }
             if (type.equals("movements")) {
                 refmovement_commands = ref.movement_commands;
@@ -909,6 +1060,10 @@ public class MapRouter {
                     return "false";
                 }
             }
+            if (type.equals("setusables")) {
+                ref.usables = usables_to_set;
+                return "This should not be used as an output, I am here to update \"setusables\"";
+            }
             if (type.equals("movements")) {
                 refmovement_commands = ref.movement_commands;
                 refusables = ref.usables;
@@ -949,6 +1104,10 @@ public class MapRouter {
                 } else {
                     return "false";
                 }
+            }
+            if (type.equals("setusables")) {
+                ref.usables = usables_to_set;
+                return "This should not be used as an output, I am here to update \"setusables\"";
             }
             if (type.equals("movements")) {
                 refmovement_commands = ref.movement_commands;
@@ -991,6 +1150,10 @@ public class MapRouter {
                     return "false";
                 }
             }
+            if (type.equals("setusables")) {
+                ref.usables = usables_to_set;
+                return "This should not be used as an output, I am here to update \"setusables\"";
+            }
             if (type.equals("movements")) {
                 refmovement_commands = ref.movement_commands;
                 refusables = ref.usables;
@@ -1031,6 +1194,10 @@ public class MapRouter {
                 } else {
                     return "false";
                 }
+            }
+            if (type.equals("setusables")) {
+                ref.usables = usables_to_set;
+                return "This should not be used as an output, I am here to update \"setusables\"";
             }
             if (type.equals("movements")) {
                 refmovement_commands = ref.movement_commands;
@@ -1073,6 +1240,10 @@ public class MapRouter {
                     return "false";
                 }
             }
+            if (type.equals("setusables")) {
+                ref.usables = usables_to_set;
+                return "This should not be used as an output, I am here to update \"setusables\"";
+            }
             if (type.equals("movements")) {
                 refmovement_commands = ref.movement_commands;
                 refusables = ref.usables;
@@ -1113,6 +1284,10 @@ public class MapRouter {
                 } else {
                     return "false";
                 }
+            }
+            if (type.equals("setusables")) {
+                ref.usables = usables_to_set;
+                return "This should not be used as an output, I am here to update \"setusables\"";
             }
             if (type.equals("movements")) {
                 refmovement_commands = ref.movement_commands;
@@ -1155,6 +1330,10 @@ public class MapRouter {
                     return "false";
                 }
             }
+            if (type.equals("setusables")) {
+                ref.usables = usables_to_set;
+                return "This should not be used as an output, I am here to update \"setusables\"";
+            }
             if (type.equals("movements")) {
                 refmovement_commands = ref.movement_commands;
                 refusables = ref.usables;
@@ -1196,6 +1375,10 @@ public class MapRouter {
                     return "false";
                 }
             }
+            if (type.equals("setusables")) {
+                ref.usables = usables_to_set;
+                return "This should not be used as an output, I am here to update \"setusables\"";
+            }
             if (type.equals("movements")) {
                 refmovement_commands = ref.movement_commands;
                 refusables = ref.usables;
@@ -1236,6 +1419,10 @@ public class MapRouter {
                 } else {
                     return "false";
                 }
+            }
+            if (type.equals("setusables")) {
+                ref.usables = usables_to_set;
+                return "This should not be used as an output, I am here to update \"setusables\"";
             }
             if (type.equals("movements")) {
                 refmovement_commands = ref.movement_commands;

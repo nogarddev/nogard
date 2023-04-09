@@ -1,5 +1,5 @@
 public class Shops {
-    public static String[][] North_Rinlund = new String[][]{{"Used Wood Axe","1","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","200"},{"North Rinlund Village Map","1","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","50"}};
+    public static String[][] North_Rinlund = new String[][]{{"Used Wood Axe","-1","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","200"},{"North Rinlund Village Map","-1","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","50"}};
     public static String[][] Shop_Locations = new String[][]{{"North_Rinlund_Town_Center","North_Rinlund"}};
     public static Boolean hasShop(String currentmap) {
         Integer i = 0;
@@ -82,6 +82,10 @@ public class Shops {
         while (shop[i][0].equalsIgnoreCase(item) == false && i < shop.length) {
             i++;
         }
-        grabshop(name)[i][0] = "empty";
+//        grabshop(name)[i][0] = "empty";
+        grabshop(name)[i][1] = "" + (Integer.parseInt(grabshop(name)[i][1]) - 1);
+        if (grabshop(name)[i][1].equals("0")) {
+            grabshop(name)[i][0] = "empty";
+        }
     }
 }

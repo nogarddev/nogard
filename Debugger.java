@@ -42,7 +42,7 @@ public class Debugger {
     public static void run() {
         choice = mainLib.choices(false, "0", true, new String[]{"Set","View","Run","Cancel"});
         if (choice.equals("run")) {
-            choice = mainLib.choices(false, "0", true, new String[]{"Maputils","Break","Cancel","DialogueS","DialogueHandler"});
+            choice = mainLib.choices(false, "0", true, new String[]{"Saver","Maputils","Break","Cancel","DialogueS","DialogueHandler"});
             if (choice.equals("break")) {
                 mainLib.forcebreak = true;
             } else if (choice.equals("maputils")) {
@@ -78,8 +78,7 @@ public class Debugger {
                     DialogueHandler dialoguehandler = new DialogueHandler();
                     dialoguehandler.talk(sc.nextLine());
                 }
-            }
-            if (choice.equals("dialogues")) {
+            } else if (choice.equals("dialogues")) {
                 choice = mainLib.choices(false, "0", true, new String[]{"Set Id enabled","Set Person enabled","Has_speakers","Cancel"});
                 if (choice.equals("set id enabled")) {
                     Scanner sc = new Scanner(System.in);
@@ -113,6 +112,57 @@ public class Debugger {
                     String location = sc.nextLine();
                     Dialogues dialogues = new Dialogues();
                     System.out.println(dialogues.has_speakers(location));
+                }
+            } else if (choice.equals("saver")) {
+                choice = mainLib.choices(false, "0", true, new String[]{"Loader","Save","a0d3dArrto1d2dArr","a0dto1darr","a0dto2darr","Cancel"});
+                if (choice.equals("a0dto1darr")) {
+                    Scanner sc = new Scanner(System.in);
+                    System.out.println("enter 0darr: ");
+                    String arrstr = sc.nextLine();
+                    Saver saver = new Saver();
+                    String[] arr = saver.a0darrto1darr(arrstr);
+                    Integer x = 0;
+                    while (x < arr.length) {
+                        System.out.println("arr[" + x + "] = " + arr[x++]);
+                    }
+                }
+                if (choice.equals("loader")) {
+                    Saver saver = new Saver();
+                    saver.loader(); 
+                }
+                if (choice.equals("save")) {
+                    Saver saver = new Saver();
+                    saver.save(); 
+                }
+                if (choice.equals("a0dto2darr")) {
+                    Scanner sc = new Scanner(System.in);
+                    System.out.println("enter 0darr: ");
+                    String arrstr = sc.nextLine();
+                    Saver saver = new Saver();
+                    String[][] arr = saver.a0darrto2darr(arrstr);
+                    Integer x = 0;
+                    Integer y = 0;
+                    while (x < arr.length) {
+                        y = 0;
+                        while (y < arr[x].length) {
+                            System.out.println("arr[" + x + "][" + y + "] = " + arr[x][y]);
+                            y++;
+                        }
+                        System.out.print("arr[" + x + "].length = " + arr[x].length);
+                        System.out.println("arr.length = " + arr.length);
+                        x++;
+                    }
+                }                
+                if (choice.equals("a0d3darrto1d2darr")) {
+                    Scanner sc = new Scanner(System.in);
+                    System.out.println("enter 0darr: ");
+                    String arrstr = sc.nextLine();
+                    Saver saver = new Saver();
+                    String[] arr = saver.a0d3darrto1d2darr(arrstr);
+                    Integer x = 0;
+                    while (x < arr.length) {
+                        System.out.println("arr[" + x + "] = " + arr[x++]);
+                    }
                 }
             }
         }
