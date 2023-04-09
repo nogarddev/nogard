@@ -69,10 +69,11 @@ class TerminalPlayer {
 //        System.out.println("line55");
         Integer filenum = -1;
         while ((currentframe >= frames) == false && done) {
-            if ((currentframe % 2000) == 0) {
-                filenum++;
-            }
+//            if ((currentframe % 2000) == 0) {
+//                filenum++;
+//            }
             currentframe++;
+            filenum = (int) Math.floor(currentframe/2000);
 //            filename = String.valueOf(currentframe);
 //            if (currentframe < 10000) {
 //                if (currentframe < 1000) {
@@ -101,12 +102,14 @@ class TerminalPlayer {
             i = 0;
             while (y.equals(image_height) == false && done) {
                 x = (currentframe - 1) * image_width;
-                current_pixel = new Color(image[filenum].getRGB(x - (2000 * filenum), y));
+//                System.out.println("x - (2000 * filenum) = " + (x - (2000 * filenum * image_width)));
+//                System.out.println("filenum = " + filenum);
+                current_pixel = new Color(image[filenum].getRGB(x - (2000 * filenum * image_width), y));
                 frame[y] = "[48;2;" + current_pixel.getRed() + ";" + current_pixel.getGreen() + ";" + current_pixel.getBlue() + "m ";
                 x++;
                 while (x.equals(((currentframe) * image_width) - 1) == false && done) {
 ////                    System.out.println("x = " + x + " y = " + y);
-                    current_pixel = new Color(image[filenum].getRGB(x - (2000 * filenum), y));
+                    current_pixel = new Color(image[filenum].getRGB(x - (2000 * filenum * image_width), y));
                     frame[y] = frame[y] + "[48;2;" + current_pixel.getRed() + ";" + current_pixel.getGreen() + ";" + current_pixel.getBlue() + "m ";
                     x++;
                 }

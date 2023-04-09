@@ -1,0 +1,11 @@
+all files data will be stored in an array format e.g. {{"x","y"},{"z"}} or {"x","y","z"}, dimensions of array will be marked, -1d means empty {for now} 0d means plain data (no quotes or braces), 1d and 2d are self-explanitory
+filename: a number between 0-9 (inclusive)
+line 0:
+{0d}name of save
+{-1d}lines 1-11: reserved (for future use)
+{1d}line 12: variables {
+
+}
+{2d}line 13: inventory
+{3d}line 14: grabables
+{3d}line 15: usables

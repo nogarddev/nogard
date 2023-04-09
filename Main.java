@@ -143,67 +143,69 @@ public class Main {
             nl();
             System.exit(0);
         }
+        Menu menu = new Menu();
+        menu.start_menu();;
         mainlib.nlers = "...sbw......nfba...";
-        nl();
-        at("Watch intro?", "30", true);
-        nl();
-        mainlib.choice = mainlib.choices(true, "30", true, new String[]{"yes", "no"});
+//        nl();
+//        at("Watch intro?", "30", true);
+//        nl();
+//        mainlib.choice = mainlib.choices(true, "30", true, new String[]{"yes", "no"});
         //        System.out.println((xy++).toString());
-        if (mainlib.choice.equals("yes")) {
-            playsong("title.wav");
-            intro_screen_wall();
-            at("WELCOME TO NOGARD!", "1125", true);
-            mainlib.i =  0;
-            nl();
-            while ((++mainlib.i == 75) == false) {
-                lw("." + mainlib.nlers, "400");
-                nl();
-            }
-        }
-        mainlib.nlers = "...sbba......sfw...";
-        nl();
-        cls();
-        stop();
-        at("Hello! Before we begin, should we do a little tutorial?", "30", true);
-        nl();
-        mainlib.choice = mainlib.choices(true, "30", true, new String[]{"yes", "no"});
-        if (mainlib.choice.equals("yes")) {
-            nl();
-            mainlib.nlers = "...nby......nfr...";
-            nl();
-            at("Okay!", "30", true);
-            nl();
-            at("When you are playing this game, you will be prompted for instructions, like you were to do the tutorial. In the game there are some base commands, like use, north, south, east, west, up, down and map.", "30", true);
-            nl();
-            at("Try opening the map using the command \"map\"", "30", true);
-            nl();
-            mainlib.choice = mainlib.choices(true, "30", true, new String[]{"USe", "NOrth", "SOuth", "EAst", "WEst", "MAp"});
-            while (mainlib.choice.equals("map") == false) {
-                at("Try \"map\"!", "30", true);
-                System.out.print("[1A");
-                System.out.print("[2K");
-                System.out.print("[1A");
-                System.out.print("[2K");
-                System.out.print("[1A");
-                
-                nl();
-                mainlib.choice = mainlib.choices(true, "30", true, new String[]{"USe", "NOrth", "SOuth", "EAst", "WEst", "MAp"});
-            }
-            if (mainlib.choice.equals("map")) {
-//                showmap();
-                Integer skip = 1;
-            }
-            at("Well done!", "30", true);
-            mainlib.nlers = "...nbba......sfw...";
-            nl();
-            at("...sr...When you are prompted for an input, some letters may be in inverted colours (switched background and foreground colours) you can type just these letters as an abbreviation if you wish, but this in non-essential.", "30", true);
-            nl();
-            at("For example, if you had the prompt \"([7my[27mes,[7mn[27mo)\" and you wanted the yes option, you could type \"y\" or \"yes\"", "30", true);
-            nl();
-            at("...sr...One other note, you will be represented with a red ...nfr...@...sr... symbol, use this to tell where you are.", "30", true);
-            nl();
-            mainlib.enter_break();
-        }
+//        if (mainlib.choice.equals("yes")) {
+//            playsong("title.wav");
+//            intro_screen_wall();
+//            at("WELCOME TO NOGARD!", "1125", true);
+//            mainlib.i =  0;
+//            nl();
+//            while ((++mainlib.i == 75) == false) {
+//                lw("." + mainlib.nlers, "400");
+//                nl();
+//            }
+//        }
+//        mainlib.nlers = "...sbba......sfw...";
+//        nl();
+//        cls();
+//        stop();
+//        at("Hello! Before we begin, should we do a little tutorial?", "30", true);
+//        nl();
+//        mainlib.choice = mainlib.choices(true, "30", true, new String[]{"yes", "no"});
+//        if (mainlib.choice.equals("yes")) {
+//            nl();
+//            mainlib.nlers = "...nby......nfr...";
+//            nl();
+//            at("Okay!", "30", true);
+//            nl();
+//            at("When you are playing this game, you will be prompted for instructions, like you were to do the tutorial. In the game there are some base commands, like use, north, south, east, west, up, down and map.", "30", true);
+//            nl();
+//            at("Try opening the map using the command \"map\"", "30", true);
+//            nl();
+//            mainlib.choice = mainlib.choices(true, "30", true, new String[]{"USe", "NOrth", "SOuth", "EAst", "WEst", "MAp"});
+//            while (mainlib.choice.equals("map") == false) {
+//                at("Try \"map\"!", "30", true);
+//                System.out.print("[1A");
+//                System.out.print("[2K");
+//                System.out.print("[1A");
+//                System.out.print("[2K");
+//                System.out.print("[1A");
+//                
+//                nl();
+//                mainlib.choice = mainlib.choices(true, "30", true, new String[]{"USe", "NOrth", "SOuth", "EAst", "WEst", "MAp"});
+//            }
+//            if (mainlib.choice.equals("map")) {
+////                showmap();
+//                Integer skip = 1;
+//            }
+//            at("Well done!", "30", true);
+//            mainlib.nlers = "...nbba......sfw...";
+//            nl();
+//            at("...sr...When you are prompted for an input, some letters may be in inverted colours (switched background and foreground colours) you can type just these letters as an abbreviation if you wish, but this in non-essential.", "30", true);
+//            nl();
+//            at("For example, if you had the prompt \"([7my[27mes,[7mn[27mo)\" and you wanted the yes option, you could type \"y\" or \"yes\"", "30", true);
+//            nl();
+//            at("...sr...One other note, you will be represented with a red ...nfr...@...sr... symbol, use this to tell where you are.", "30", true);
+//            nl();
+//            mainlib.enter_break();
+//        }
 //        if (mainlib.choice.equals("no")) {
 //            showmap();
 //        }
