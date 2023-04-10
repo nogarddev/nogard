@@ -1,5 +1,5 @@
 public class Shops {
-    public static String[][] North_Rinlund = new String[][]{{"Used Wood Axe","-1","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","200"},{"North Rinlund Village Map","-1","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","50"}};
+    public static String[][] North_Rinlund = new String[][]{{"Used Wood Axe","1","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","200"},{"North Rinlund Village Map","1","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","empty","50"}};
     public static String[][] Shop_Locations = new String[][]{{"North_Rinlund_Town_Center","North_Rinlund"}};
     public static Boolean hasShop(String currentmap) {
         Integer i = 0;
@@ -24,11 +24,28 @@ public class Shops {
             return Shop_Locations[i][1];
         }
     }
+    static MapRouter mapRouter = new MapRouter();
+    public static String[] grab_all_shop_locations() {
+        Integer i = 0;
+        String[] out = new String[Shop_Locations.length];
+        while (i < Shop_Locations.length) {
+            out[i] = Shop_Locations[i][0];
+            i++;
+        }
+        return out;
+    }
+    public static void set_shop(String name, String[][] shop_arr) {
+        if (name.equals("North_Rinlund")) {
+            North_Rinlund = mapRouter.eradicate_nulls(shop_arr);
+        } else {
+            System.out.println("Shop : \"" + name + "\" not found! - shops.java:41");
+        }
+    }
     public static String[][] grabshop(String name) {
         if (name.equals("North_Rinlund")) {
             return North_Rinlund;
         } else {
-            System.out.println("Shop : \"" + name + "\" not found!");
+            System.out.println("Shop : \"" + name + "\" not found! - shops.java:48");
             return null;
         }
     }

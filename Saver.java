@@ -22,6 +22,17 @@ public class Saver {
         }
         return out;
     }
+    static Shops shops = new Shops();
+    public static String[][][] grab_all_shops_data() {
+        String[] locations = shops.grab_all_shop_locations();
+        Integer i = 0;
+        String[][][] out = new String[locations.length][][];
+        while (i < locations.length) {
+            out[i] = shops.grabshop(shops.locationtoshop(locations[i]));
+            i++;
+        }
+        return out;
+    }    
     public static String[] a0darrto1darr(String input) {
 //        System.out.println("input = " + input + "-saver.java:26");
         Integer i = 0;
@@ -146,9 +157,14 @@ public class Saver {
             choices[i] = "" + i++;
         }
         mainLib.at("Enter wanted id: ", "30", true);
-        String wanted_id = mainLib.choices(false, "30", true, choices);
+        String wanted_id = mainLib.choices(false, "30", true, mainLib.concat(choices, new String[]{"cancel"}));
+        if (wanted_id.equals("cancel")) {
+            menu.choice = "empty";
+            return;
+        }
         load(Integer.parseInt(wanted_id));
     }
+    static Menu menu = new Menu();
     public static void load(Integer id) {
         String[] data = readfile("./saves/" + id + ".save");
         //do variables here (can be elsewhere)
@@ -167,11 +183,15 @@ public class Saver {
             }
             x++;
         }
+        maputils.money = Float.parseFloat(a0darrto1darr(data[12])[1]);
+        main.chapter_num = Integer.parseInt(a0darrto1darr(data[12])[0]);
         mainLib.inventory = inventory;
         String[] grabables_data = a0d3darrto1d2darr(data[14]);
         String[] usables_data = a0d3darrto1d2darr(data[15]);
+        String[] shops_data = a0d3darrto1d2darr(data[11]);
         set_grabables(grabables_data);
         set_usables(usables_data);
+        set_shops(shops_data);
         
     }
     static MainLib mainLib = new MainLib();
@@ -213,19 +233,25 @@ public class Saver {
             choices[i] = "" + i++;
         }
         mainLib.at("Enter wanted id: ", "30", true);
-        String wanted_id = mainLib.choices(false, "30", true, choices);
+        String wanted_id = mainLib.choices(false, "30", true, mainLib.concat(choices, new String[]{"cancel"}));
+        if (wanted_id.equals("cancel")) {
+            menu.choice = "empty";
+            return;
+        }
         mainLib.at("Enter save name: ", "30", true);
         System.out.println("");
         String savename = sc.nextLine();
-        writetosavefile(Integer.parseInt(wanted_id), savename, new String[]{"empty for now"}, mainLib.inventory, get_all_grabables(), get_all_usables(), maps_list);
+        writetosavefile(Integer.parseInt(wanted_id), savename, grab_all_shops_data(), shops.grab_all_shop_locations(), new String[]{"" + main.chapter_num,"" + maputils.money}, mainLib.inventory, get_all_grabables(), get_all_usables(), maps_list);
     }
-    public static void writetosavefile(Integer id, String savename, String[] variables, String[][] inventory, String[][][] grabables, String[][][] usables, String[] ids) {
+    static Main main = new Main();
+    static Maputils maputils = new Maputils(); 
+    public static void writetosavefile(Integer id, String savename, String[][][] shops, String[] shop_ids, String[] variables, String[][] inventory, String[][][] grabables, String[][][] usables, String[] ids) {
         String url = "./saves/" + id + ".save";
         if (createfile(url) == null) {
             System.out.println("An error ocurred when attempting to run the save script");
             return;
         }
-        String[] newfile_contents = new String[]{savename,"","","","","","","","","","","",a1dto0darr(variables),a2dto0darr(inventory),a3dto0darrwithids(grabables, ids),a3dto0darrwithids(usables, ids)};
+        String[] newfile_contents = new String[]{savename,"","","","","","","","","","",a3dto0darrwithids(shops, shop_ids),a1dto0darr(variables),a2dto0darr(inventory),a3dto0darrwithids(grabables, ids),a3dto0darrwithids(usables, ids)};
 //        String[] newfile_contents = new String[]{savename,"","","","","","","","","","","",a1dto0darr(variables),"a",a3dto0darrwithids(grabables, ids),a3dto0darrwithids(usables, ids)};
         try {
 //            FileWriter fileWriter = new FileWriter(url);
@@ -345,6 +371,18 @@ public class Saver {
 //            System.out.println("arr[" + i + "] = " + arr[i]);
 //            System.out.println("arr.length = " + arr.length);
             mapRouter.updategrabables(ids[i], a0darrto2darr(strip_id(arr[i])));
+            i++;
+        }
+    }
+    public static void set_shops(String[] arr) {
+        Integer i = 0;
+        String[] ids = pull_idsfrom1d2darr(arr);
+        while (i < arr.length) {
+//            System.out.println("arr[" + i + "] = " + arr[i]);
+//            System.out.println("arr.length = " + arr.length);
+//            mapRouter.updategrabables(ids[i], a0darrto2darr(strip_id(arr[i])));
+//            shops.grabshop(ids[i]) = a0darrto2darr(strip_id(arr[i]));
+            shops.set_shop(shops.locationtoshop(ids[i]), a0darrto2darr(strip_id(arr[i])));
             i++;
         }
     }
