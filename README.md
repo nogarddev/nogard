@@ -1,6 +1,6 @@
 # nogard
 ## setup
-1) install java JDK and python
+1) install java JDK
 2) create a folder you want to install the game in, then run the command `git init`, then run `git clone https://github.com/nogarddev/nogard`
 3) wait for the download to finish then run `javac Main.java`
 #### to run the game:
