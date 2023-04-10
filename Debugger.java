@@ -608,7 +608,7 @@ public class Debugger {
                     if (choice.equals("money")) {
                         sc = new Scanner(System.in);
                         System.out.println("Enter amount of money: ");
-                        maputils.money = Integer.parseInt(sc.nextLine()) / (float) 1;
+                        maputils.money = Float.parseFloat(sc.nextLine()) / (float) 1;
                     }
                 }
             }

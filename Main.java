@@ -144,8 +144,10 @@ public class Main {
             System.exit(0);
         }
         Menu menu = new Menu();
-        menu.start_menu();;
-        mainlib.nlers = "...sbw......nfba...";
+        while (true) {
+            menu.exit_to_menu = false;
+            menu.start_menu();
+            mainlib.nlers = "...sbw......nfba...";
 //        nl();
 //        at("Watch intro?", "30", true);
 //        nl();
@@ -267,6 +269,43 @@ public class Main {
 //            MapHandler mapHandler = new MapHandler();
 //            mapHandler.game_prompt();
 //        }
+
+//        chapter1();
+//        chapter2();
+            play_chapter();
+        }
+    }
+    static Menu menu = new Menu();
+    static Saver saver = new Saver();
+    public static Integer chapter_num = 0;
+    public static void play_chapter() {
+        while (true && menu.exit_to_menu == false) {
+            chapter_num++;
+            if (chapter_num == 2) {
+                chapter2();
+            }
+            if (chapter_num == 1) {
+                chapter1();
+            }
+            if (menu.exit_to_menu) {
+                mainLib.stopanim();
+                mapHandler.dofakeanim = false;
+                return;
+            }
+            historic_anim = mainLib.startyouanim;
+            historic_do_fake_anim = mapHandler.dofakeanim;
+            mapHandler.dofakeanim = false;
+            mainLib.stopanim();
+            saver.save();
+            mapHandler.dofakeanim = historic_do_fake_anim;
+            mainLib.startyouanim = historic_anim;
+        }
+    }
+    static FightMapRouter fightMapRouter = new FightMapRouter();
+    static MainLib mainLib = new MainLib();
+    public static String historic_anim;
+    public static Boolean historic_do_fake_anim;
+    public static void chapter1() {
         mainlib.nlers = "...nbba......sfw...";
         mainlib.playsong("Spooky.wav");
         nl();
@@ -292,7 +331,9 @@ public class Main {
         at("Objective: ...sb......su......nfc...Find a way to break the lock....nbba......sfge...", "30", true);
         nl();
         mainlib.nlers = "...nbba......sfga...";
+//        if (mainlib.currentmap.equals("0") == false) {
         mainlib.currentmap = "Room1";
+//        }
         mainlib.update_variables();
 //        showmap();
         MapHandler mapHandler = new MapHandler();
@@ -306,12 +347,18 @@ public class Main {
         nl();
         nl();
         mapHandler.game_prompt();
+        if (menu.exit_to_menu) {
+            return;
+        }
         mainlib.stopanim();
 //        fightMapRouter.currentmap = "TestFightMap";
         mainlib.currentmap = "Hallway1_2";
         mainlib.update_variables();
         showmap();
         mapHandler.game_prompt();
+        if (menu.exit_to_menu) {
+            return;
+        }
         cls();
         stop();
         if (test == false) {
@@ -364,6 +411,9 @@ public class Main {
         nl();
         nl();
         mapHandler.game_prompt();
+        if (menu.exit_to_menu) {
+            return;
+        }
         cls();
         stop();
         nogard2videoplayer.playvideo("to_open", 12161, 60, true, "to_open-12161.wav");
@@ -412,6 +462,9 @@ public class Main {
         nl();
         lw("Objective: ...sb......su......nfc...Find some ways to find money around the town and buy a place at the inn for tonight....nbba......sfge...", "0");
         nl();
+    }
+    static MapHandler mapHandler = new MapHandler();
+    public static void chapter2() {
         mainlib.currentmap = "North_Rinlund_Town_Center";
         playsong("Town.wav");
         cls();
@@ -428,9 +481,15 @@ public class Main {
         nl();
         nl();
         mapHandler.game_prompt();
+        if (menu.exit_to_menu) {
+            return;
+        }
         at("...nfw...Terry: " + mainlib.nlers + "HEY! You sir! Could you help me with some problems I've been having?", "30", true);
         dialogues.set_person_enabled("North_Rinlund_Town_Center", "terry", "1");
         mapHandler.game_prompt();
+        if (menu.exit_to_menu) {
+            return;
+        }
         cls();
 //        at("        ...sfr...: " + mainlib.nlers + "Who would risk their life for a poor fugitive?", "30", true);
 //        nl();

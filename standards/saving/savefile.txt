@@ -2,9 +2,11 @@ all files data will be stored in an array format e.g. {{"x","y"},{"z"}} or {"x",
 filename: a number between 0-9 (inclusive)
 line 0:
 {0d}name of save
-{-1d}lines 1-11: reserved (for future use)
+{-1d}lines 1-10: reserved (for future use)
+{3d}line 11: shops
 {1d}line 12: variables {
-
+[0]:chapter_num
+[1]:money
 }
 {2d}line 13: inventory
 {3d}line 14: grabables

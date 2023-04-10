@@ -106,6 +106,7 @@ public class MapHandler {
             if (dialogues.has_speakers(mainlib.currentmap)) {
                 options = mainlib.concat(options, new String[]{"talk"});
             }
+            options = mainlib.concat(options, new String[]{"menu"});
             if (main.test) {
                 mainlib.choice = mainlib.choices(true, "30", true, mainlib.concat(options, new String[]{"Test"}));
             } else {
@@ -123,6 +124,20 @@ public class MapHandler {
             }
             if (mainlib.choice.equals("map")) {
                 showmap();
+            }
+            if (mainlib.choice.equals("menu")) {
+                main.historic_anim = mainlib.startyouanim;
+                main.historic_do_fake_anim = dofakeanim;
+                dofakeanim = false;
+                mainlib.stopanim();
+                System.out.println("[s");
+                menu.pause_menu();
+                if (menu.exit_to_menu) {
+                    return;
+                }
+                System.out.println("[u");
+                dofakeanim = main.historic_do_fake_anim;
+                mainlib.startyouanim = main.historic_anim;
             }
             if (mainlib.choice.equals("up")) {
                 mainlib.currentmap = mainlib.up;
@@ -225,6 +240,7 @@ public class MapHandler {
         dofakeanim = false;
     }
     static String bugfix;
+    static Menu menu = new Menu();
     public static MapRouter mapRouter = new MapRouter();
     public static void reducegrab(String item) {
         Integer i = 0;
